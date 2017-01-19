@@ -1,5 +1,6 @@
 package view;
 	
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -23,6 +24,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		//add the main controller
-		launch(args);
+		launch(args);		
+		
 	}
 }

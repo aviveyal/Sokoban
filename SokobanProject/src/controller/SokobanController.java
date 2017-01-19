@@ -1,0 +1,77 @@
+package controller;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
+
+import controller.commands.Command;
+import controller.commands.DisplayCommand;
+import controller.commands.ExitCommand;
+import controller.commands.LoadCommand;
+import controller.commands.MoveCommand;
+import controller.commands.SaveCommand;
+import model.Model;
+import view.View;
+
+public class SokobanController implements Observer {
+	
+	private View v; 
+	private Model m;
+	private Controller controller;
+	private Map<String ,Command> commands;
+	
+	
+	public View getV() {
+		return v;
+	}
+	public void setV(View v) {
+		this.v = v;
+	}
+	public Model getM() {
+		return m;
+	}
+	public void setM(Model m) {
+		this.m = m;
+	}
+	public Controller getController() {
+		return controller;
+	}
+		
+	public void setController(Controller controller) {
+		this.controller = controller;
+	}
+	public SokobanController(View v, Model m) {
+		this.v = v;
+		this.m = m;
+		
+		initCommands();
+		controller = new Controller();
+		controller.start();
+		
+	}
+	public void initCommands(){
+		
+		commands = new HashMap<String,Command>();
+		commands.put("move",new MoveCommand(m));
+		commands.put("save",new SaveCommand(m));
+		commands.put("load",new LoadCommand(m));
+		commands.put("display",new DisplayCommand(m,v));
+		commands.put("exit",new ExitCommand(m));
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		LinkedList<String> params = (LinkedList<String>) arg;
+		String commandKey = params.removeFirst();
+		Command c = commands.get(commandKey);
+		if (c == null) {
+		System.out.println("Command " + commandKey + " not found");
+			return;
+		}
+		c.setParams(params);
+		controller.insertCommand(c);
+	}
+
+}

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -10,16 +8,19 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import view.SokobanLevelDisplayer?> 
+<?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="view.MainWindowController">
+ <?import view.SokobanLevelDisplayer?>  
+
+<BorderPane focusTraversable="true" prefHeight="500.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindowController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#OpenFile" text="Open" />
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" onAction="#SaveFile" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#Exit" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -35,29 +36,55 @@
         </menus>
       </MenuBar>
    </top>
-   <!-- <left>
-      <VBox prefHeight="100.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" onAction="#start" prefHeight="25.0" prefWidth="60.0" text="Start" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Stop" />
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </BorderPane.margin>
-      </VBox>
-      </left> -->
-   
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Label text="Status" />
+            <Label text="Sokoban - Aviv Eyal" />
          </children>
          <BorderPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </BorderPane.margin>
       </HBox>
    </bottom>
+   <left>
+      <VBox focusTraversable="false" prefHeight="297.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="53.0" prefWidth="100.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="20.0" prefWidth="29.0" text="Time">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="37.0" right="10.0" />
+               </VBox.margin>
+            </Label>
+            <Label alignment="CENTER" prefHeight="53.0" prefWidth="100.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label prefHeight="20.0" prefWidth="30.0" text="Steps" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets left="37.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </left>
+   
+      
+       
+   
    <center>
-      <SokobanLevelDisplayer fx:id="SokobanLevelDisplayer" height="315.0" width="300.0" BorderPane.alignment="CENTER" charFilename="./resources/character.jpg" wallFilename="./resources/wall.jpg" /> 
-   </center>
+    <SokobanLevelDisplayer fx:id="SokobanLevelDisplayer" height="400.0" width="400.0" BorderPane.alignment="CENTER" charFilename="./resources/character.jpg" 
+      wallFilename="./resources/wall.jpg" boxFilename="./resources/box.jpg" 
+      targetFilename="./resources/target.jpg" boxontargetFilename="./resources/boxontarget.jpg" />  
+      </center>
+     
+      
+   
 </BorderPane>

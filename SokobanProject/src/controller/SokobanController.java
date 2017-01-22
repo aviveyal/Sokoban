@@ -58,7 +58,7 @@ public class SokobanController implements Observer {
 		commands.put("save",new SaveCommand(m));
 		commands.put("load",new LoadCommand(m));
 		commands.put("display",new DisplayCommand(m,v));
-		commands.put("exit",new ExitCommand(m));
+		commands.put("exit",new ExitCommand(m,controller));
 	}
 
 	@Override
@@ -70,6 +70,9 @@ public class SokobanController implements Observer {
 		System.out.println("Command " + commandKey + " not found");
 			return;
 		}
+		if(commandKey.equals("exit")) // thread close
+			controller.stop();
+		
 		c.setParams(params);
 		controller.insertCommand(c);
 	}

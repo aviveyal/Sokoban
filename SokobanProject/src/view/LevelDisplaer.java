@@ -48,7 +48,7 @@ public class LevelDisplaer {
 					printedBOT = false;
 					printedbox = false;
 
-					for (int i = 0; i < Display.getBoxes().size(); i++) // boxes
+					for (int i = 0; i < Display.getBoxes().size(); i++) // boxes 
 																		// can
 																		// change
 																		// the

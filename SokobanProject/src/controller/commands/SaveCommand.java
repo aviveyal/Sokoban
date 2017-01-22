@@ -7,7 +7,6 @@ import model.Model;
 
 public class SaveCommand extends Command {
 
-private Model model;
 	
 	public SaveCommand(Model model) {
 		this.model = model;

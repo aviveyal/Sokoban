@@ -2,19 +2,19 @@ package controller.commands;
 
 import java.io.IOException;
 
+import controller.Controller;
 import model.Model;
 
 public class ExitCommand extends Command {
 
-	
-private Model model;
-	
-	public ExitCommand(Model model) {
+		
+	public ExitCommand(Model model,Controller controller) {
 		this.model = model;
 	}
+	
 	@Override
 	public void execute() throws IOException {
 		
-		model.mExit();
+	model.mExit();
 	}
 }

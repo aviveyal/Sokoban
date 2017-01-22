@@ -6,6 +6,7 @@ import java.util.Observable;
 import java.util.Scanner;
 
 import controller.commands.ExitCommand;
+import javafx.stage.Stage;
 import model.Data.Level;
 import model.modelCommands.Display;
 
@@ -32,10 +33,10 @@ public class CLI extends Observable implements View {
 					for (String s : arr) {
 						params.add(s);
 					}
-					System.out.println(params);
+					
 					setChanged();
 					notifyObservers(params);
-
+					
 					if (commandLine.equals("exit"))
 
 						break;
@@ -53,5 +54,7 @@ public class CLI extends Observable implements View {
 		// setChanged();
 		// notifyObservers();
 	}
+
+	
 
 }

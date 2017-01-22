@@ -73,7 +73,7 @@ public class MyXMLLevelLoader implements LevelLoader {
 					{
 						BOT.add(new BoxOntarget(x,y));
 					}
-					else if(read.equals("\r\n")) // condition for end of line ???
+					else if(read.equals("\r\n"))// condition for end of line ???
 					{
 						
 						x++;

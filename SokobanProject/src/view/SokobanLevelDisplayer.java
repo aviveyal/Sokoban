@@ -151,8 +151,6 @@ public class SokobanLevelDisplayer extends Canvas {
 						gc.drawImage(box,j*w, i*h, w, h);
 					else if(LevelData[i][j].charAt(0)=='o')
 						gc.drawImage(target,j*w, i*h, w, h);
-					else if(LevelData[i][j].charAt(0)=='o')
-						gc.drawImage(target,j*w, i*h, w, h);
 					else if(LevelData[i][j].charAt(0)=='A')
 						gc.drawImage(CharacterSoko,j*w, i*h, w, h);
 					else if(LevelData[i][j].charAt(0)=='V')
@@ -164,7 +162,6 @@ public class SokobanLevelDisplayer extends Canvas {
 			
 			
 	
-			
 			
 	}
    }

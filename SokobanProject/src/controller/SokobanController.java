@@ -12,6 +12,7 @@ import controller.commands.ExitCommand;
 import controller.commands.LoadCommand;
 import controller.commands.MoveCommand;
 import controller.commands.SaveCommand;
+import javafx.scene.Scene;
 import model.Model;
 import view.View;
 
@@ -72,6 +73,7 @@ public class SokobanController implements Observer {
 		}
 		if(commandKey.equals("exit")) // thread close
 			controller.stop();
+			
 		
 		c.setParams(params);
 		controller.insertCommand(c);

@@ -9,8 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
- <?import view.SokobanLevelDisplayer?>  
+<?import view.SokobanLevelDisplayer?> 
 
 <BorderPane focusTraversable="true" prefHeight="500.0" prefWidth="493.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindowController">
    <top>
@@ -49,42 +50,43 @@
    <left>
       <VBox focusTraversable="false" prefHeight="297.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="53.0" prefWidth="100.0">
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
+            <Text fx:id="timetext" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="102.13671875">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font size="23.0" />
                </font>
-            </Label>
-            <Label prefHeight="20.0" prefWidth="29.0" text="Time">
                <VBox.margin>
-                  <Insets bottom="10.0" left="37.0" right="10.0" />
+                  <Insets left="10.0" right="10.0" top="30.0" />
+               </VBox.margin>
+            </Text>
+            <Label prefHeight="20.0" prefWidth="29.0" text="Time" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="45.0" right="10.0" />
                </VBox.margin>
             </Label>
-            <Label alignment="CENTER" prefHeight="53.0" prefWidth="100.0">
+            <Text fx:id="steps" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="102.13671875">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font size="23.0" />
                </font>
-            </Label>
+               <VBox.margin>
+                  <Insets left="10.0" />
+               </VBox.margin>
+            </Text>
             <Label prefHeight="20.0" prefWidth="30.0" text="Steps" textAlignment="CENTER">
                <VBox.margin>
-                  <Insets left="37.0" />
+                  <Insets left="45.0" />
                </VBox.margin>
             </Label>
          </children>
       </VBox>
    </left>
-   
-      
-       
-   
    <center>
-    <SokobanLevelDisplayer fx:id="SokobanLevelDisplayer" height="400.0" width="400.0" BorderPane.alignment="CENTER" charFilename="./resources/character.jpg" 
-      wallFilename="./resources/wall.jpg" boxFilename="./resources/box.jpg" 
-      targetFilename="./resources/target.jpg" boxontargetFilename="./resources/boxontarget.jpg" />  
-      </center>
-     
-      
+    
+       
+  
+   
+    <SokobanLevelDisplayer fx:id="SokobanLevelDisplayer" boxFilename="./resources/box.jpg" boxontargetFilename="./resources/boxontarget.jpg" charFilename="./resources/character.jpg" height="400.0" targetFilename="./resources/target.jpg" wallFilename="./resources/wall.jpg" width="400.0" BorderPane.alignment="CENTER" />  
+   </center>
+    
+       
    
 </BorderPane>

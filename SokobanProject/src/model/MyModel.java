@@ -21,6 +21,7 @@ public class MyModel extends Observable implements Model {
 	
 	private Level level;
 	
+	
 	@Override
 	public Level getCurrentLevel() {
 		

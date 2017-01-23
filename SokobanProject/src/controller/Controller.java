@@ -47,6 +47,7 @@ public class Controller  {
 						e.printStackTrace();
 					}
 				}
+				
 			}
 			
 		});
@@ -54,6 +55,7 @@ public class Controller  {
 	}
 	public void stop() {
 		isStopped = true;
+		
 	}
 
 

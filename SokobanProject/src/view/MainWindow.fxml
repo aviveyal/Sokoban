@@ -138,10 +138,12 @@
 
 	<center>
 		<SokobanLevelDisplayer fx:id="SokobanLevelDisplayer"
-			boxFilename="./resources/box.jpg" boxontargetFilename="./resources/boxontarget.jpg"
-			charFilename="./resources/character.jpg" height="400.0"
-			targetFilename="./resources/target.jpg" wallFilename="./resources/wall.jpg"
-			width="400.0" BorderPane.alignment="CENTER" />
+			boxFilename="./resources/box.jpg"
+			boxontargetFilename="./resources/boxontarget.jpg"
+			charFilename="./resources/character.jpg" 
+			targetFilename="./resources/target.jpg"
+			wallFilename="./resources/wall.jpg"
+			width="400.0" height="400.0" BorderPane.alignment="CENTER" />
 	</center>
 
 

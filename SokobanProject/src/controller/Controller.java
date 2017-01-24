@@ -1,6 +1,5 @@
 package controller;
 
-
 import java.io.IOException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
@@ -8,35 +7,33 @@ import java.util.concurrent.TimeUnit;
 
 import controller.commands.Command;
 
+public class Controller {
 
-
-public class Controller  {
-
-	
-	private BlockingQueue <Command> queue ; 
-	private boolean isStopped =false;
+	private BlockingQueue<Command> queue;
+	private boolean isStopped = false;
 
 	public Controller() {
-		
+
 		queue = new ArrayBlockingQueue<Command>(10);
 	}
-	public void insertCommand(Command command)
-	{
-		try{
+
+	public void insertCommand(Command command) {
+		try {
 			queue.put(command);
-		} catch (InterruptedException e){
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
-	public void start(){
-		Thread thread = new Thread (new Runnable(){
+
+	public void start() {
+		Thread thread = new Thread(new Runnable() {
 
 			@Override
 			public void run() {
-				while(!isStopped){
+				while (!isStopped) {
 					try {
-						Command cmd =queue.poll(1, TimeUnit.SECONDS);
-						if(cmd!=null)
+						Command cmd = queue.poll(1, TimeUnit.SECONDS);
+						if (cmd != null)
 							try {
 								cmd.execute();
 							} catch (IOException e) {
@@ -47,18 +44,16 @@ public class Controller  {
 						e.printStackTrace();
 					}
 				}
-				
+
 			}
-			
+
 		});
 		thread.start();
 	}
+
 	public void stop() {
 		isStopped = true;
-		
-	}
-
 
 	}
-	
 
+}

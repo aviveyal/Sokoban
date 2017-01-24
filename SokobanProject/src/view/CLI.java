@@ -33,10 +33,10 @@ public class CLI extends Observable implements View {
 					for (String s : arr) {
 						params.add(s);
 					}
-					
+
 					setChanged();
 					notifyObservers(params);
-					
+
 					if (commandLine.equals("exit"))
 
 						break;
@@ -54,7 +54,5 @@ public class CLI extends Observable implements View {
 		// setChanged();
 		// notifyObservers();
 	}
-
-	
 
 }

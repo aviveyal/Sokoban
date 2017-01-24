@@ -17,49 +17,54 @@ import model.Model;
 import view.View;
 
 public class SokobanController implements Observer {
-	
-	private View v; 
+
+	private View v;
 	private Model m;
 	private Controller controller;
-	private Map<String ,Command> commands;
-	
-	
+	private Map<String, Command> commands;
+
 	public View getV() {
 		return v;
 	}
+
 	public void setV(View v) {
 		this.v = v;
 	}
+
 	public Model getM() {
 		return m;
 	}
+
 	public void setM(Model m) {
 		this.m = m;
 	}
+
 	public Controller getController() {
 		return controller;
 	}
-		
+
 	public void setController(Controller controller) {
 		this.controller = controller;
 	}
+
 	public SokobanController(View v, Model m) {
 		this.v = v;
 		this.m = m;
-		
+
 		initCommands();
 		controller = new Controller();
 		controller.start();
-		
+
 	}
-	public void initCommands(){
-		
-		commands = new HashMap<String,Command>();
-		commands.put("move",new MoveCommand(m));
-		commands.put("save",new SaveCommand(m));
-		commands.put("load",new LoadCommand(m));
-		commands.put("display",new DisplayCommand(m,v));
-		commands.put("exit",new ExitCommand(m,controller));
+
+	public void initCommands() {
+
+		commands = new HashMap<String, Command>();
+		commands.put("move", new MoveCommand(m));
+		commands.put("save", new SaveCommand(m));
+		commands.put("load", new LoadCommand(m));
+		commands.put("display", new DisplayCommand(m, v));
+		commands.put("exit", new ExitCommand(m, controller));
 	}
 
 	@Override
@@ -68,13 +73,12 @@ public class SokobanController implements Observer {
 		String commandKey = params.removeFirst();
 		Command c = commands.get(commandKey);
 		if (c == null) {
-		System.out.println("Command " + commandKey + " not found");
+			System.out.println("Command " + commandKey + " not found");
 			return;
 		}
-		if(commandKey.equals("exit")) // thread close
+		if (commandKey.equals("exit")) // thread close
 			controller.stop();
-			
-		
+
 		c.setParams(params);
 		controller.insertCommand(c);
 	}

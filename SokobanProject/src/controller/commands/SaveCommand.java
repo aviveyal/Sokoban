@@ -13,9 +13,14 @@ public class SaveCommand extends Command {
 	}
 	@Override
 	public void execute() throws IOException {
+	try{
 		String filename=params.get(0);
 		model.mSaveCommand(filename);
+	}
+	catch (Exception e) {
 		
+	}
+	
 	}
 
 }

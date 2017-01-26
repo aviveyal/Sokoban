@@ -6,11 +6,13 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 import controller.commands.Command;
+import controller.server.server;
 
 public class Controller {
 
 	private BlockingQueue<Command> queue;
 	private boolean isStopped = false;
+	
 
 	public Controller() {
 
@@ -55,5 +57,6 @@ public class Controller {
 		isStopped = true;
 
 	}
+	
 
 }

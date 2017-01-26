@@ -9,6 +9,7 @@ import javafx.beans.property.StringProperty;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import model.Data.Level;
 import model.modelCommands.Display;
 import model.modelCommands.Load;
@@ -97,7 +98,8 @@ public class SokobanLevelDisplayer extends Canvas {
 			double h = H / level.maxrowsize();
 
 			GraphicsContext gc = getGraphicsContext2D();
-
+			
+			
 			Image CharacterSoko = null;
 			Image wall = null;
 			Image box = null;

@@ -12,16 +12,18 @@ import controller.commands.ExitCommand;
 import controller.commands.LoadCommand;
 import controller.commands.MoveCommand;
 import controller.commands.SaveCommand;
+import controller.server.server;
 import javafx.scene.Scene;
 import model.Model;
 import view.View;
 
-public class SokobanController implements Observer {
+public class SokobanController implements Observer,ControllerInterface {
 
 	private View v;
 	private Model m;
 	private Controller controller;
 	private Map<String, Command> commands;
+	private server server;
 
 	public View getV() {
 		return v;
@@ -77,10 +79,25 @@ public class SokobanController implements Observer {
 			return;
 		}
 		if (commandKey.equals("exit")) // thread close
+			{
 			controller.stop();
+			if(server!=null)
+				Stop();
+			}
 
 		c.setParams(params);
 		controller.insertCommand(c);
+	}
+	
+	public void setServer(server server) {
+		this.server=server;
+		
+	}
+
+	@Override
+	public void Stop() {
+			server.stop();
+		
 	}
 
 }

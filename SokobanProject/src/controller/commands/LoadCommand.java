@@ -11,8 +11,16 @@ public class LoadCommand extends Command {
 	}
 	@Override
 	public void execute() throws IOException {
+		try{
+			
 		String filename=params.get(0);
 		model.mLoadCommand(filename);
+		}
+		catch (Exception e) {
+			
+		}
+		
+		
 
 	}
 

@@ -31,7 +31,7 @@ public class Main extends Application {
 
 	
 	
-/*	
+	public static void main(String[] args) {
 
 		boolean startgui = true;
 
@@ -63,10 +63,10 @@ public class Main extends Application {
 			launch(args);
 
 	}
-*/
+
 	@Override
 	public void start(Stage primaryStage) {
-/*
+
 		
 
 		try {
@@ -108,7 +108,7 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 
-*/
+
 	}
 	
 }

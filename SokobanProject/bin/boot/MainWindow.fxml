@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import view.SokobanLevelDisplayer?>
+
+<BorderPane focusTraversable="true" prefHeight="500.0"
+	prefWidth="493.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="view.MainWindowController">
+
+	<top>
+		<MenuBar BorderPane.alignment="CENTER">
+			<menus>
+				<Menu mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#OpenFile"
+							text="Open" />
+						<MenuItem mnemonicParsing="false" onAction="#SaveFile"
+							text="Save" />
+						<MenuItem mnemonicParsing="false" onAction="#Exit" text="Exit" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Edit">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Delete" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Help">
+					<items>
+						<MenuItem mnemonicParsing="false" text="About" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+	</top>
+	<bottom>
+		<HBox BorderPane.alignment="CENTER">
+			<children>
+				<Text fx:id="status" strokeType="OUTSIDE" strokeWidth="0.0"
+					text="Open a level from the menu and start play!" textAlignment="CENTER"
+					wrappingWidth="600.13671875">
+					<font>
+						<Font size="18.0" />
+					</font>
+					<VBox.margin>
+						<Insets left="10.0" right="10.0" top="0.0" />
+					</VBox.margin>
+				</Text>
+			</children>
+			<BorderPane.margin>
+				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+			</BorderPane.margin>
+		</HBox>
+	</bottom>
+	<left>
+		<VBox focusTraversable="false" prefHeight="297.0" prefWidth="100.0"
+			BorderPane.alignment="CENTER">
+			<children>
+				<Text fx:id="timetext" fill="RED" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="102.13671875">
+					<font>
+						<Font size="23.0" />
+					</font>
+					<VBox.margin>
+						<Insets left="10.0" right="10.0" top="30.0" />
+					</VBox.margin>
+				</Text>
+				<Label prefHeight="20.0" prefWidth="29.0" text="Time"
+					textAlignment="CENTER">
+					<VBox.margin>
+						<Insets bottom="10.0" left="45.0" right="10.0" />
+					</VBox.margin>
+				</Label>
+				<Text fx:id="steps" fill="RED" strokeType="OUTSIDE"
+					strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="102.13671875">
+					<font>
+						<Font size="23.0" />
+					</font>
+					<VBox.margin>
+						<Insets left="10.0" />
+					</VBox.margin>
+				</Text>
+				<Label prefHeight="20.0" prefWidth="30.0" text="Steps"
+					textAlignment="CENTER">
+					<VBox.margin>
+						<Insets left="45.0" bottom="100.0" />
+					</VBox.margin>
+				</Label>
+
+				<Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="102.13671875"
+					text="Set how to move ! (click on the direction and choose key on keyboard)">
+					<font>
+						<Font size="10.0" />
+					</font>
+
+					<VBox.margin>
+						<Insets left="30.0" top="20.0" />
+					</VBox.margin>
+				</Text>
+				<Label fx:id="keyInputLabelup" onKeyPressed="#sethandleup"
+					prefHeight="17.0" prefWidth="100.0" text="UP" TextFill="BLUE">
+					<VBox.margin>
+						<Insets left="30.0" top="10.0" />
+					</VBox.margin>
+				</Label>
+				<Label fx:id="keyInputLabeldown" onKeyPressed="#sethandledown"
+					prefHeight="17.0" prefWidth="100.0" text="DOWN" TextFill="BLUE">
+					<VBox.margin>
+						<Insets left="30.0" top="10.0" />
+					</VBox.margin>
+				</Label>
+				<Label fx:id="keyInputLabelleft" onKeyPressed="#sethandleleft"
+					prefHeight="17.0" prefWidth="100.0" text="LEFT" TextFill="BLUE">
+					<VBox.margin>
+						<Insets left="30.0" top="10.0" />
+					</VBox.margin>
+				</Label>
+				<Label fx:id="keyInputLabelright" onKeyPressed="#sethandleupright"
+					prefHeight="17.0" prefWidth="100.0" text="RIGHT" TextFill="BLUE">
+					<VBox.margin>
+						<Insets left="30.0" top="10.0" />
+					</VBox.margin>
+				</Label>
+			</children>
+		</VBox>
+	</left>
+
+	<center>
+		<SokobanLevelDisplayer fx:id="SokobanLevelDisplayer"
+			boxFilename="./resources/box.jpg"
+			boxontargetFilename="./resources/boxontarget.jpg"
+			charFilename="./resources/character.jpg" 
+			targetFilename="./resources/target.jpg"
+			wallFilename="./resources/wall.jpg"
+			width="400.0" height="400.0" BorderPane.alignment="CENTER" />
+	</center>
+
+
+</BorderPane>

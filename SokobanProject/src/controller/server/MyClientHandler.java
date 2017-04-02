@@ -49,10 +49,11 @@ public class MyClientHandler extends Observable implements ClientHandler {
 		 BufferedReader reader = new BufferedReader(new InputStreamReader(inFromClient));
 		 PrintWriter writer = new PrintWriter(outToClient);
 		 String clientIn;;
-		System.out.println("client connected");
-		String msgtoclient="";
+		 System.out.println("client connected");
+		 String msgtoclient="";
 		
 	while (!isStopped) {
+		
 			writer.write(">load filename\n>display\n>move {up,dpwn,right,left}\n>save filename\n>exit\n");
 			
 			writer.flush();
@@ -60,33 +61,40 @@ public class MyClientHandler extends Observable implements ClientHandler {
 			try {
 				clientIn = reader.readLine();
 				
-				System.out.println(clientIn);
 				
+				
+				if(clientIn!=null)
+				{
+				System.out.println(clientIn);
 				String[] arr = clientIn.split(" ");
 				List<String> params = new LinkedList<String>();
 
 				for (String s : arr) {
 					params.add(s);
 				}
-
+				
 				setChanged();
 				notifyObservers(params);
 
 				
 				if (clientIn.equals("exit")){
 					 	
-						isStopped=true;
+						//isStopped=true;
 						msgtoclient="bye";	
+						
 				}
 				
-				writer.write(msgtoclient);
-				writer.flush();
+				
+				if(!msgtoclient.equals(null)){
+					writer.write(msgtoclient);
+					writer.flush();
+				}
 			}
-			
+			}
 			
 			catch (IOException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
 			
 				

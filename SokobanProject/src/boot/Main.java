@@ -8,6 +8,8 @@ import javafx.scene.paint.Color;
 
 import java.io.File;
 
+import Database.SokobanDBManager;
+import Database.Users;
 import controller.SokobanController;
 import controller.server.MyClientHandler;
 import controller.server.server;
@@ -28,6 +30,13 @@ public class Main extends Application {
 	private static final int INDEFINITE = 0;
 
 	public static void main(String[] args) {
+		
+		
+			SokobanDBManager DB= new SokobanDBManager();
+			Users u = new Users("aviv eyal");
+			DB.addUser(u);
+	}
+/*	
 
 		boolean startgui = true;
 
@@ -59,10 +68,10 @@ public class Main extends Application {
 			launch(args);
 
 	}
-
+*/
 	@Override
 	public void start(Stage primaryStage) {
-
+/*
 		
 
 		try {
@@ -104,6 +113,7 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 
+*/
 	}
 
 }

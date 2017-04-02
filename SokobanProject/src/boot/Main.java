@@ -29,13 +29,8 @@ public class Main extends Application {
 
 	private static final int INDEFINITE = 0;
 
-	public static void main(String[] args) {
-		
-		
-			SokobanDBManager DB= new SokobanDBManager();
-			Users u = new Users("aviv eyal");
-			DB.addUser(u);
-	}
+	
+	
 /*	
 
 		boolean startgui = true;
@@ -115,5 +110,5 @@ public class Main extends Application {
 
 */
 	}
-
+	
 }

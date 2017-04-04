@@ -13,7 +13,7 @@ public class DisplayCommand extends Command{
 		this.view=view;
 	}
 	@Override
-	public void execute() {
+	public void execute() throws IOException {
 		Level level=model.getCurrentLevel();
 			
 		view.mDisplayCommand(level);

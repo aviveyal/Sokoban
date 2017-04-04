@@ -7,6 +7,9 @@ import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 
 import java.io.File;
+import java.io.IOException;
+
+import javax.persistence.criteria.Root;
 
 import Database.SokobanDBManager;
 import Database.Users;
@@ -19,16 +22,20 @@ import javafx.stage.Stage;
 import model.MyModel;
 import view.CLI;
 import view.MainWindowController;
+import view.PopUpController;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-
+import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-
+import javafx.scene.layout.VBox;
 import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 
 	private static final int INDEFINITE = 0;
-
+	
+	private Stage primaryStage;
+	Scene scene1 ,scene2;
 	
 	
 	public static void main(String[] args) {
@@ -61,16 +68,18 @@ public class Main extends Application {
 		}
 		if (startgui)
 			launch(args);
+		
 
 	}
 
 	@Override
 	public void start(Stage primaryStage) {
-
+		this.primaryStage=primaryStage;
 		
-
+		
 		try {
 			// background music
+			
 			
 			AudioClip mediaPlayer = new AudioClip(new File("./resources/gamemusic.mp3").toURI().toString());
 	        mediaPlayer.play();
@@ -80,20 +89,22 @@ public class Main extends Application {
 			BorderPane root = (BorderPane) loader.load();
 			root.setStyle("-fx-border-width: 3; -fx-border-color: burlywood;");
 			
+			
 			MainWindowController view = loader.getController();
 			MyModel model = new MyModel();
 			SokobanController controller = new SokobanController(view, model);
 
 			model.addObserver(controller);
 			view.addObserver(controller);
-
-			Scene scene = new Scene(root, 600, 500);
+			
+			scene1 = new Scene(root, 600, 500);
+			
+			
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			
 			
-			  
 			primaryStage.setTitle("Sokoban - Aviv Eyal");
-			primaryStage.setScene(scene);
+			primaryStage.setScene(scene1);
 			primaryStage.show();
 
 			// close window
@@ -108,7 +119,10 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 
-
+	
 	}
 	
+	
+	
 }
+

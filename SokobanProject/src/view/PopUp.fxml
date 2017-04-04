@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane focusTraversable="true" prefHeight="261.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.PopUpController">
+   <center>
+      <AnchorPane prefHeight="263.0" prefWidth="358.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="stepsresult" focusTraversable="false" layoutX="129.0" layoutY="179.0" prefHeight="34.0" prefWidth="58.0" text="steps" textFill="#fd0000">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="53.0" layoutY="179.0" prefHeight="34.0" prefWidth="58.0" text="Steps :">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="53.0" layoutY="132.0" prefHeight="34.0" prefWidth="58.0" text="Time : ">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="timeresult" focusTraversable="false" layoutX="129.0" layoutY="132.0" prefHeight="34.0" prefWidth="58.0" text="time" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="129.0" layoutY="22.0" prefHeight="32.0" prefWidth="113.0" text="Your name :">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="53.0" layoutY="69.0" prefHeight="54.0" prefWidth="257.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Button layoutX="227.0" layoutY="158.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="65.0" text="Sign me!" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

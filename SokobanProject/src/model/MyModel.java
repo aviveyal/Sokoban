@@ -7,6 +7,7 @@ import java.util.Observable;
 
 
 import model.Data.Level;
+
 import model.modelCommands.Exit;
 import model.modelCommands.Load;
 import model.modelCommands.Move;
@@ -79,6 +80,7 @@ public class MyModel extends Observable implements Model {
 		this.setChanged();
 
 	}
+	
 
 	@Override
 	public void SetLevel(Level level) {
@@ -92,6 +94,8 @@ public class MyModel extends Observable implements Model {
 		this.setChanged();
 		
 	}
+
+
 
 	
 }

@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity(name="Users")
 public class Users {
 
-	@Column(name="usercode")
+	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int usercode;
 	
@@ -32,8 +32,7 @@ public class Users {
 		this.fullname = fullname;
 	}
 	
-	public Users(/*int usercode,*/ String fullname) {		
-	//	this.usercode = usercode;
+	public Users( String fullname) {		
 		this.fullname = fullname;
 		
 	}

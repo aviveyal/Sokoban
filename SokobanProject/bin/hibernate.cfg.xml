@@ -6,7 +6,7 @@
 			com.microsoft.sqlserver.jdbc.SQLServerDriver
 		</property>
 		
-		<property name="connection.url">jdbc:sqlserver://localhost:1443;database=Sokoban;integratedSecurity=true;</property>
+		<property name="connection.url">jdbc:sqlserver://localhost:1433;database=Sokoban;integratedSecurity=true;</property>
 
 		<!-- JDBC connection pool (use the built-in) -->
 		<property name="connection.pool_size">1</property>
@@ -18,7 +18,10 @@
 		<!-- Echo all executed SQL to stdout -->
 		<property name="show_sql">true</property>
 
-		<mapping class="db.Users"></mapping>
+		<mapping class="Database.Users"></mapping>
+		<mapping class="Database.LevelsDB"></mapping>
+	 	<mapping class="Database.Scores"></mapping>
+		
 	</session-factory>
 </hibernate-configuration> 
  

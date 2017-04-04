@@ -13,6 +13,7 @@ public interface Model {
 	public void mMoveCommand(String direction);
 	public void mLoadCommand(String filepath) throws IOException;
 	public void mSaveCommand(String filepath) throws IOException;
+	
 	public void mExit();
 	
 }

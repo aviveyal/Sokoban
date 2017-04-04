@@ -1,6 +1,7 @@
 package view;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,24 +10,36 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import controller.SokobanController;
 import view.SokobanLevelDisplayer;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
-
+import javafx.stage.Popup;
+import javafx.stage.PopupBuilder;
+import javafx.stage.Stage;
+import model.MyModel;
 import model.Data.Level;
 
 public class MainWindowController extends Observable implements Initializable, View {
+
+	
+
 
 	@FXML
 	Label keyInputLabelup;
@@ -36,8 +49,17 @@ public class MainWindowController extends Observable implements Initializable, V
 	Label keyInputLabelleft;
 	@FXML
 	Label keyInputLabelright;
-
+	@FXML
+	Button button1;
+	
+	
 	// sent new keys
+
+	
+
+	public Button getButton1() {
+		return button1;
+	}
 
 	@FXML
 	public void sethandleup(KeyEvent key) {
@@ -76,13 +98,19 @@ public class MainWindowController extends Observable implements Initializable, V
 	int countSec;
 	int countMin;
 	boolean loadedlevel = false;
+	boolean timerun= true;
+	File chosen;
 
-	StringProperty finelTime;
+	StringProperty finalTime;
 	SimpleStringProperty finalsteps;
+
+	
+
+	
 
 	public MainWindowController() {
 
-		finelTime = new SimpleStringProperty();
+		finalTime = new SimpleStringProperty();
 		finalsteps = new SimpleStringProperty();
 
 		Timer t = new Timer();
@@ -91,7 +119,7 @@ public class MainWindowController extends Observable implements Initializable, V
 
 			@Override
 			public void run() {
-				if (loadedlevel) {
+				if (loadedlevel&& timerun) {
 
 					if (countSec == 59) {
 						countMin++;
@@ -100,9 +128,9 @@ public class MainWindowController extends Observable implements Initializable, V
 						countSec++;
 				}
 				if (countSec < 10)
-					finelTime.set("" + countMin + ":" + "0" + countSec);
+					finalTime.set("" + countMin + ":" + "0" + countSec);
 				else
-					finelTime.set("" + countMin + ":" + "" + countSec);
+					finalTime.set("" + countMin + ":" + "" + countSec);
 
 			}
 		}, 0, 1000);
@@ -111,7 +139,8 @@ public class MainWindowController extends Observable implements Initializable, V
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		
+		
 		keyInputLabelup.addEventFilter(MouseEvent.MOUSE_CLICKED, (e) -> keyInputLabelup.requestFocus());
 		keyInputLabeldown.addEventFilter(MouseEvent.MOUSE_CLICKED, (e) -> keyInputLabeldown.requestFocus());
 		keyInputLabelleft.addEventFilter(MouseEvent.MOUSE_CLICKED, (e) -> keyInputLabelleft.requestFocus());
@@ -125,9 +154,9 @@ public class MainWindowController extends Observable implements Initializable, V
 			@Override
 
 			public void handle(KeyEvent event) {
-
+				
 				List<String> params = new LinkedList<String>();
-				if (loadedlevel) {
+				if (loadedlevel&&timerun) {
 					if (event.getCode().toString().equals(keyInputLabelup.getText())) {
 						params.add("move");
 						params.add("up");
@@ -150,12 +179,14 @@ public class MainWindowController extends Observable implements Initializable, V
 					if (params.size() == 2)// mean that character tried move
 					{
 						finalsteps.set("" + (stepCounter++));
-
+						
 						setChanged();
 						notifyObservers(params);
 					}
-
+					
+					
 				}
+				
 
 			}
 
@@ -172,13 +203,14 @@ public class MainWindowController extends Observable implements Initializable, V
 		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Level files", "*.txt", "*.obj",
 				"*.xml");
 		fc.getExtensionFilters().add(extFilter);
-		File chosen = fc.showOpenDialog(null);
+		chosen = fc.showOpenDialog(null);
 
 		if (chosen != null) {
+			timerun=true;
 			countMin = 0;
 			countSec = 0;
 			stepCounter = 1;
-			timetext.textProperty().bind(finelTime);
+			timetext.textProperty().bind(finalTime);
 			steps.textProperty().bind(finalsteps);
 			finalsteps.set("" + 0);
 			status.textProperty().set("Good Luck!");
@@ -188,7 +220,7 @@ public class MainWindowController extends Observable implements Initializable, V
 			params.add("levels/" + chosen.getName());
 			setChanged();
 			notifyObservers(params);
-
+			button1.setVisible(false);
 		}
 
 	}
@@ -211,7 +243,6 @@ public class MainWindowController extends Observable implements Initializable, V
 			params.add("levels/" + chosen.getName());
 			setChanged();
 			notifyObservers(params);
-
 		}
 
 	}
@@ -224,12 +255,83 @@ public class MainWindowController extends Observable implements Initializable, V
 	}
 
 	@Override
-	public void mDisplayCommand(Level level) {
+	public void mDisplayCommand(Level level) throws IOException {
 
 		SokobanLevelDisplayer.setLevelData(level); // sends current level data
 		SokobanLevelDisplayer.redraw();
-
+		
+		checkfinish();
+		
 	}
+	
+	public void checkfinish() throws IOException {
+		
+		/*check if finished the level */
+		int counter=0;
+		for(int i=0 ; i< SokobanLevelDisplayer.level.getBoxes().size();i++)
+		{
+			for(int j=0; j<SokobanLevelDisplayer.level.getBoxOnTareget().size();j++)
+			{
+				if((SokobanLevelDisplayer.level.getBoxes().get(i).getX()==SokobanLevelDisplayer.level.getBoxOnTareget().get(j).getX()) 
+						&&
+						(SokobanLevelDisplayer.level.getBoxes().get(i).getY()==SokobanLevelDisplayer.level.getBoxOnTareget().get(j).getY()))
+				{
+					counter ++;
+					j=SokobanLevelDisplayer.level.getBoxOnTareget().size();
+				}
+			}
+		}
+		
+		if(counter==SokobanLevelDisplayer.level.getBoxes().size())
+		{
+		
+			status.textProperty().set("Do you want save your scores?");
+			timerun=false;
+			button1.setVisible(true);
+						
+		}
+			
+}
+	
+	public void Restart()
+	{
+		List<String> params = new LinkedList<String>();
+		
+		if (chosen != null) {
+			timerun=true;
+			countMin = 0;
+			countSec = 0;
+			stepCounter = 1;
+			timetext.textProperty().bind(finalTime);
+			steps.textProperty().bind(finalsteps);
+			finalsteps.set("" + 0);
+			status.textProperty().set("Good Luck!");
+
+			loadedlevel = true;
+			params.add("load");
+			params.add("levels/" + chosen.getName());
+			setChanged();
+			notifyObservers(params);
+			button1.setVisible(false);
+
+		}
+		
+	}
+	public void onChangeButtonAction() throws IOException{
+	
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("PopUp.fxml"));
+		BorderPane root = (BorderPane) loader.load();
+		Scene scene = new Scene(root,360,250);
+		Stage newStage = new Stage();
+		newStage.setScene(scene);
+		newStage.setTitle("Sokoban - Aviv Eyal");
+		newStage.show();
+		PopUpController p = (PopUpController) loader.getController();
+		p.setStepsresult(finalsteps.get().toString());
+		p.settimeresult(finalTime.get().toString());
+		
+
+		}
 
 	
 }

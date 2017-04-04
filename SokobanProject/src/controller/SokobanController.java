@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+
 import controller.commands.Command;
 import controller.commands.DisplayCommand;
 import controller.commands.ExitCommand;
@@ -67,6 +68,7 @@ public class SokobanController implements Observer,ControllerInterface {
 		commands.put("load", new LoadCommand(m));
 		commands.put("display", new DisplayCommand(m, v));
 		commands.put("exit", new ExitCommand(m, controller));
+		
 	}
 
 	@Override

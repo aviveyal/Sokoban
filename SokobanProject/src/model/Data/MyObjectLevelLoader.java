@@ -20,12 +20,14 @@ public class MyObjectLevelLoader implements LevelLoader {
 	private Target starttarget = new Target(0,0);
 	private Box startbox = new Box(0,0);
 	private BoxOntarget startBOT = new  BoxOntarget(0, 0);
+	
 
 		
 	
 	@Override
 	public Level loadlevel(FileInputStream InputStream) throws IOException 
 	{
+		
 		BufferedInputStream readinput = new BufferedInputStream(InputStream);
 		
 		int x = 0 ;

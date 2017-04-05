@@ -17,8 +17,11 @@ public class SokobanDBManager {
 
 private SessionFactory factory;
 
-
 	
+	
+	
+	
+
 	public SokobanDBManager() {
 		Logger.getLogger("org.hibernate").setLevel(Level.SEVERE); 
 		Configuration config = new Configuration();
@@ -35,6 +38,7 @@ private SessionFactory factory;
 			tx = session.beginTransaction();
 			session.save(u);			
 			tx.commit();
+
 
 		}
 		catch (HibernateException ex) {

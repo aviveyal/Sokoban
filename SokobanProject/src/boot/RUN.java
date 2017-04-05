@@ -25,7 +25,7 @@ public class RUN {
 		LevelsDB level = new LevelsDB("thehardest");
 		DB.addLevel(level);
 		
-		Scores score = new Scores(u,level,"10:12",23);
+		Scores score = new Scores(u,level,"10:12","23");
 		DB.addScores(score);
 
 	}

@@ -1,28 +1,30 @@
 package Database;
 
+import java.util.HashMap;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import model.Data.LevelLoader;
+import model.Data.MyObjectLevelLoader;
+import model.Data.MyTextLevelLoader;
+import model.Data.MyXMLLevelLoader;
+
 @Entity(name="Users")
 public class Users {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int usercode;
+
 	
+	/*Adding elements to HashMap*/
+    
+	@Id
 	@Column(name="fullname")
 	private String fullname;
 
-	public int getUsercode() {
-		return usercode;
-	}
-
-	public void setUsercode(int usercode) {
-		this.usercode = usercode;
-	}
+	
 
 	public String getFullname() {
 		return fullname;

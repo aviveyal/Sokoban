@@ -10,19 +10,8 @@ import javax.persistence.Id;
 public class LevelsDB {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int LevelCode;
-	
 	@Column(name="LevelName")
 	private String levelname;
-
-	public int getLevelcode() {
-		return LevelCode;
-	}
-
-	public void setLevelcode(int levelcode) {
-		this.LevelCode = levelcode;
-	}
 
 	public String getLevelname() {
 		return levelname;

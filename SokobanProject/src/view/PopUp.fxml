@@ -36,12 +36,12 @@
                   <Font name="System Italic" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="53.0" layoutY="69.0" prefHeight="54.0" prefWidth="257.0">
+            <TextField fx:id="name" layoutX="53.0" layoutY="69.0" prefHeight="54.0" prefWidth="257.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <Button layoutX="227.0" layoutY="158.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="65.0" text="Sign me!" />
+            <Button fx:id="buttonsign" layoutX="227.0" layoutY="158.0" mnemonicParsing="false" onAction="#Signscore" prefHeight="42.0" prefWidth="65.0" text="Sign me!" />
          </children>
       </AnchorPane>
    </center>

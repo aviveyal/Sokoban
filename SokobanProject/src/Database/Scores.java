@@ -15,43 +15,46 @@ public class Scores implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@Column(name="usercode")
-	private int usercode;
+	@Column(name="username")
+	private String username;
 	@Id
-	@Column(name="levelcode")
-	private int levelcode;
+	@Column(name="levelname")
+	private String levelname;
 	
 	@Column(name="time")
 	private String time;
 	
 	@Column(name="steps")
-	private int steps;
+	private String steps;
 
 
 	
-	public int getUsercode() {
-		return usercode;
+	
+
+
+	public String getUsername() {
+		return username;
 	}
 
 
 
 
-	public void setUsercode(int usercode) {
-		this.usercode = usercode;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 
 
 
-	public int getLevelcode() {
-		return levelcode;
+	public String getLevelname() {
+		return levelname;
 	}
 
 
 
 
-	public void setLevelcode(int levelcode) {
-		this.levelcode = levelcode;
+	public void setLevelname(String levelname) {
+		this.levelname = levelname;
 	}
 
 
@@ -71,24 +74,24 @@ public class Scores implements Serializable {
 
 
 
-	public int getSteps() {
+	public String getSteps() {
 		return steps;
 	}
 
 
 
 
-	public void setSteps(int steps) {
+	public void setSteps(String steps) {
 		this.steps = steps;
 	}
 
 
 
 
-	public Scores(Users U , LevelsDB L ,String T , int steps)
+	public Scores(Users U , LevelsDB L ,String T , String steps)
 	{
-		this.usercode =U.getUsercode();
-		this.levelcode =L.getLevelcode();
+		this.username =U.getFullname();
+		this.levelname =L.getLevelname();
 		this.time=T;
 		this.steps=steps;
 	}

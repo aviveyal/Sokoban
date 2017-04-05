@@ -221,6 +221,9 @@ public class MainWindowController extends Observable implements Initializable, V
 			setChanged();
 			notifyObservers(params);
 			button1.setVisible(false);
+			SokobanLevelDisplayer.setVisible(true);
+			timetext.setVisible(true);
+			steps.setVisible(true);
 		}
 
 	}
@@ -313,6 +316,9 @@ public class MainWindowController extends Observable implements Initializable, V
 			setChanged();
 			notifyObservers(params);
 			button1.setVisible(false);
+			SokobanLevelDisplayer.setVisible(true);
+			timetext.setVisible(true);
+			steps.setVisible(true);
 
 		}
 		
@@ -329,6 +335,14 @@ public class MainWindowController extends Observable implements Initializable, V
 		PopUpController p = (PopUpController) loader.getController();
 		p.setStepsresult(finalsteps.get().toString());
 		p.settimeresult(finalTime.get().toString());
+		
+		//restart first page
+		Restart();
+		timerun=false;
+		SokobanLevelDisplayer.setVisible(false);
+		timetext.setVisible(false);
+		steps.setVisible(false);
+		status.textProperty().set("Open a level from the menu and start play!");
 		
 
 		}

@@ -1,12 +1,15 @@
 package view;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import org.hibernate.HibernateException;
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 import Database.LevelsDB;
 import Database.Scores;
@@ -23,7 +26,8 @@ import javafx.stage.Stage;
 public class PopUpController implements Initializable {
 
 
-	
+	@FXML
+	private Label levelname;
 	@FXML
 	private Label stepsresult;
 	@FXML
@@ -45,27 +49,13 @@ public class PopUpController implements Initializable {
 		String steps = stepsresult.getText();
 		SokobanDBManager DB= new SokobanDBManager();
 		
-		//use existing data from DB 
-		Users u = new Users(name.getText());
-		DB.addUser(u);
-		LevelsDB l = new LevelsDB("level1blabla");
-		DB.addLevel(l);
-		Scores s = new Scores(u, l,time,steps);
-		DB.addScores(s);
-		
-		
-			
 				
-		if (Users.class.getName().equals(name.getText()))
-				{
-				System.out.println("ok");
-				}
-	
+		Users u = DB.addUser(name.getText()); //check if exists before adding
+				
+		LevelsDB l = DB.addLevel(levelname.getText());
+		
+		DB.addScores(u,l,time,steps);
 		//run on the data base check if exist 
-		
-		
-		
-		
 		
 		Stage stage = (Stage) buttonsign.getScene().getWindow();
 		stage.close();
@@ -76,5 +66,8 @@ public class PopUpController implements Initializable {
 	}
 	public void settimeresult(String s) {
 		timeresult.setText(s);
+	}
+	public void setlevelname(String s) {
+		levelname.setText(s);
 	}
 }

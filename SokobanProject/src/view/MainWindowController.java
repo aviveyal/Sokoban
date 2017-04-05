@@ -51,7 +51,8 @@ public class MainWindowController extends Observable implements Initializable, V
 	Label keyInputLabelright;
 	@FXML
 	Button button1;
-	
+	@FXML
+	Label levelname;
 	
 	// sent new keys
 
@@ -224,6 +225,8 @@ public class MainWindowController extends Observable implements Initializable, V
 			SokobanLevelDisplayer.setVisible(true);
 			timetext.setVisible(true);
 			steps.setVisible(true);
+			levelname.setVisible(true);
+			levelname.setText(chosen.getName().substring(0, chosen.getName().length()-4));
 		}
 
 	}
@@ -319,6 +322,7 @@ public class MainWindowController extends Observable implements Initializable, V
 			SokobanLevelDisplayer.setVisible(true);
 			timetext.setVisible(true);
 			steps.setVisible(true);
+			levelname.setVisible(true);
 
 		}
 		
@@ -327,7 +331,7 @@ public class MainWindowController extends Observable implements Initializable, V
 	
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("PopUp.fxml"));
 		BorderPane root = (BorderPane) loader.load();
-		Scene scene = new Scene(root,360,250);
+		Scene scene = new Scene(root,360,300);
 		Stage newStage = new Stage();
 		newStage.setScene(scene);
 		newStage.setTitle("Sokoban - Aviv Eyal");
@@ -335,6 +339,7 @@ public class MainWindowController extends Observable implements Initializable, V
 		PopUpController p = (PopUpController) loader.getController();
 		p.setStepsresult(finalsteps.get().toString());
 		p.settimeresult(finalTime.get().toString());
+		p.setlevelname(levelname.getText());
 		
 		//restart first page
 		Restart();
@@ -343,7 +348,7 @@ public class MainWindowController extends Observable implements Initializable, V
 		timetext.setVisible(false);
 		steps.setVisible(false);
 		status.textProperty().set("Open a level from the menu and start play!");
-		
+		levelname.setVisible(false);
 
 		}
 

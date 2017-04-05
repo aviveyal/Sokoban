@@ -21,6 +21,9 @@
 		<mapping class="Database.Users"></mapping>
 		<mapping class="Database.LevelsDB"></mapping>
 	 	<mapping class="Database.Scores"></mapping>
+	 	<mapping class="Database.ScoresKey"></mapping>
+	 
+	 	
 		
 	</session-factory>
 </hibernate-configuration> 

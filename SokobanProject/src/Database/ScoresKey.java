@@ -36,6 +36,12 @@ public class ScoresKey implements Serializable{
 		// TODO Auto-generated method stub
 		return 31 * usercode + levelcode;	
 	}
+	@Override
+	public boolean equals(Object obj) {
+		ScoresKey key = (ScoresKey)obj;
+		
+		return this.levelcode == key.levelcode && this.usercode == key.usercode;
+	}
 	public ScoresKey() {
 		super();
 	}

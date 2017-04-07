@@ -83,7 +83,8 @@ public class Main extends Application {
 			
 			AudioClip mediaPlayer = new AudioClip(new File("./resources/gamemusic.mp3").toURI().toString());
 	        mediaPlayer.play();
-	        mediaPlayer.setCycleCount(INDEFINITE);
+			mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+
 			  
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
 			BorderPane root = (BorderPane) loader.load();

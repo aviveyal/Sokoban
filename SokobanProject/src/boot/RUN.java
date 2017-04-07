@@ -1,8 +1,9 @@
-package view;
+package boot;
 
 
 import Database.SokobanDBManager;
 import Database.Users;
+import view.MainWindowController;
 
 
 public class RUN {
@@ -12,8 +13,7 @@ public class RUN {
 		System.out.println("hey");
 		SokobanDBManager DB= new SokobanDBManager();
 		
-		DB.addLevelsDB("zigdon");
-				
+		DB.showTopTenUserlex("aviv");
 		
 
 	}

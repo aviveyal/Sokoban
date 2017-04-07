@@ -55,7 +55,8 @@ public class PopUpController implements Initializable {
 		LevelsDB l = DB.addLevel(levelname.getText());
 		
 		DB.addScores(u,l,time,steps);
-		//run on the data base check if exist 
+		
+	//	run on the data base check if exist 
 		
 		Stage stage = (Stage) buttonsign.getScene().getWindow();
 		stage.close();

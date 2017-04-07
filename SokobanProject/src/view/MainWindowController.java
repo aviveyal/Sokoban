@@ -3,6 +3,7 @@ package view;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Observable;
@@ -10,6 +11,8 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import Database.Scores;
+import Database.SokobanDBManager;
 import controller.SokobanController;
 import view.SokobanLevelDisplayer;
 
@@ -23,9 +26,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -53,6 +58,7 @@ public class MainWindowController extends Observable implements Initializable, V
 	Button button1;
 	@FXML
 	Label levelname;
+	
 	
 	// sent new keys
 
@@ -99,7 +105,7 @@ public class MainWindowController extends Observable implements Initializable, V
 	int countSec;
 	int countMin;
 	boolean loadedlevel = false;
-	boolean timerun= true;
+	boolean timerun= false;
 	File chosen;
 
 	StringProperty finalTime;
@@ -294,6 +300,7 @@ public class MainWindowController extends Observable implements Initializable, V
 			status.textProperty().set("Do you want save your scores?");
 			timerun=false;
 			button1.setVisible(true);
+			button1.setFocusTraversable(true);
 						
 		}
 			
@@ -351,6 +358,117 @@ public class MainWindowController extends Observable implements Initializable, V
 		levelname.setVisible(false);
 
 		}
+	
+	public void Top() throws IOException{
+		
+		ArrayList <String> list = new ArrayList<>();
+		SokobanDBManager DB= new SokobanDBManager();
+		if((levelname.isVisible()) && (!levelname.getText().equals("Level name")))
+		{
+			ArrayList<Scores>scores =  DB.showTopTen(levelname.getText());
+			list= DB.display(scores);
+		}
+		topStage(list);
+		
+	}
+	
+	public ArrayList <String> TopTime(String levelname) throws IOException{
+		
+			
+		ArrayList <String> list = new ArrayList<>();
+		SokobanDBManager DB= new SokobanDBManager();
+		
+			
+			ArrayList<Scores>scores =  DB.showTopTen(levelname);
+			list= DB.display(scores);
+		
+			return list;
+	
+	}
+	
+	
+	public ArrayList <String> Topsteps(String levelname) throws IOException{
+		
+	
+		ArrayList <String> list = new ArrayList<>();
+		SokobanDBManager DB= new SokobanDBManager();
+		
+			ArrayList<Scores>scores =  DB.showTopTenSteps(levelname);
+			list= DB.display(scores);
+		
+			return list;
+	
+	}
+	
+	public ArrayList <String> TopTimeUser(String username) throws IOException{
+		
+		
+		ArrayList <String> list = new ArrayList<>();
+		SokobanDBManager DB= new SokobanDBManager();
+		
+			
+			ArrayList<Scores>scores =  DB.showTopTenUser(username);
+			list= DB.displayUser(scores);
+		
+			return list;
+	
+	}
+	
+	
+	public ArrayList <String> TopstepsUser(String username) throws IOException{
+		
+	
+		ArrayList <String> list = new ArrayList<>();
+		SokobanDBManager DB= new SokobanDBManager();
+		
+			ArrayList<Scores>scores =  DB.showTopTenUserSteps(username);
+			list= DB.displayUser(scores);
+		
+			return list;
+	
+	}
+	public ArrayList <String> Toplex(String username) throws IOException{
+		
+		
+		ArrayList <String> list = new ArrayList<>();
+		SokobanDBManager DB= new SokobanDBManager();
+		
+			ArrayList<Scores>scores =  DB.showTopTenUserlex(username);
+			list= DB.displayUserlex(scores);
+			
+			return list;
+	
+	}
+	
+	
+	
+	public void topStage(ArrayList <String> list) throws IOException{
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("Top.fxml"));
+		AnchorPane root = (AnchorPane) loader.load();
+		Scene scene = new Scene(root,460,370);
+		Stage newStage = new Stage();
+		newStage.setScene(scene);
+		newStage.setTitle("Sokoban - Aviv Eyal");
+		newStage.show();
+		
+		
+		TopController Top = (TopController) loader.getController();
+		Top.setList(list);
+		if((levelname.isVisible()) && (!levelname.getText().equals("Level name")))
+		{
+				
+				Top.setText(levelname.getText());
+		}
+	}
+		
+		
+		
+}
+		
+		
+			
+		
 
 	
-}
+	

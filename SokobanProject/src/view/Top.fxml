@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.TopController">
+   <children>
+      <ListView fx:id="list" layoutX="21.0" layoutY="97.0" prefHeight="235.0" prefWidth="303.0" />
+      <Label fx:id="label" alignment="CENTER" layoutX="106.0" layoutY="14.0" prefHeight="44.0" prefWidth="223.0" text="Scores">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="342.0" layoutY="255.0" mnemonicParsing="false" onAction="#stepssort" prefHeight="35.0" prefWidth="94.0" text="Sort by Steps" />
+      <Button layoutX="342.0" layoutY="297.0" mnemonicParsing="false" onAction="#timesort" prefHeight="35.0" prefWidth="94.0" text="Sort by time" />
+      <Label layoutX="39.0" layoutY="67.0" text="username" />
+      <Label layoutX="133.0" layoutY="67.0" text="time" />
+      <Label layoutX="221.0" layoutY="67.0" text="steps" />
+      <TextField fx:id="text" alignment="CENTER" layoutX="332.0" layoutY="131.0" prefHeight="37.0" prefWidth="113.0">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font></TextField>
+      <Label alignment="CENTER" layoutX="346.0" layoutY="104.0" prefHeight="25.0" prefWidth="87.0" text="search">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="337.0" layoutY="175.0" mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="104.0" text="search level" />
+      <Button alignment="CENTER" layoutX="305.0" layoutY="24.0" mnemonicParsing="false" onAction="#userview" prefHeight="53.0" prefWidth="129.0" text="Open users view" textAlignment="CENTER" textFill="RED">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font></Button>
+      <Label fx:id="error" layoutX="338.0" layoutY="200.0" prefHeight="27.0" prefWidth="106.0" text="Level doesn't exists!" textFill="RED" visible="false" wrapText="true" />
+   </children>
+</AnchorPane>

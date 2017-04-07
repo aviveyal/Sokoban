@@ -31,7 +31,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="129.0" layoutY="22.0" prefHeight="32.0" prefWidth="113.0" text="Your name :">
+            <Label layoutX="111.0" layoutY="21.0" prefHeight="32.0" prefWidth="149.0" text="Your Nickname :">
                <font>
                   <Font name="System Italic" size="18.0" />
                </font>

@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class Scores {
 
 	@EmbeddedId
-	private ScoresKey codes;
+	protected ScoresKey codes;
 
 	@Column(name = "time")
 	private String time;
@@ -59,7 +59,7 @@ public class Scores {
 		return "Scorecs [level code=" + codes.getLevelcode() + ", usercode=" + codes.getUsercode() +" time=" + time + ", steps=" + steps + "]";
 	}
 	public Scores() {
-		super();
+		
 	}
 
 }

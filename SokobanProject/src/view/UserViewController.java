@@ -69,7 +69,6 @@ public class UserViewController implements Initializable, TopTen {
 	public void lexSort() throws IOException {
 
 		if (text.getText() != null) { // have to check if exist
-			// MainWindowController main = new MainWindowController();
 
 			ArrayList<String> list = main.Toplex(text.getText());
 
@@ -86,7 +85,6 @@ public class UserViewController implements Initializable, TopTen {
 	public void stepssort() throws IOException {
 
 		if (text.getText() != null) { // have to check if exist
-			// MainWindowController main = new MainWindowController();
 
 			ArrayList<String> list = main.TopstepsUser(text.getText());
 
@@ -102,7 +100,6 @@ public class UserViewController implements Initializable, TopTen {
 	@Override
 	public void timesort() throws IOException {
 		if (text.getText() != null) {// have to check if exist
-			// MainWindowController main = new MainWindowController();
 
 			ArrayList<String> list = main.TopTimeUser(text.getText());
 			this.listItems.clear();

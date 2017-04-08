@@ -43,9 +43,6 @@ import model.Data.Level;
 
 public class MainWindowController extends Observable implements Initializable, View {
 
-	
-
-
 	@FXML
 	Label keyInputLabelup;
 	@FXML
@@ -58,11 +55,9 @@ public class MainWindowController extends Observable implements Initializable, V
 	Button button1;
 	@FXML
 	Label levelname;
-	
-	
-	// sent new keys
 
-	
+	public SokobanDBManager DB;
+	// sent new keys
 
 	public Button getButton1() {
 		return button1;
@@ -105,18 +100,15 @@ public class MainWindowController extends Observable implements Initializable, V
 	int countSec;
 	int countMin;
 	boolean loadedlevel = false;
-	boolean timerun= false;
+	boolean timerun = false;
 	File chosen;
 
 	StringProperty finalTime;
 	SimpleStringProperty finalsteps;
 
-	
-
-	
-
 	public MainWindowController() {
 
+		DB = new SokobanDBManager();
 		finalTime = new SimpleStringProperty();
 		finalsteps = new SimpleStringProperty();
 
@@ -126,7 +118,7 @@ public class MainWindowController extends Observable implements Initializable, V
 
 			@Override
 			public void run() {
-				if (loadedlevel&& timerun) {
+				if (loadedlevel && timerun) {
 
 					if (countSec == 59) {
 						countMin++;
@@ -146,8 +138,7 @@ public class MainWindowController extends Observable implements Initializable, V
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		
+
 		keyInputLabelup.addEventFilter(MouseEvent.MOUSE_CLICKED, (e) -> keyInputLabelup.requestFocus());
 		keyInputLabeldown.addEventFilter(MouseEvent.MOUSE_CLICKED, (e) -> keyInputLabeldown.requestFocus());
 		keyInputLabelleft.addEventFilter(MouseEvent.MOUSE_CLICKED, (e) -> keyInputLabelleft.requestFocus());
@@ -161,9 +152,9 @@ public class MainWindowController extends Observable implements Initializable, V
 			@Override
 
 			public void handle(KeyEvent event) {
-				
+
 				List<String> params = new LinkedList<String>();
-				if (loadedlevel&&timerun) {
+				if (loadedlevel && timerun) {
 					if (event.getCode().toString().equals(keyInputLabelup.getText())) {
 						params.add("move");
 						params.add("up");
@@ -186,14 +177,12 @@ public class MainWindowController extends Observable implements Initializable, V
 					if (params.size() == 2)// mean that character tried move
 					{
 						finalsteps.set("" + (stepCounter++));
-						
+
 						setChanged();
 						notifyObservers(params);
 					}
-					
-					
+
 				}
-				
 
 			}
 
@@ -213,7 +202,7 @@ public class MainWindowController extends Observable implements Initializable, V
 		chosen = fc.showOpenDialog(null);
 
 		if (chosen != null) {
-			timerun=true;
+			timerun = true;
 			countMin = 0;
 			countSec = 0;
 			stepCounter = 1;
@@ -232,7 +221,7 @@ public class MainWindowController extends Observable implements Initializable, V
 			timetext.setVisible(true);
 			steps.setVisible(true);
 			levelname.setVisible(true);
-			levelname.setText(chosen.getName().substring(0, chosen.getName().length()-4));
+			levelname.setText(chosen.getName().substring(0, chosen.getName().length() - 4));
 		}
 
 	}
@@ -271,47 +260,43 @@ public class MainWindowController extends Observable implements Initializable, V
 
 		SokobanLevelDisplayer.setLevelData(level); // sends current level data
 		SokobanLevelDisplayer.redraw();
-		
+
 		checkfinish();
-		
+
 	}
-	
+
 	public void checkfinish() throws IOException {
-		
-		/*check if finished the level */
-		int counter=0;
-		for(int i=0 ; i< SokobanLevelDisplayer.level.getBoxes().size();i++)
-		{
-			for(int j=0; j<SokobanLevelDisplayer.level.getBoxOnTareget().size();j++)
-			{
-				if((SokobanLevelDisplayer.level.getBoxes().get(i).getX()==SokobanLevelDisplayer.level.getBoxOnTareget().get(j).getX()) 
-						&&
-						(SokobanLevelDisplayer.level.getBoxes().get(i).getY()==SokobanLevelDisplayer.level.getBoxOnTareget().get(j).getY()))
-				{
-					counter ++;
-					j=SokobanLevelDisplayer.level.getBoxOnTareget().size();
+
+		/* check if finished the level */
+		int counter = 0;
+		for (int i = 0; i < SokobanLevelDisplayer.level.getBoxes().size(); i++) {
+			for (int j = 0; j < SokobanLevelDisplayer.level.getBoxOnTareget().size(); j++) {
+				if ((SokobanLevelDisplayer.level.getBoxes().get(i).getX() == SokobanLevelDisplayer.level
+						.getBoxOnTareget().get(j).getX())
+						&& (SokobanLevelDisplayer.level.getBoxes().get(i).getY() == SokobanLevelDisplayer.level
+						.getBoxOnTareget().get(j).getY())) {
+					counter++;
+					j = SokobanLevelDisplayer.level.getBoxOnTareget().size();
 				}
 			}
 		}
-		
-		if(counter==SokobanLevelDisplayer.level.getBoxes().size())
-		{
-		
+
+		if (counter == SokobanLevelDisplayer.level.getBoxes().size()) {
+
 			status.textProperty().set("Do you want save your scores?");
-			timerun=false;
+			timerun = false;
 			button1.setVisible(true);
 			button1.setFocusTraversable(true);
-						
+
 		}
-			
-}
-	
-	public void Restart()
-	{
+
+	}
+
+	public void Restart() {
 		List<String> params = new LinkedList<String>();
-		
+
 		if (chosen != null) {
-			timerun=true;
+			timerun = true;
 			countMin = 0;
 			countSec = 0;
 			stepCounter = 1;
@@ -332,13 +317,14 @@ public class MainWindowController extends Observable implements Initializable, V
 			levelname.setVisible(true);
 
 		}
-		
+
 	}
-	public void onChangeButtonAction() throws IOException{
-	
+
+	public void onChangeButtonAction() throws IOException {
+
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("PopUp.fxml"));
 		BorderPane root = (BorderPane) loader.load();
-		Scene scene = new Scene(root,360,300);
+		Scene scene = new Scene(root, 360, 300);
 		Stage newStage = new Stage();
 		newStage.setScene(scene);
 		newStage.setTitle("Sokoban - Aviv Eyal");
@@ -347,128 +333,100 @@ public class MainWindowController extends Observable implements Initializable, V
 		p.setStepsresult(finalsteps.get().toString());
 		p.settimeresult(finalTime.get().toString());
 		p.setlevelname(levelname.getText());
-		
-		//restart first page
+
+		// restart first page
 		Restart();
-		timerun=false;
+		timerun = false;
 		SokobanLevelDisplayer.setVisible(false);
 		timetext.setVisible(false);
 		steps.setVisible(false);
 		status.textProperty().set("Open a level from the menu and start play!");
 		levelname.setVisible(false);
 
-		}
-	
-	public void Top() throws IOException{
-		
-		ArrayList <String> list = new ArrayList<>();
-		SokobanDBManager DB= new SokobanDBManager();
-		if((levelname.isVisible()) && (!levelname.getText().equals("Level name")))
-		{
-			ArrayList<Scores>scores =  DB.showTopTen(levelname.getText());
-			list= DB.display(scores);
+	}
+
+	public void Top() throws IOException {
+
+		ArrayList<String> list = new ArrayList<>();
+		if ((levelname.isVisible()) && (!levelname.getText().equals("Level name"))) {
+			ArrayList<Scores> scores = DB.showTopTen(levelname.getText());
+			list = DB.display(scores);
 		}
 		topStage(list);
-		
+
 	}
-	
-	public ArrayList <String> TopTime(String levelname) throws IOException{
-		
-			
-		ArrayList <String> list = new ArrayList<>();
-		SokobanDBManager DB= new SokobanDBManager();
-		
-			
-			ArrayList<Scores>scores =  DB.showTopTen(levelname);
-			list= DB.display(scores);
-		
-			return list;
-	
+
+	public ArrayList<String> TopTime(String levelname) throws IOException {
+
+		ArrayList<String> list = new ArrayList<>();
+
+		ArrayList<Scores> scores = DB.showTopTen(levelname);
+		list = DB.display(scores);
+
+		return list;
+
 	}
-	
-	
-	public ArrayList <String> Topsteps(String levelname) throws IOException{
-		
-	
-		ArrayList <String> list = new ArrayList<>();
-		SokobanDBManager DB= new SokobanDBManager();
-		
-			ArrayList<Scores>scores =  DB.showTopTenSteps(levelname);
-			list= DB.display(scores);
-		
-			return list;
-	
+
+	public ArrayList<String> Topsteps(String levelname) throws IOException {
+
+		ArrayList<String> list = new ArrayList<>();
+
+		ArrayList<Scores> scores = DB.showTopTenSteps(levelname);
+		list = DB.display(scores);
+
+		return list;
+
 	}
-	
-	public ArrayList <String> TopTimeUser(String username) throws IOException{
-		
-		
-		ArrayList <String> list = new ArrayList<>();
-		SokobanDBManager DB= new SokobanDBManager();
-		
-			
-			ArrayList<Scores>scores =  DB.showTopTenUser(username);
-			list= DB.displayUser(scores);
-		
-			return list;
-	
+
+	public ArrayList<String> TopTimeUser(String username) throws IOException {
+
+		ArrayList<String> list = new ArrayList<>();
+
+		ArrayList<Scores> scores = DB.showTopTenUser(username);
+		list = DB.displayUser(scores);
+
+		return list;
+
 	}
-	
-	
-	public ArrayList <String> TopstepsUser(String username) throws IOException{
-		
-	
-		ArrayList <String> list = new ArrayList<>();
-		SokobanDBManager DB= new SokobanDBManager();
-		
-			ArrayList<Scores>scores =  DB.showTopTenUserSteps(username);
-			list= DB.displayUser(scores);
-		
-			return list;
-	
+
+	public ArrayList<String> TopstepsUser(String username) throws IOException {
+
+		ArrayList<String> list = new ArrayList<>();
+
+		ArrayList<Scores> scores = DB.showTopTenUserSteps(username);
+		list = DB.displayUser(scores);
+
+		return list;
+
 	}
-	public ArrayList <String> Toplex(String username) throws IOException{
-		
-		
-		ArrayList <String> list = new ArrayList<>();
-		SokobanDBManager DB= new SokobanDBManager();
-		
-			ArrayList<Scores>scores =  DB.showTopTenUserlex(username);
-			list= DB.displayUserlex(scores);
-			
-			return list;
-	
+
+	public ArrayList<String> Toplex(String username) throws IOException {
+
+		ArrayList<String> list = new ArrayList<>();
+
+		ArrayList<Scores> scores = DB.showTopTenUserlex(username);
+		list = DB.displayUserlex(scores);
+
+		return list;
+
 	}
-	
-	
-	
-	public void topStage(ArrayList <String> list) throws IOException{
-		
+
+	public void topStage(ArrayList<String> list) throws IOException {
+
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("Top.fxml"));
 		AnchorPane root = (AnchorPane) loader.load();
-		Scene scene = new Scene(root,460,370);
+		Scene scene = new Scene(root, 460, 370);
 		Stage newStage = new Stage();
 		newStage.setScene(scene);
 		newStage.setTitle("Sokoban - Aviv Eyal");
 		newStage.show();
-		
-		
+
 		TopController Top = (TopController) loader.getController();
 		Top.setList(list);
-		if((levelname.isVisible()) && (!levelname.getText().equals("Level name")))
-		{
-				
-				Top.setText(levelname.getText());
+		if ((levelname.isVisible()) && (!levelname.getText().equals("Level name"))) {
+
+			Top.setText(levelname.getText());
 		}
 	}
-		
-		
-		
-}
-		
-		
-			
-		
 
-	
-	
+}

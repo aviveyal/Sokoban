@@ -396,6 +396,7 @@ public class MainWindowController extends Observable implements Initializable, V
 		ArrayList<Scores> scores = DB.showTopTenUserSteps(username);
 		list = DB.displayUser(scores);
 
+		System.out.println(list.get(0).toString());
 		return list;
 
 	}

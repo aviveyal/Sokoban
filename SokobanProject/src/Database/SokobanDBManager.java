@@ -347,8 +347,7 @@ public class SokobanDBManager {
 				query1.setParameter(0, scores.get(i).getuserCodes());
 				username = query1.list().get(0).toString();
 
-				display.add(i, "\t" + username + "                    " + scores.get(i).getTime()
-						+ "                    " + scores.get(i).getSteps());
+				display.add(i,username + "," + scores.get(i).getTime()+ "," + scores.get(i).getSteps());
 			}
 			tx.commit();
 
@@ -495,9 +494,8 @@ public class SokobanDBManager {
 
 				levelname = query1.list().get(0).toString();
 
-				str = "\t" + levelname + "                    " + scores.get(i).getTime() + "                    "
-						+ scores.get(i).getSteps();
-				display.add(i, str);
+			
+				display.add(i,levelname + "," + scores.get(i).getTime()+ "," + scores.get(i).getSteps());
 
 			}
 
@@ -523,7 +521,7 @@ public class SokobanDBManager {
 		ArrayList<String> display = new ArrayList<>();
 		String levelname;
 
-		String str;
+		
 		try {
 			session = factory.openSession();
 			tx = session.beginTransaction();
@@ -535,9 +533,7 @@ public class SokobanDBManager {
 
 				levelname = query1.list().get(0).toString();
 
-				str = "\t" + levelname + "                    " + scores.get(i).getTime() + "                    "
-						+ scores.get(i).getSteps();
-				display.add(i, str);
+				display.add(i,levelname+ "," + scores.get(i).getTime()+ "," + scores.get(i).getSteps());
 
 			}
 

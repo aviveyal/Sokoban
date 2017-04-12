@@ -99,10 +99,7 @@ public class Main extends Application {
 			view.addObserver(controller);
 			
 			scene1 = new Scene(root, 600, 520);
-			
-			
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			
 			
 			primaryStage.setTitle("Sokoban - Aviv Eyal");
 			primaryStage.setScene(scene1);

@@ -3,24 +3,17 @@ package model.Data;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 
 public class MyObjectLevelLoader implements LevelLoader {
 
-	private ArrayList<Wall> wall = new ArrayList<Wall>();
-	private ArrayList<Box> box =new ArrayList<Box>();
-	private ArrayList<Target> target=new ArrayList<Target>();
-	private ArrayList<SokoChar> Soko=new ArrayList<SokoChar>();
-	private ArrayList<BoxOntarget> BOT = new ArrayList<BoxOntarget>();
 	
-	//creating new objects- just for use the symbol - not in the ArrayList!
-	private SokoChar startsoko = new SokoChar(0,0); 
-	private Wall startwall = new Wall(0,0); 
-	private Target starttarget = new Target(0,0);
-	private Box startbox = new Box(0,0);
-	private BoxOntarget startBOT = new  BoxOntarget(0, 0);
-	
+	private char startwall = Wall.wallsymbol;
+	private char startsoko = SokoChar.sokosymbol;
+	private char starttarget  = Target.targetsymbol;
+	private char startbox = Box.boxessymbol;
+	private char startBOT  = BoxOntarget.boxesontargetsymbol;
 
 		
 	
@@ -38,26 +31,26 @@ public class MyObjectLevelLoader implements LevelLoader {
 			{
 			
 			
-					if((char)read==startwall.getWallsymbol())
+					if((char)read==startwall)
 					{
-						wall.add(new Wall(x,y));
+						levelloader.getWalls().add(new Wall(x,y));
 					}
-					else if ((char)read==startbox.getBoxessymbol())
+					else if ((char)read==startbox)
 					{
-						box.add(new Box(x,y));
+						levelloader.getBoxes().add(new Box(x,y));
 					}
-					else if((char)read==starttarget.getTargetsymbol())
+					else if((char)read==starttarget)
 					{
-						target.add(new Target(x,y));
+						levelloader.getTargets().add(new Target(x,y));
 					}
 					
-					else if ((char)read==startsoko.getSokosymbol())
+					else if ((char)read==startsoko)
 					{
-						Soko.add(new SokoChar(x,y));
+						levelloader.getSokoCharas().add(new SokoChar(x,y));
 					}
-					else if ((char)read==startBOT.boxesontargetsymbol())
+					else if ((char)read==startBOT)
 					{
-						BOT.add(new BoxOntarget(x,y));
+						levelloader.getBoxOnTareget().add(new BoxOntarget(x,y));
 					}
 					
 					else if((char)read=='\n')
@@ -72,15 +65,7 @@ public class MyObjectLevelLoader implements LevelLoader {
 		
 			InputStream.close();
 			
-			
-			//set the object into the level
-			levelloader.setWalls(wall);
-			levelloader.setBoxes(box);
-			levelloader.setTargets(target);
-			levelloader.setSokoCharas(Soko);
-			levelloader.setBoxOnTareget(BOT);
-			
-			
+					
 			return levelloader;
 			
 	}

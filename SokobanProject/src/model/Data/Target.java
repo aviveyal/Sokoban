@@ -4,7 +4,7 @@ public class Target extends CommonObject{
 	
 	private int x;
 	private int y;
-	private final char targetsymbol = 'o';
+	public static final char targetsymbol = 'o';
 	
 	
 	public Target(int x,int y)

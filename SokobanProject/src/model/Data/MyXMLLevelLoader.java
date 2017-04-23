@@ -4,25 +4,20 @@ import java.beans.XMLDecoder;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
+
 
 
 
 
 public class MyXMLLevelLoader implements LevelLoader {
 	
-	private ArrayList<Wall> wall = new ArrayList<Wall>();
-	private ArrayList<Box> box =new ArrayList<Box>();
-	private ArrayList<Target> target=new ArrayList<Target>();
-	private ArrayList<SokoChar> Soko=new ArrayList<SokoChar>();
-	private ArrayList<BoxOntarget> BOT = new ArrayList<BoxOntarget>();
-	
-	//creating new objects- just for use the symbol - not in the ArrayList!
-	private SokoChar startsoko = new SokoChar(0,0); 
-	private Wall startwall = new Wall(0,0); 
-	private Target starttarget = new Target(0,0);
-	private Box startbox = new Box(0,0);
-	private BoxOntarget startBOT = new  BoxOntarget(0, 0);
+		
+
+	private char startwall = Wall.wallsymbol;
+	private char startsoko = SokoChar.sokosymbol;
+	private char starttarget  = Target.targetsymbol;
+	private char startbox = Box.boxessymbol;
+	private char startBOT  = BoxOntarget.boxesontargetsymbol;
 
 	
 	@SuppressWarnings("finally")
@@ -51,27 +46,27 @@ public class MyXMLLevelLoader implements LevelLoader {
 		while(true)
 		   {
 				
-					if(read.charAt(0)==startwall.getWallsymbol())
+					if(read.charAt(0)==startwall)
 					{
-						wall.add(new Wall(x,y));
+						levelloader.getWalls().add(new Wall(x,y));
 												
 					}
-					else if (read.charAt(0)==startbox.getBoxessymbol())
+					else if (read.charAt(0)==startbox)
 					{
-						box.add(new Box(x,y));
+						levelloader.getBoxes().add(new Box(x,y));
 											}
-					else if(read.charAt(0)==starttarget.getTargetsymbol())
+					else if(read.charAt(0)==starttarget)
 					{
-						target.add(new Target(x,y));
-											}
-					
-					else if (read.charAt(0)==startsoko.getSokosymbol())
-					{
-						Soko.add(new SokoChar(x,y));
+						levelloader.getTargets().add(new Target(x,y));
 					}
-					else if (read.charAt(0)==startBOT.boxesontargetsymbol())
+					
+					else if (read.charAt(0)==startsoko)
 					{
-						BOT.add(new BoxOntarget(x,y));
+						levelloader.getSokoCharas().add(new SokoChar(x,y));
+					}
+					else if (read.charAt(0)==startBOT)
+					{
+						levelloader.getBoxOnTareget().add(new BoxOntarget(x,y));
 					}
 					else if(read.equals("\r\n"))// condition for end of line ???
 					{
@@ -93,12 +88,6 @@ public class MyXMLLevelLoader implements LevelLoader {
 		
 		e.close();	
 		
-		//set the object into the level
-		levelloader.setWalls(wall);
-		levelloader.setBoxes(box);
-		levelloader.setTargets(target);
-		levelloader.setSokoCharas(Soko);
-		levelloader.setBoxOnTareget(BOT);
 		
 		
 		return levelloader;

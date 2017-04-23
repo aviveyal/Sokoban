@@ -4,7 +4,7 @@ public class Box extends CommonObject {
 	
 	private int x;
 	private int y;
-	private final char boxessymbol = '@';
+	public static final char boxessymbol = '@';
 	
 	
 
@@ -12,6 +12,7 @@ public class Box extends CommonObject {
 	{
 	 position(x,y);	
 	}
+	
 	@Override
 	public void position(int x, int y) {
 		this.x=x;

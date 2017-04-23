@@ -5,7 +5,7 @@ public class Wall extends CommonObject {
 	private int x;
 	private int y;
 	
-	public final char wallsymbol = '#';
+	public static final char wallsymbol = '#';
 	
 	public Wall(int x,int y)
 	{

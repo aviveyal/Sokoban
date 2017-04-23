@@ -4,7 +4,7 @@ public class BoxOntarget extends CommonObject {
 	
 	private int x;
 	private int y;
-	private final char boxesontargetsymbol = 'V';
+	public static final char boxesontargetsymbol = 'V';
 	
 	
 

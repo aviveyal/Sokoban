@@ -4,7 +4,7 @@ public class SokoChar extends CommonObject{
 	
 	private int x;
 	private int y;
-	private final char sokosymbol = 'A';
+	public static final char sokosymbol = 'A';
 	
 	public SokoChar(int x,int y)
 	{

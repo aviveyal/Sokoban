@@ -4,7 +4,7 @@ public class Clean extends CommonObject {
 	
 	private int x;
 	private int y;
-	private final char cleansymbol = ' ';
+	public static final char cleansymbol = ' ';
 	
 	
 

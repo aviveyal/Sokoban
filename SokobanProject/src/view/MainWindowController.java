@@ -96,8 +96,8 @@ public class MainWindowController extends Observable implements Initializable, V
 	@FXML
 	Text steps;
 
-	//Level level;
-	common commonlevel;
+	Level level;
+	//common commonlevel;
 	int stepCounter;
 	int countSec;
 	int countMin;
@@ -258,9 +258,9 @@ public class MainWindowController extends Observable implements Initializable, V
 	}
 
 	@Override
-	public void mDisplayCommand(common level) throws IOException {
+	public void mDisplayCommand(Level level) throws IOException {
 
-		SokobanLevelDisplayer.setLevelData(level.level.makestring(),level.level.maxrowsize(),level.level.maxcolumnsize()); // sends current level data
+		SokobanLevelDisplayer.setLevelData(level.makestring(),level.maxrowsize(),level.maxcolumnsize()); // sends current level data
 		SokobanLevelDisplayer.redraw();
 
 		checkfinish();
@@ -271,17 +271,17 @@ public class MainWindowController extends Observable implements Initializable, V
 
 		/* check if finished the level */
 		int counter = 0;
-		for (int i = 0; i < commonlevel.level.getBoxes().size(); i++) {
-			for (int j = 0; j < commonlevel.level.getBoxOnTareget().size(); j++) {
-				if ((commonlevel.level.getBoxes().get(i).getX() ==commonlevel.level.getBoxOnTareget().get(j).getX())
-						&& (commonlevel.level.getBoxes().get(i).getY() ==commonlevel.level.getBoxOnTareget().get(j).getY())) {
+		for (int i = 0; i < level.getBoxes().size(); i++) {
+			for (int j = 0; j < level.getBoxOnTareget().size(); j++) {
+				if ((level.getBoxes().get(i).getX() ==level.getBoxOnTareget().get(j).getX())
+						&& (level.getBoxes().get(i).getY() ==level.getBoxOnTareget().get(j).getY())) {
 					counter++;
-					j = commonlevel.level.getBoxOnTareget().size();
+					j = level.getBoxOnTareget().size();
 				}
 			}
 		}
 
-		if (counter ==commonlevel.level.getBoxes().size()) {
+		if (counter ==level.getBoxes().size()) {
 
 			status.textProperty().set("Do you want save your scores?");
 			timerun = false;

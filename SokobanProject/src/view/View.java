@@ -2,11 +2,12 @@ package view;
 
 import java.io.IOException;
 
-import controller.common.common;
+
+import model.Data.Level;
 
 public interface View {
 
-	public void mDisplayCommand(common level) throws IOException;
+	public void mDisplayCommand(Level level) throws IOException;
 
 
 	

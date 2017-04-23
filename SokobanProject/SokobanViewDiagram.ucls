@@ -21,7 +21,7 @@
   </interface>  
   <class id="3" language="java" name="view.CLI" project="SokobanProject" file="/SokobanProject/src/view/CLI.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="594" y="75"/>    
+    <position height="-1" width="-1" x="685" y="-18"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="view.SokobanLevelDisplayer" project="SokobanProject" 
     file="/SokobanProject/src/view/SokobanLevelDisplayer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="904" y="205"/>    
+    <position height="-1" width="-1" x="672" y="323"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,10 +48,10 @@
   <association id="7">    
     <end type="SOURCE" refId="1" navigable="false">      
       <attribute id="8" name="SokobanLevelDisplayer">        
-        <position height="0" width="0" x="36" y="2"/>      
+        <position height="0" width="0" x="-196" y="120"/>      
       </attribute>      
       <multiplicity id="9" minimum="0" maximum="1">        
-        <position height="0" width="0" x="36" y="2"/>      
+        <position height="0" width="0" x="-196" y="120"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    

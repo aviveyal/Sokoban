@@ -10,7 +10,12 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import model.Data.Box;
+import model.Data.BoxOntarget;
 import model.Data.Level;
+import model.Data.SokoChar;
+import model.Data.Target;
+import model.Data.Wall;
 import model.modelCommands.Display;
 import model.modelCommands.Load;
 
@@ -117,15 +122,15 @@ public class SokobanLevelDisplayer extends Canvas {
 			for (int i = 0; i <= maxcol; i++)
 				for (int j = 0; j <= maxrow; j++) {
 
-					if (LevelData[i][j].charAt(0) == '#')
+					if (LevelData[i][j].charAt(0) == Wall.wallsymbol)
 						gc.drawImage(wall, j * w, i * h, w, h);
-					else if (LevelData[i][j].charAt(0) == '@')
+					else if (LevelData[i][j].charAt(0) == Box.boxessymbol)
 						gc.drawImage(box, j * w, i * h, w, h);
-					else if (LevelData[i][j].charAt(0) == 'o')
+					else if (LevelData[i][j].charAt(0) == Target.targetsymbol)
 						gc.drawImage(target, j * w, i * h, w, h);
-					else if (LevelData[i][j].charAt(0) == 'A')
+					else if (LevelData[i][j].charAt(0) == SokoChar.sokosymbol)
 						gc.drawImage(CharacterSoko, j * w, i * h, w, h);
-					else if (LevelData[i][j].charAt(0) == 'V')
+					else if (LevelData[i][j].charAt(0) == BoxOntarget.boxesontargetsymbol)
 						gc.drawImage(boxontarget, j * w, i * h, w, h);
 					else if (LevelData[i][j].charAt(0) == ' ')
 						gc.setFill(null);

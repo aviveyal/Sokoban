@@ -1,4 +1,4 @@
-/*package common;
+package controller.common;
 
 import java.io.Serializable;
 
@@ -15,4 +15,3 @@ public class common implements Serializable{
 		return level.makestring();
 	}
 }
-*/

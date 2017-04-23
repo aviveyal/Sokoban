@@ -258,7 +258,7 @@ public class MainWindowController extends Observable implements Initializable, V
 	@Override
 	public void mDisplayCommand(Level level) throws IOException {
 
-		SokobanLevelDisplayer.setLevelData(level); // sends current level data
+		SokobanLevelDisplayer.setLevelData(level.makestring(),level.maxrowsize(),level.maxcolumnsize()); // sends current level data
 		SokobanLevelDisplayer.redraw();
 
 		checkfinish();

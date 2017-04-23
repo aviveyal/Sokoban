@@ -16,8 +16,10 @@ import model.modelCommands.Load;
 
 public class SokobanLevelDisplayer extends Canvas {
 
-	Level level;
+	
 	String[][] LevelData;
+	int maxrow;
+	int maxcol;
 
 	private StringProperty wallFilename;
 	private StringProperty charFilename;
@@ -25,10 +27,10 @@ public class SokobanLevelDisplayer extends Canvas {
 	private StringProperty targetFilename;
 	private StringProperty boxontargetFilename;
 
-	public void setLevelData(Level level) {
-		this.LevelData = level.makestring();
-		this.level = level; // for maxrow and maxcolumn functions
-
+	public void setLevelData(String[][] LevelData,int maxrow ,int maxcol) {
+		this.LevelData = LevelData;
+		this.maxrow = maxrow;
+		this.maxcol = maxcol;
 	}
 
 	public SokobanLevelDisplayer() {
@@ -40,13 +42,6 @@ public class SokobanLevelDisplayer extends Canvas {
 
 	}
 
-	public Level getLevel() {
-		return level;
-	}
-
-	public void setLevel(Level level) {
-		this.level = level;
-	}
 
 	public String getCharFilename() {
 		return charFilename.get();
@@ -94,8 +89,8 @@ public class SokobanLevelDisplayer extends Canvas {
 		if (LevelData != null) {
 			double W = getWidth();
 			double H = getHeight();
-			double w = W / level.maxcolumnsize();
-			double h = H / level.maxrowsize();
+			double w = W / maxcol;
+			double h = H / maxrow;
 
 			GraphicsContext gc = getGraphicsContext2D();
 			
@@ -119,8 +114,8 @@ public class SokobanLevelDisplayer extends Canvas {
 
 			gc.clearRect(0, 0, W, H);
 
-			for (int i = 0; i <= level.maxrowsize(); i++)
-				for (int j = 0; j <= level.maxcolumnsize(); j++) {
+			for (int i = 0; i <= maxcol; i++)
+				for (int j = 0; j <= maxrow; j++) {
 
 					if (LevelData[i][j].charAt(0) == '#')
 						gc.drawImage(wall, j * w, i * h, w, h);

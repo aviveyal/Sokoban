@@ -1,7 +1,6 @@
 package model.modelCommands;
 
 import model.Data.Level;
-import model.Data.MoveSoko;
 
 
 

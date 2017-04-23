@@ -1,5 +1,7 @@
-package model.Data;
+package model.modelCommands;
 
+import model.Data.BoxOntarget;
+import model.Data.Level;
 import model.policy.MySokobanPolicy;
 
 public class MoveSoko {

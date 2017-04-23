@@ -3,7 +3,6 @@ package model.modelCommands;
 
 
 import model.Data.Level;
-import model.Data.MoveSoko;
 
 public class MoveDown  extends Move{
 

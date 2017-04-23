@@ -1,7 +1,6 @@
 package model.modelCommands;
 
 import model.Data.Level;
-import view.LevelDisplaer;
 
 public class Display implements Command {
 

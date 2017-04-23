@@ -1,4 +1,4 @@
-package view;
+package model.modelCommands;
 
 import model.Data.Box;
 import model.Data.BoxOntarget;

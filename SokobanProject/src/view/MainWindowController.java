@@ -269,19 +269,17 @@ public class MainWindowController extends Observable implements Initializable, V
 
 		/* check if finished the level */
 		int counter = 0;
-		for (int i = 0; i < SokobanLevelDisplayer.level.getBoxes().size(); i++) {
-			for (int j = 0; j < SokobanLevelDisplayer.level.getBoxOnTareget().size(); j++) {
-				if ((SokobanLevelDisplayer.level.getBoxes().get(i).getX() == SokobanLevelDisplayer.level
-						.getBoxOnTareget().get(j).getX())
-						&& (SokobanLevelDisplayer.level.getBoxes().get(i).getY() == SokobanLevelDisplayer.level
-						.getBoxOnTareget().get(j).getY())) {
+		for (int i = 0; i < level.getBoxes().size(); i++) {
+			for (int j = 0; j < level.getBoxOnTareget().size(); j++) {
+				if ((level.getBoxes().get(i).getX() ==level.getBoxOnTareget().get(j).getX())
+						&& (level.getBoxes().get(i).getY() ==level.getBoxOnTareget().get(j).getY())) {
 					counter++;
-					j = SokobanLevelDisplayer.level.getBoxOnTareget().size();
+					j = level.getBoxOnTareget().size();
 				}
 			}
 		}
 
-		if (counter == SokobanLevelDisplayer.level.getBoxes().size()) {
+		if (counter ==level.getBoxes().size()) {
 
 			status.textProperty().set("Do you want save your scores?");
 			timerun = false;

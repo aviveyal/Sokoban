@@ -112,7 +112,7 @@
   </class>  
   <class id="13" language="java" name="controller.server.MyClientHandler" project="SokobanProject" 
     file="/SokobanProject/src/controller/server/MyClientHandler.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1733" y="1663"/>    
+    <position height="-1" width="-1" x="1751" y="1651"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -400,597 +400,580 @@
   </interface>  
   <class id="45" language="java" name="view.CLI" project="SokobanProject" file="/SokobanProject/src/view/CLI.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="116" width="244" x="1325" y="1040"/>    
+    <position height="-1" width="-1" x="1297" y="1428"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="46" language="java" name="view.LevelDisplaer" project="SokobanProject" 
-    file="/SokobanProject/src/view/LevelDisplaer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="116" width="169" x="1609" y="1040"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="47" language="java" name="view.MainWindowController" project="SokobanProject" 
+  <class id="46" language="java" name="view.MainWindowController" project="SokobanProject" 
     file="/SokobanProject/src/view/MainWindowController.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="856" width="298" x="856" y="1201"/>    
+    <position height="-1" width="-1" x="999" y="1412"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="48" language="java" name="view.SokobanLevelDisplayer" project="SokobanProject" 
+  <class id="47" language="java" name="view.SokobanLevelDisplayer" project="SokobanProject" 
     file="/SokobanProject/src/view/SokobanLevelDisplayer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="496" width="281" x="856" y="2097"/>    
+    <position height="-1" width="-1" x="990" y="2128"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="49">    
+  <generalization id="48">    
     <end type="SOURCE" refId="41"/>    
     <end type="TARGET" refId="22"/>  
   </generalization>  
-  <generalization id="50">    
+  <generalization id="49">    
     <end type="SOURCE" refId="21"/>    
     <end type="TARGET" refId="22"/>  
   </generalization>  
-  <association id="51">    
+  <association id="50">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="52" name="BOT"/>      
-      <multiplicity id="53" minimum="0" maximum="2147483647"/>    
+      <attribute id="51" name="BOT"/>      
+      <multiplicity id="52" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="28" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="54">    
+  <association id="53">    
     <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="55" name="level"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
+      <attribute id="54" name="level"/>      
+      <multiplicity id="55" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="57">    
+  <association id="56">    
     <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="58" name="Boxes"/>      
-      <multiplicity id="59" minimum="0" maximum="2147483647"/>    
+      <attribute id="57" name="Boxes"/>      
+      <multiplicity id="58" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="60">    
+  <association id="59">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="61" name="startsoko"/>      
-      <multiplicity id="62" minimum="0" maximum="1"/>    
+      <attribute id="60" name="startsoko"/>      
+      <multiplicity id="61" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="63">    
-    <end type="SOURCE" refId="46" navigable="false">      
-      <attribute id="64" name="Display"/>      
-      <multiplicity id="65" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="66">    
+  <association id="62">    
     <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="67" name="Targets"/>      
-      <multiplicity id="68" minimum="0" maximum="2147483647"/>    
+      <attribute id="63" name="Targets"/>      
+      <multiplicity id="64" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="43" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="69">    
+  <association id="65">    
     <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="70" name="BoxOnTareget"/>      
-      <multiplicity id="71" minimum="0" maximum="2147483647"/>    
+      <attribute id="66" name="BoxOnTareget"/>      
+      <multiplicity id="67" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="28" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="72">    
+  <association id="68">    
     <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="73" name="startsoko"/>      
-      <multiplicity id="74" minimum="0" maximum="1"/>    
+      <attribute id="69" name="startsoko"/>      
+      <multiplicity id="70" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="75">    
+  <generalization id="71">    
     <end type="SOURCE" refId="33"/>    
     <end type="TARGET" refId="22"/>  
   </generalization>  
-  <generalization id="76">    
+  <generalization id="72">    
     <end type="SOURCE" refId="20"/>    
     <end type="TARGET" refId="22"/>  
   </generalization>  
-  <association id="77">    
+  <association id="73">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="78" name="v"/>      
-      <multiplicity id="79" minimum="0" maximum="1"/>    
+      <attribute id="74" name="v"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="44" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="80">    
+  <association id="76">    
     <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="81" name="SokoCharas"/>      
-      <multiplicity id="82" minimum="0" maximum="2147483647"/>    
+      <attribute id="77" name="SokoCharas"/>      
+      <multiplicity id="78" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="83">    
+  <association id="79">    
     <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="84" name="startsoko"/>      
-      <multiplicity id="85" minimum="0" maximum="1"/>    
+      <attribute id="80" name="startsoko"/>      
+      <multiplicity id="81" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="86">    
+  <association id="82">    
     <end type="SOURCE" refId="35" navigable="false">      
-      <attribute id="87" name="playlevel"/>      
-      <multiplicity id="88" minimum="0" maximum="1"/>    
+      <attribute id="83" name="playlevel"/>      
+      <multiplicity id="84" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="89">    
+  <association id="85">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="90" name="startBOT"/>      
-      <multiplicity id="91" minimum="0" maximum="1"/>    
+      <attribute id="86" name="startBOT"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="28" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="92">    
+  <association id="88">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="93" name="wall"/>      
-      <multiplicity id="94" minimum="0" maximum="2147483647"/>    
+      <attribute id="89" name="wall"/>      
+      <multiplicity id="90" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="30" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="95">    
+  <association id="91">    
     <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="96" name="box"/>      
-      <multiplicity id="97" minimum="0" maximum="2147483647"/>    
+      <attribute id="92" name="box"/>      
+      <multiplicity id="93" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="98">    
+  <realization id="94">    
     <end type="SOURCE" refId="22"/>    
     <end type="TARGET" refId="40"/>  
   </realization>  
-  <association id="99">    
-    <end type="SOURCE" refId="47" navigable="false">      
-      <attribute id="100" name="level"/>      
-      <multiplicity id="101" minimum="0" maximum="1"/>    
+  <association id="95">    
+    <end type="SOURCE" refId="46" navigable="false">      
+      <attribute id="96" name="level"/>      
+      <multiplicity id="97" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="102">    
+  <association id="98">    
     <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="103" name="box"/>      
-      <multiplicity id="104" minimum="0" maximum="2147483647"/>    
+      <attribute id="99" name="box"/>      
+      <multiplicity id="100" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="105">    
+  <association id="101">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="106" name="target"/>      
-      <multiplicity id="107" minimum="0" maximum="2147483647"/>    
+      <attribute id="102" name="target"/>      
+      <multiplicity id="103" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="43" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="108">    
+  <generalization id="104">    
     <end type="SOURCE" refId="30"/>    
     <end type="TARGET" refId="18"/>  
   </generalization>  
-  <association id="109">    
+  <association id="105">    
     <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="110" name="DisplayLevel"/>      
-      <multiplicity id="111" minimum="0" maximum="1"/>    
+      <attribute id="106" name="DisplayLevel"/>      
+      <multiplicity id="107" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="112">    
+  <association id="108">    
     <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="113" name="wall"/>      
-      <multiplicity id="114" minimum="0" maximum="2147483647"/>    
+      <attribute id="109" name="wall"/>      
+      <multiplicity id="110" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="30" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="115">    
+  <association id="111">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="116" name="controller"/>      
-      <multiplicity id="117" minimum="0" maximum="1"/>    
+      <attribute id="112" name="controller"/>      
+      <multiplicity id="113" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="118">    
+  <realization id="114">    
     <end type="SOURCE" refId="31"/>    
     <end type="TARGET" refId="32"/>  
   </realization>  
-  <generalization id="119">    
+  <generalization id="115">    
     <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="18"/>  
   </generalization>  
-  <association id="120">    
+  <association id="116">    
     <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="121" name="BOT"/>      
-      <multiplicity id="122" minimum="0" maximum="2147483647"/>    
+      <attribute id="117" name="BOT"/>      
+      <multiplicity id="118" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="28" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="123">    
+  <association id="119">    
     <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="124" name="startbox"/>      
-      <multiplicity id="125" minimum="0" maximum="1"/>    
+      <attribute id="120" name="startbox"/>      
+      <multiplicity id="121" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="126">    
+  <association id="122">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="127" name="Soko"/>      
-      <multiplicity id="128" minimum="0" maximum="2147483647"/>    
+      <attribute id="123" name="Soko"/>      
+      <multiplicity id="124" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="129">    
+  <association id="125">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="130" name="starttarget"/>      
-      <multiplicity id="131" minimum="0" maximum="1"/>    
+      <attribute id="126" name="starttarget"/>      
+      <multiplicity id="127" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="43" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="132">    
+  <association id="128">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="133" name="model"/>      
-      <multiplicity id="134" minimum="0" maximum="1"/>    
+      <attribute id="129" name="model"/>      
+      <multiplicity id="130" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="24" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="135">    
+  <realization id="131">    
     <end type="SOURCE" refId="25"/>    
     <end type="TARGET" refId="24"/>  
   </realization>  
-  <association id="136">    
+  <association id="132">    
     <end type="SOURCE" refId="42" navigable="false">      
-      <attribute id="137" name="levelPolicy"/>      
-      <multiplicity id="138" minimum="0" maximum="1"/>    
+      <attribute id="133" name="levelPolicy"/>      
+      <multiplicity id="134" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="139">    
+  <association id="135">    
     <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="140" name="target"/>      
-      <multiplicity id="141" minimum="0" maximum="2147483647"/>    
+      <attribute id="136" name="target"/>      
+      <multiplicity id="137" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="43" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="142">    
+  <association id="138">    
     <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="143" name="queue"/>      
-      <multiplicity id="144" minimum="0" maximum="2147483647"/>    
+      <attribute id="139" name="queue"/>      
+      <multiplicity id="140" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="145">    
+  <association id="141">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="146" name="view"/>      
-      <multiplicity id="147" minimum="0" maximum="1"/>    
+      <attribute id="142" name="view"/>      
+      <multiplicity id="143" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="44" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="148">    
+  <realization id="144">    
     <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="2"/>  
   </realization>  
-  <generalization id="149">    
+  <generalization id="145">    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
+  <association id="146">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="147" name="wall"/>      
+      <multiplicity id="148" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="149">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="40"/>  
+  </realization>  
   <association id="150">    
     <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="151" name="wall"/>      
-      <multiplicity id="152" minimum="0" maximum="2147483647"/>    
+      <attribute id="151" name="startwall"/>      
+      <multiplicity id="152" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="30" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <realization id="153">    
-    <end type="SOURCE" refId="36"/>    
-    <end type="TARGET" refId="40"/>  
-  </realization>  
-  <association id="154">    
-    <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="155" name="startwall"/>      
-      <multiplicity id="156" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="30" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="157">    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="40"/>  
   </realization>  
-  <association id="158">    
+  <association id="154">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="159" name="ch"/>      
-      <multiplicity id="160" minimum="0" maximum="1"/>    
+      <attribute id="155" name="ch"/>      
+      <multiplicity id="156" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="161">    
+  <realization id="157">    
     <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="40"/>  
   </realization>  
-  <association id="162">    
+  <association id="158">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="163" name="server"/>      
-      <multiplicity id="164" minimum="0" maximum="1"/>    
+      <attribute id="159" name="server"/>      
+      <multiplicity id="160" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="165">    
+  <generalization id="161">    
     <end type="SOURCE" refId="43"/>    
     <end type="TARGET" refId="18"/>  
   </generalization>  
-  <association id="166">    
+  <association id="162">    
     <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="167" name="startBOT"/>      
-      <multiplicity id="168" minimum="0" maximum="1"/>    
+      <attribute id="163" name="startBOT"/>      
+      <multiplicity id="164" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="28" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="169">    
+  <association id="165">    
     <bendpoint x="2570" y="1551"/>    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="170" name="commands"/>      
-      <multiplicity id="171" minimum="0" maximum="2147483647"/>    
+      <attribute id="166" name="commands"/>      
+      <multiplicity id="167" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="172">    
+  <association id="168">    
     <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="173" name="Soko"/>      
-      <multiplicity id="174" minimum="0" maximum="2147483647"/>    
+      <attribute id="169" name="Soko"/>      
+      <multiplicity id="170" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="175">    
+  <generalization id="171">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <realization id="176">    
+  <realization id="172">    
     <end type="SOURCE" refId="38"/>    
     <end type="TARGET" refId="19"/>  
   </realization>  
-  <association id="177">    
+  <association id="173">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="178" name="box"/>      
-      <multiplicity id="179" minimum="0" maximum="2147483647"/>    
+      <attribute id="174" name="box"/>      
+      <multiplicity id="175" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="180">    
+  <generalization id="176">    
     <end type="SOURCE" refId="23"/>    
     <end type="TARGET" refId="18"/>  
   </generalization>  
-  <association id="181">    
+  <association id="177">    
     <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="182" name="playlevel"/>      
-      <multiplicity id="183" minimum="0" maximum="1"/>    
+      <attribute id="178" name="playlevel"/>      
+      <multiplicity id="179" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="184">    
+  <association id="180">    
     <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="185" name="startbox"/>      
-      <multiplicity id="186" minimum="0" maximum="1"/>    
+      <attribute id="181" name="startbox"/>      
+      <multiplicity id="182" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="187">    
+  <association id="183">    
     <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="188" name="target"/>      
-      <multiplicity id="189" minimum="0" maximum="2147483647"/>    
+      <attribute id="184" name="target"/>      
+      <multiplicity id="185" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="43" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="190">    
+  <realization id="186">    
     <end type="SOURCE" refId="27"/>    
     <end type="TARGET" refId="19"/>  
   </realization>  
-  <generalization id="191">    
+  <generalization id="187">    
     <end type="SOURCE" refId="28"/>    
     <end type="TARGET" refId="18"/>  
   </generalization>  
-  <association id="192">    
-    <end type="SOURCE" refId="47" navigable="false">      
-      <attribute id="193" name="SokobanLevelDisplayer"/>      
-      <multiplicity id="194" minimum="0" maximum="1"/>    
+  <association id="188">    
+    <end type="SOURCE" refId="46" navigable="false">      
+      <attribute id="189" name="SokobanLevelDisplayer"/>      
+      <multiplicity id="190" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="48" navigable="true"/>    
+    <end type="TARGET" refId="47" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="195">    
+  <realization id="191">    
     <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="5"/>  
   </realization>  
-  <realization id="196">    
+  <realization id="192">    
     <end type="SOURCE" refId="45"/>    
     <end type="TARGET" refId="44"/>  
   </realization>  
-  <realization id="197">    
+  <realization id="193">    
     <end type="SOURCE" refId="39"/>    
     <end type="TARGET" refId="32"/>  
   </realization>  
-  <realization id="198">    
-    <end type="SOURCE" refId="47"/>    
+  <realization id="194">    
+    <end type="SOURCE" refId="46"/>    
     <end type="TARGET" refId="44"/>  
   </realization>  
-  <generalization id="199">    
+  <generalization id="195">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <association id="200">    
+  <association id="196">    
     <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="201" name="starttarget"/>      
-      <multiplicity id="202" minimum="0" maximum="1"/>    
+      <attribute id="197" name="starttarget"/>      
+      <multiplicity id="198" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="43" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="203">    
+  <realization id="199">    
     <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="40"/>  
   </realization>  
-  <realization id="204">    
+  <realization id="200">    
     <end type="SOURCE" refId="37"/>    
     <end type="TARGET" refId="19"/>  
   </realization>  
-  <association id="205">    
+  <association id="201">    
     <end type="SOURCE" refId="36" navigable="false">      
-      <attribute id="206" name="level"/>      
-      <multiplicity id="207" minimum="0" maximum="1"/>    
+      <attribute id="202" name="level"/>      
+      <multiplicity id="203" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="208">    
+  <association id="204">    
     <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="209" name="startwall"/>      
-      <multiplicity id="210" minimum="0" maximum="1"/>    
+      <attribute id="205" name="startwall"/>      
+      <multiplicity id="206" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="30" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="211">    
+  <realization id="207">    
     <end type="SOURCE" refId="34"/>    
     <end type="TARGET" refId="32"/>  
   </realization>  
-  <association id="212">    
+  <association id="208">    
     <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="213" name="starttarget"/>      
-      <multiplicity id="214" minimum="0" maximum="1"/>    
+      <attribute id="209" name="starttarget"/>      
+      <multiplicity id="210" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="43" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="215">    
+  <association id="211">    
     <end type="SOURCE" refId="34" navigable="false">      
-      <attribute id="216" name="startBOT"/>      
-      <multiplicity id="217" minimum="0" maximum="1"/>    
+      <attribute id="212" name="startBOT"/>      
+      <multiplicity id="213" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="28" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="218">    
+  <association id="214">    
     <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="219" name="BOT"/>      
-      <multiplicity id="220" minimum="0" maximum="2147483647"/>    
+      <attribute id="215" name="BOT"/>      
+      <multiplicity id="216" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="28" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="221">    
+  <association id="217">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="222" name="startbox"/>      
-      <multiplicity id="223" minimum="0" maximum="1"/>    
+      <attribute id="218" name="startbox"/>      
+      <multiplicity id="219" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="224">    
+  <generalization id="220">    
     <end type="SOURCE" refId="29"/>    
     <end type="TARGET" refId="18"/>  
   </generalization>  
-  <association id="225">    
+  <association id="221">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="226" name="m"/>      
-      <multiplicity id="227" minimum="0" maximum="1"/>    
+      <attribute id="222" name="m"/>      
+      <multiplicity id="223" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="24" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="228">    
+  <association id="224">    
     <end type="SOURCE" refId="39" navigable="false">      
-      <attribute id="229" name="Soko"/>      
-      <multiplicity id="230" minimum="0" maximum="2147483647"/>    
+      <attribute id="225" name="Soko"/>      
+      <multiplicity id="226" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="23" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="231">    
+  <association id="227">    
     <end type="SOURCE" refId="26" navigable="false">      
-      <attribute id="232" name="Walls"/>      
-      <multiplicity id="233" minimum="0" maximum="2147483647"/>    
+      <attribute id="228" name="Walls"/>      
+      <multiplicity id="229" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="30" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="234">    
+  <association id="230">    
     <end type="SOURCE" refId="31" navigable="false">      
-      <attribute id="235" name="startwall"/>      
-      <multiplicity id="236" minimum="0" maximum="1"/>    
+      <attribute id="231" name="startwall"/>      
+      <multiplicity id="232" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="30" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="237">    
+  <generalization id="233">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <generalization id="238">    
+  <generalization id="234">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <realization id="239">    
+  <realization id="235">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="11"/>  
   </realization>  
-  <association id="240">    
+  <association id="236">    
     <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="241" name="level"/>      
-      <multiplicity id="242" minimum="0" maximum="1"/>    
+      <attribute id="237" name="level"/>      
+      <multiplicity id="238" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="26" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  

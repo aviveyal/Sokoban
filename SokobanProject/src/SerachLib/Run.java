@@ -19,8 +19,8 @@ public class Run {
 			System.out.println(s);
 		}*/
 		
-		BFS<EightPuzzleState> bfs = new BFS<>();
-		Solution sol = bfs.search(adapter);
+		DFS<EightPuzzleState> dfs = new DFS<>();
+		Solution sol = dfs.search(adapter);
 		System.out.println(sol);
 		
 

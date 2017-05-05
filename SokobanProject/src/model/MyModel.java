@@ -19,9 +19,7 @@ import model.modelCommands.Save;
 
 public class MyModel extends Observable implements Model {
 
-	
 	private Level level;
-	
 	
 	@Override
 	public Level getCurrentLevel() {
@@ -62,13 +60,13 @@ public class MyModel extends Observable implements Model {
 	@Override
 	public void mLoadCommand(String filepath) throws IOException {
 		
-		
 			Load L = new Load(filepath);
-			this.SetLevel(L.execute());
-			this.setChanged();
+			SetLevel(L.execute());
+			setChanged();
 			List<String> params=new LinkedList<String>();
 			params.add("display");
-			this.notifyObservers(params);
+			notifyObservers(params);
+			
 		
 	}
 

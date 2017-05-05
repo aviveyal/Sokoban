@@ -103,8 +103,9 @@ public class Main extends Application {
 			
 			primaryStage.setTitle("Sokoban - Aviv Eyal");
 			primaryStage.setScene(scene1);
+			
 			primaryStage.show();
-
+			
 			// close window
 			primaryStage.setOnCloseRequest(e -> {
 

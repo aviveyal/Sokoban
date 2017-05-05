@@ -90,8 +90,9 @@ public class SokobanLevelDisplayer extends Canvas {
 	}
 
 	public void redraw() {
-
-		if (LevelData != null) {
+		
+	if (LevelData != null) {
+		
 			double W = getWidth();
 			double H = getHeight();
 			double w = W / maxcol;
@@ -116,11 +117,12 @@ public class SokobanLevelDisplayer extends Canvas {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-
+			gc.beginPath();
 			gc.clearRect(0, 0, W, H);
+			
 
-			for (int i = 0; i <= maxcol; i++)
-				for (int j = 0; j <= maxrow; j++) {
+			for (int i = 0; i < maxrow; i++)
+				for (int j = 0; j < maxcol; j++) {
 
 					if (LevelData[i][j].charAt(0) == Wall.wallsymbol)
 						gc.drawImage(wall, j * w, i * h, w, h);
@@ -134,8 +136,10 @@ public class SokobanLevelDisplayer extends Canvas {
 						gc.drawImage(boxontarget, j * w, i * h, w, h);
 					else if (LevelData[i][j].charAt(0) == ' ')
 						gc.setFill(null);
-
+					
+					
 				}
+			
 
 		}
 	}

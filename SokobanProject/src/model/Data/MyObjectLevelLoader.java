@@ -20,7 +20,7 @@ public class MyObjectLevelLoader implements LevelLoader {
 	@Override
 	public Level loadlevel(FileInputStream InputStream) throws IOException 
 	{
-		
+		Level levelloader= new Level();		
 		BufferedInputStream readinput = new BufferedInputStream(InputStream);
 		
 		int x = 0 ;

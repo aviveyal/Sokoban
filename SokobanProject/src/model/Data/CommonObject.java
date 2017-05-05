@@ -6,6 +6,7 @@ public abstract class CommonObject {
 	public int x ;
 	public int y ;
 	
+	
 	public void position(int x,int y)
 	{
 		this.x=x;
@@ -28,7 +29,5 @@ public abstract class CommonObject {
 		this.y = y;
 	}
 	
-	
-	
-	
+		
 }

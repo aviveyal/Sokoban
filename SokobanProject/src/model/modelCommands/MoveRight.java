@@ -6,6 +6,7 @@ import model.Data.Level;
 
 public class MoveRight  extends Move{
 
+	MoveSoko Moving;
 	public MoveRight(Level playlevel) {
 		super(playlevel);
 	}
@@ -13,7 +14,7 @@ public class MoveRight  extends Move{
 	@Override
 	public Level execute() {
 		
-		MoveSoko Moving= new MoveSoko(playlevel);
+		Moving= new MoveSoko(playlevel);
 		Moving.MovePlayer(playlevel,'d');
 		
 		return playlevel;

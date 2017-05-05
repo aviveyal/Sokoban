@@ -6,7 +6,6 @@ import java.io.IOException;
 
 
 
-
 public class MyTextLevelLoader implements LevelLoader {
 
 	private char startwall = Wall.wallsymbol;
@@ -20,9 +19,9 @@ public class MyTextLevelLoader implements LevelLoader {
 	@Override
 	public Level loadlevel(FileInputStream InputStream) throws IOException 
 	{
-		BufferedInputStream readinput = new BufferedInputStream(InputStream);
+	BufferedInputStream readinput = new BufferedInputStream(InputStream);
 		
-			
+		Level levelloader= new Level();		
 		
 		int x = 0 ;
 		int y = 0 ;
@@ -30,7 +29,6 @@ public class MyTextLevelLoader implements LevelLoader {
 		
 		while((read =readinput.read()) != -1)
 			{
-			
 					if((char)read==startwall)
 					{
 						levelloader.getWalls().add(new Wall(x,y));
@@ -68,6 +66,7 @@ public class MyTextLevelLoader implements LevelLoader {
 			
 						
 			return levelloader;
+			
 			
 	}
 	

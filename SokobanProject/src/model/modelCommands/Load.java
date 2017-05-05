@@ -41,14 +41,15 @@ public class Load implements Command {
 		if (file.exists())//check if file exists - if not, close the program 
 		{
 			 FileInputStream In = new FileInputStream(file);
-			 LevelLOAD.loadlevel(In);
-			 return LevelLoader.levelloader;	
+			 return LevelLOAD.loadlevel(In);
+			 // LevelLoader.levelloader;	
 		}
 		else
 		{
 			System.out.println("file not exists!Please try again");
 			System.exit(1);
-			return LevelLoader.levelloader;
+			 return null;
+			
 			
 	    }	 
 		    		

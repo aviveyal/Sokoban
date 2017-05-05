@@ -85,7 +85,7 @@ public class MainWindowController extends Observable implements Initializable, V
 	}
 
 	@FXML
-	SokobanLevelDisplayer SokobanLevelDisplayer;
+	SokobanLevelDisplayer SokobanLevelDisplayer ;
 
 	@FXML
 	Text status;
@@ -260,14 +260,15 @@ public class MainWindowController extends Observable implements Initializable, V
 	@Override
 	public void mDisplayCommand(Level level) throws IOException {
 
+	
 		SokobanLevelDisplayer.setLevelData(level.makestring(),level.maxrowsize(),level.maxcolumnsize()); // sends current level data
 		SokobanLevelDisplayer.redraw();
 
-		checkfinish();
+		checkfinish(level);
 
 	}
 
-	public void checkfinish() throws IOException {
+	public void checkfinish(Level level) throws IOException {
 
 		/* check if finished the level */
 		int counter = 0;
@@ -292,7 +293,7 @@ public class MainWindowController extends Observable implements Initializable, V
 
 	}
 
-	public void Restart() {
+	public void Restart() throws IOException {
 		List<String> params = new LinkedList<String>();
 
 		if (chosen != null) {
@@ -311,7 +312,7 @@ public class MainWindowController extends Observable implements Initializable, V
 			setChanged();
 			notifyObservers(params);
 			button1.setVisible(false);
-			SokobanLevelDisplayer.setVisible(true);
+			//SokobanLevelDisplayer.setVisible(true);
 			timetext.setVisible(true);
 			steps.setVisible(true);
 			levelname.setVisible(true);

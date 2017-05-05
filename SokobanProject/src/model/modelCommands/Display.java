@@ -5,6 +5,7 @@ import model.Data.Level;
 public class Display implements Command {
 
 	private Level DisplayLevel;
+	LevelDisplaer leveltoDisplay;
 	
 	public Display(Level DisplayLevel){
 		
@@ -14,7 +15,7 @@ public class Display implements Command {
 	
 	@Override
 	public Level execute() {
-		LevelDisplaer leveltoDisplay = new LevelDisplaer(DisplayLevel);
+		leveltoDisplay = new LevelDisplaer(DisplayLevel);
 		leveltoDisplay.displaylevel();
 		
 		return DisplayLevel;

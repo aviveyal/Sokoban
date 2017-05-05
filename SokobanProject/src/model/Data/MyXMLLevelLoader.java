@@ -24,7 +24,7 @@ public class MyXMLLevelLoader implements LevelLoader {
 	@Override
 	public Level loadlevel(FileInputStream InputStream) throws IOException 
 	{
-			
+		Level levelloader= new Level();		
 		int x = 0 ;
 		int y = 0 ;
 		

@@ -111,7 +111,7 @@ public class Level implements Serializable {
 
 	}
 
-	public String[][] makestring() {
+	public char[][] makestring() {
 		int wallsnumber = 0;
 		int targetsnumber = 0;
 		int boxesnumber = 0;
@@ -133,7 +133,7 @@ public class Level implements Serializable {
 		boolean printedBOT = false;
 		boolean printedbox = false;
 
-		String[][] Level = new String[maxrowsize + 1][maxcolumnsize + 1];
+		char[][] Level = new char[maxrowsize + 1][maxcolumnsize + 1];
 
 		for (int x = 0; x <= maxrowsize; x++) {
 			for (int y = 0; y <= maxcolumnsize; y++) {
@@ -163,7 +163,7 @@ public class Level implements Serializable {
 						{
 							if ((this.getBoxOnTareget().get(s).getX() == x)
 									&& (this.getBoxOnTareget().get(s).getY() == y)) {
-								Level[x][y]=Character.toString(BoxOntarget.boxesontargetsymbol);
+								Level[x][y]=BoxOntarget.boxesontargetsymbol;
 								printedBOT = true;
 								s = this.getBoxOnTareget().size();
 
@@ -175,7 +175,7 @@ public class Level implements Serializable {
 						}
 
 						if (!printedBOT) {
-							Level[x][y]=Character.toString(Box.boxessymbol);
+							Level[x][y]=Box.boxessymbol;
 							printedbox = true;
 						}
 
@@ -184,7 +184,7 @@ public class Level implements Serializable {
 				}
 
 				if (firstwall.getX() == x && firstwall.getY() == y) {
-					Level[x][y]=Character.toString(Wall.wallsymbol);
+					Level[x][y]=Wall.wallsymbol;
 					wallsnumber++;
 					if (wallsnumber < this.getWalls().size())
 						firstwall = this.getWalls().get(wallsnumber);
@@ -196,7 +196,7 @@ public class Level implements Serializable {
 
 					{
 						if (firstsoko.getX() == x && firstsoko.getY() == y) {
-							Level[x][y]=Character.toString(SokoChar.sokosymbol);
+							Level[x][y]=SokoChar.sokosymbol;
 							targetsnumber++;
 							if (targetsnumber < this.getTargets().size())
 								firsttarget = this.getTargets().get(targetsnumber);
@@ -205,7 +205,7 @@ public class Level implements Serializable {
 						else
 
 						{
-							Level[x][y]=Character.toString(Target.targetsymbol);
+							Level[x][y]=Target.targetsymbol;
 							targetsnumber++;
 							if (targetsnumber < this.getTargets().size())
 								firsttarget = this.getTargets().get(targetsnumber);
@@ -216,12 +216,12 @@ public class Level implements Serializable {
 				}
 
 				else if (firstsoko.getX() == x && firstsoko.getY() == y) {
-					Level[x][y]=Character.toString(SokoChar.sokosymbol);
+					Level[x][y]=SokoChar.sokosymbol;
 					sokonumber++;
 					if (sokonumber < this.getSokoCharas().size())
 						firstsoko = this.getSokoCharas().get(sokonumber);
 				} else if (!printedBOT && !printedbox) {
-					Level[x][y]=" ";
+					Level[x][y]=' ';
 				}
 
 

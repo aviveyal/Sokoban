@@ -13,7 +13,7 @@ import model.Data.MyXMLLevelLoader;
 
 
 public class Load implements Command {
-
+	
 	private String filename;
 	
 	public Load(String filename){

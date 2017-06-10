@@ -22,7 +22,7 @@ import model.modelCommands.Load;
 public class SokobanLevelDisplayer extends Canvas {
 
 	
-	String[][] LevelData;
+	char[][] LevelData;
 	int maxrow;
 	int maxcol;
 
@@ -32,7 +32,7 @@ public class SokobanLevelDisplayer extends Canvas {
 	private StringProperty targetFilename;
 	private StringProperty boxontargetFilename;
 
-	public void setLevelData(String[][] LevelData,int maxrow ,int maxcol) {
+	public void setLevelData(char[][] LevelData,int maxrow ,int maxcol) {
 		this.LevelData = LevelData;
 		this.maxrow = maxrow;
 		this.maxcol = maxcol;
@@ -124,17 +124,17 @@ public class SokobanLevelDisplayer extends Canvas {
 			for (int i = 0; i < maxrow; i++)
 				for (int j = 0; j < maxcol; j++) {
 
-					if (LevelData[i][j].charAt(0) == Wall.wallsymbol)
+					if (LevelData[i][j] == Wall.wallsymbol)
 						gc.drawImage(wall, j * w, i * h, w, h);
-					else if (LevelData[i][j].charAt(0) == Box.boxessymbol)
+					else if (LevelData[i][j] == Box.boxessymbol)
 						gc.drawImage(box, j * w, i * h, w, h);
-					else if (LevelData[i][j].charAt(0) == Target.targetsymbol)
+					else if (LevelData[i][j] == Target.targetsymbol)
 						gc.drawImage(target, j * w, i * h, w, h);
-					else if (LevelData[i][j].charAt(0) == SokoChar.sokosymbol)
+					else if (LevelData[i][j] == SokoChar.sokosymbol)
 						gc.drawImage(CharacterSoko, j * w, i * h, w, h);
-					else if (LevelData[i][j].charAt(0) == BoxOntarget.boxesontargetsymbol)
+					else if (LevelData[i][j] == BoxOntarget.boxesontargetsymbol)
 						gc.drawImage(boxontarget, j * w, i * h, w, h);
-					else if (LevelData[i][j].charAt(0) == ' ')
+					else if (LevelData[i][j] == ' ')
 						gc.setFill(null);
 					
 					

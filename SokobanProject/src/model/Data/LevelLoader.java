@@ -21,5 +21,5 @@ codes ( each subclass load different type of file)
 public interface LevelLoader {
 	
 	public Level loadlevel(FileInputStream inputStream) throws IOException;
-//	public Level levelloader = new Level();
+	//public Level levelloader = new Level();
 }

@@ -1,8 +1,6 @@
-package SerachLib;
-
+package Solver.SearchLib;
 
 public class State<T> {
-
 	private T state;
 	private State<T> cameFrom;
 	private Action action;
@@ -48,8 +46,9 @@ public class State<T> {
 		
 	@Override
 	public boolean equals(Object o) {
+
 		State<T> s = (State<T>)o;
-		return state.equals(s.state);
+		return this.state.equals(s.getState());
 	}
 
 	public Action getAction() {

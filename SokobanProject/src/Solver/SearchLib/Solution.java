@@ -1,4 +1,4 @@
-package SerachLib;
+package Solver.SearchLib;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,10 +17,9 @@ public class Solution {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		
-		for (Action a : actions) {
-			sb.append(a.getName()).append("\n");
-		}
-		
+		for (Action a : actions) 
+			sb.append(a.toString()).append("\n");
+					
 		return sb.toString();
 	}
 }

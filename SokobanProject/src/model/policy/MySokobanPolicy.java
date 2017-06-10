@@ -27,7 +27,7 @@ public class MySokobanPolicy {
 		{
 			int y =levelPolicy.getSokoCharas().get(0).getY();
 			int x=levelPolicy.getSokoCharas().get(0).getX();
-			String [][]levelstr=levelPolicy.makestring();
+			char [][]levelstr=levelPolicy.makestring();
 			
 			if((char)direction =='w')
 			{
@@ -36,7 +36,7 @@ public class MySokobanPolicy {
 					if ((levelPolicy.getBoxes().get(i).getX()== x-1)&& 
 							(levelPolicy.getBoxes().get(i).getY()==y)) //if there is a box on way
 					{
-						if(levelstr[x-2][y].equals(" ")) //can move both
+						if(levelstr[x-2][y]==' ') //can move both
 							return true;
 						else
 							return false;
@@ -50,7 +50,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxes().get(i).getX()== x+1)&& 
 								(levelPolicy.getBoxes().get(i).getY()==y)) //if there is a box on way
 						{
-							if(levelstr[x+2][y].equals(" ")) //can move both
+							if(levelstr[x+2][y]==' ') //can move both
 								return true;
 							else
 								return false;
@@ -64,7 +64,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxes().get(i).getX()==x)&& 
 								(levelPolicy.getBoxes().get(i).getY()==y-1)) //if there is a box on way
 						{
-							if(levelstr[x][y-2].equals(" ")) //can move both
+							if(levelstr[x][y-2]==' ') //can move both
 								return true;
 							else
 								return false;
@@ -78,7 +78,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxes().get(i).getX()== x)&& 
 								(levelPolicy.getBoxes().get(i).getY()==y+1)) //if there is a box on way
 						{
-							if(levelstr[x][y+2].equals(" ")) //can move both
+							if(levelstr[x][y+2]==' ') //can move both
 								return true;
 							else
 								return false;
@@ -94,7 +94,7 @@ public class MySokobanPolicy {
 			int y =levelPolicy.getSokoCharas().get(0).getY();
 			int x=levelPolicy.getSokoCharas().get(0).getX();
 			char targetsymbol = levelPolicy.getTargets().get(0).getTargetsymbol();
-			String [][]levelstr=levelPolicy.makestring();
+			char [][]levelstr=levelPolicy.makestring();
 			
 			
 			if((char)direction =='w')
@@ -104,7 +104,7 @@ public class MySokobanPolicy {
 					if ((levelPolicy.getBoxes().get(i).getX()== x-1)&& 
 							(levelPolicy.getBoxes().get(i).getY()==y)) //if there is a box on way
 					{
-						if(levelstr[x-2][y].charAt(0)==targetsymbol) //can move both
+						if(levelstr[x-2][y]==targetsymbol) //can move both
 							return true;
 						else
 							return false;
@@ -119,7 +119,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxes().get(i).getX()== x+1)&& 
 								(levelPolicy.getBoxes().get(i).getY()==y)) //if there is a box on way
 						{
-							if(levelstr[x+2][y].charAt(0)==targetsymbol) //can move both
+							if(levelstr[x+2][y]==targetsymbol) //can move both
 								return true;
 							else
 								return false;
@@ -134,7 +134,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxes().get(i).getX()==x)&& 
 								(levelPolicy.getBoxes().get(i).getY()==y-1)) //if there is a box on way
 						{
-							if(levelstr[x][y-2].charAt(0)==targetsymbol) //can move both
+							if(levelstr[x][y-2]==targetsymbol) //can move both
 								return true;
 							else
 								return false;
@@ -148,7 +148,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxes().get(i).getX()== x)&& 
 								(levelPolicy.getBoxes().get(i).getY()==y+1)) //if there is a box on way
 						{
-							if(levelstr[x][y+2].charAt(0)==targetsymbol) //can move both
+							if(levelstr[x][y+2]==targetsymbol) //can move both
 								return true;
 							else
 								return false;
@@ -162,7 +162,7 @@ public class MySokobanPolicy {
 		{
 			int y =levelPolicy.getSokoCharas().get(0).getY();
 			int x=levelPolicy.getSokoCharas().get(0).getX();
-			String [][]levelstr=levelPolicy.makestring();
+			char [][]levelstr=levelPolicy.makestring();
 			
 			
 			if((char)direction =='w')
@@ -172,7 +172,7 @@ public class MySokobanPolicy {
 					if ((levelPolicy.getBoxOnTareget().get(i).getX()== x-1)&& 
 							(levelPolicy.getBoxOnTareget().get(i).getY()==y)) //if there is a box on way
 					{
-						if(levelstr[x-2][y].equals(" ")) //can move both
+						if(levelstr[x-2][y]==' ') //can move both
 							return true;
 						else
 							return false;
@@ -187,7 +187,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxOnTareget().get(i).getX()== x+1)&& 
 								(levelPolicy.getBoxOnTareget().get(i).getY()==y)) //if there is a box on way
 						{
-							if(levelstr[x+2][y].equals(" "))//can move both
+							if(levelstr[x+2][y]==' ')//can move both
 								return true;
 							else
 								return false;
@@ -202,7 +202,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxOnTareget().get(i).getX()==x)&& 
 								(levelPolicy.getBoxOnTareget().get(i).getY()==y-1)) //if there is a box on way
 						{
-							if(levelstr[x][y-2].equals(" ")) //can move both
+							if(levelstr[x][y-2]==' ') //can move both
 								return true;
 							else
 								return false;
@@ -216,7 +216,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxOnTareget().get(i).getX()== x)&& 
 								(levelPolicy.getBoxOnTareget().get(i).getY()==y+1)) //if there is a box on way
 						{
-							if(levelstr[x][y+2].equals(" ")) //can move both
+							if(levelstr[x][y+2]==' ') //can move both
 								return true;
 							else
 								return false;
@@ -232,7 +232,7 @@ public class MySokobanPolicy {
 			int y =levelPolicy.getSokoCharas().get(0).getY();
 			int x=levelPolicy.getSokoCharas().get(0).getX();
 			char boxontargetsymbol = levelPolicy.getBoxOnTareget().get(0).boxesontargetsymbol();
-			String [][]levelstr=levelPolicy.makestring();
+			char [][]levelstr=levelPolicy.makestring();
 			
 			
 			if((char)direction =='w')
@@ -242,7 +242,7 @@ public class MySokobanPolicy {
 					if ((levelPolicy.getBoxOnTareget().get(i).getX()== x-1)&& 
 							(levelPolicy.getBoxOnTareget().get(i).getY()==y)) //if there is a box on way
 					{
-						if(levelstr[x-2][y].charAt(0)==boxontargetsymbol) //can move both
+						if(levelstr[x-2][y]==boxontargetsymbol) //can move both
 							return true;
 						else
 							return false;
@@ -257,7 +257,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxOnTareget().get(i).getX()== x+1)&& 
 								(levelPolicy.getBoxOnTareget().get(i).getY()==y)) //if there is a box on way
 						{
-							if(levelstr[x+2][y].charAt(0)==boxontargetsymbol) //can move both
+							if(levelstr[x+2][y]==boxontargetsymbol) //can move both
 								return true;
 							else
 								return false;
@@ -272,7 +272,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxOnTareget().get(i).getX()==x)&& 
 								(levelPolicy.getBoxOnTareget().get(i).getY()==y-1)) //if there is a box on way
 						{
-							if(levelstr[x][y-2].charAt(0)==boxontargetsymbol) //can move both
+							if(levelstr[x][y-2]==boxontargetsymbol) //can move both
 								return true;
 							else
 								return false;
@@ -286,7 +286,7 @@ public class MySokobanPolicy {
 						if ((levelPolicy.getBoxOnTareget().get(i).getX()== x)&& 
 								(levelPolicy.getBoxOnTareget().get(i).getY()==y+1)) //if there is a box on way
 						{
-							if(levelstr[x][y+2].charAt(0)==boxontargetsymbol) //can move both
+							if(levelstr[x][y+2]==boxontargetsymbol) //can move both
 								return true;
 							else
 								return false;
@@ -301,29 +301,29 @@ public class MySokobanPolicy {
 		{
 			int y =levelPolicy.getSokoCharas().get(0).getY();
 			int x=levelPolicy.getSokoCharas().get(0).getX();
-			String [][]levelstr=levelPolicy.makestring();
+			char [][]levelstr=levelPolicy.makestring();
 		
 			
 			char targetsymbol = levelPolicy.getTargets().get(0).getTargetsymbol();
 			
 			if((char)direction =='w')//move up
 			{
-				if((levelstr[x-1][y].equals(" "))||(levelstr[x-1][y].charAt(0)==targetsymbol))
+				if((levelstr[x-1][y]==' ')||(levelstr[x-1][y]==targetsymbol))
 					return true;
 			}
 			else if((char)direction =='s')//move down
 			{
-				if((levelstr[x+1][y].equals(" "))||(levelstr[x+1][y].charAt(0)==targetsymbol))
+				if((levelstr[x+1][y]==' ')||(levelstr[x+1][y]==targetsymbol))
 					return true;
 			}
 			else if((char)direction =='a')//move left
 			{
-				if((levelstr[x][y-1].equals(" "))||(levelstr[x][y-1].charAt(0)==targetsymbol))
+				if((levelstr[x][y-1]==' ')||(levelstr[x][y-1]==targetsymbol))
 					return true;
 			}
 			else if((char)direction =='d')//move right
 			{
-				if((levelstr[x][y+1].equals(" "))||(levelstr[x][y+1].charAt(0)==targetsymbol))
+				if((levelstr[x][y+1]==' ')||(levelstr[x][y+1]==targetsymbol))
 					return true;
 			}
 			

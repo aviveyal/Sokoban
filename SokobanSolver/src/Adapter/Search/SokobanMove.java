@@ -93,9 +93,6 @@ public class SokobanMove implements Searchable<SokobanStateMove>{
 						Position newpos = new Position(playerpos.getRow()+1,playerpos.getCol());
 						copyboard[playerpos.getRow()+1][playerpos.getCol()] = copyboard[playerpos.getRow()][playerpos.getCol()];
 						copyboard[playerpos.getRow()][playerpos.getCol()]=' ';
-						
-						
-						
 						SokobanStateMove s = new SokobanStateMove(newpos,copyboard);
 						State<SokobanStateMove> newState = new State<SokobanStateMove>(s);
 						map.put(new Action("move down",null), newState);
@@ -108,9 +105,6 @@ public class SokobanMove implements Searchable<SokobanStateMove>{
 						Position newpos = new Position(playerpos.getRow()-1,playerpos.getCol());
 						copyboard[playerpos.getRow()-1][playerpos.getCol()] = copyboard[playerpos.getRow()][playerpos.getCol()];
 						copyboard[playerpos.getRow()][playerpos.getCol()]=' ';
-						
-					
-						
 						SokobanStateMove s = new SokobanStateMove(newpos,copyboard);
 						State<SokobanStateMove> newState = new State<SokobanStateMove>(s);
 						map.put(new Action("move up",null), newState);
@@ -121,11 +115,8 @@ public class SokobanMove implements Searchable<SokobanStateMove>{
 					if(copyboard[playerpos.getRow()][playerpos.getCol()+1]==' ' ||copyboard[playerpos.getRow()][playerpos.getCol()+1]=='o')
 					{
 						Position newpos = new Position(playerpos.getRow(),playerpos.getCol()+1);
-
 						copyboard[playerpos.getRow()][playerpos.getCol()+1] = copyboard[playerpos.getRow()][playerpos.getCol()];
 						copyboard[playerpos.getRow()][playerpos.getCol()]=' ';
-						
-						
 						SokobanStateMove s = new SokobanStateMove(newpos,copyboard);
 						State<SokobanStateMove> newState = new State<SokobanStateMove>(s);
 						map.put(new Action("move right",null), newState);
@@ -136,11 +127,8 @@ public class SokobanMove implements Searchable<SokobanStateMove>{
 					if(copyboard[playerpos.getRow()][playerpos.getCol()-1]==' ' ||copyboard[playerpos.getRow()][playerpos.getCol()-1]=='o')
 					{
 						Position newpos = new Position(playerpos.getRow(),playerpos.getCol()-1);
-
 						copyboard[playerpos.getRow()][playerpos.getCol()-1] = copyboard[playerpos.getRow()][playerpos.getCol()];
 						copyboard[playerpos.getRow()][playerpos.getCol()]=' ';
-					
-						
 						SokobanStateMove s = new SokobanStateMove(newpos,copyboard);
 						State<SokobanStateMove> newState = new State<SokobanStateMove>(s);
 						map.put(new Action("move left",null), newState);
@@ -148,8 +136,6 @@ public class SokobanMove implements Searchable<SokobanStateMove>{
 
 					}
 					
-			
-		
 		return map;	
 
 	}

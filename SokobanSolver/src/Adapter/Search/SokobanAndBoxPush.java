@@ -25,8 +25,6 @@ public class SokobanAndBoxPush implements Searchable<SokobanStateMove> {
 		this.player =player;
 		this.box=box;
 		this.target= target;
-		
-		
 	}
 
 	@Override
@@ -239,10 +237,7 @@ public class SokobanAndBoxPush implements Searchable<SokobanStateMove> {
 						
 						copyboard[pos.get(i).getPos().getRow()][pos.get(i).getPos().getCol()] = copyboard[boxpos.getRow()][boxpos.getCol()];
 						copyboard[boxpos.getRow()][boxpos.getCol()]='A';
-						//copyboard[boxpos.getRow()-1][boxpos.getCol()]=' ';
 						copyboard[playerpos.getRow()][playerpos.getCol()]=' ';
-						
-					
 						SokobanStateMove s = new SokobanStateMove(newbox,copyboard);
 						State<SokobanStateMove> newState = new State<SokobanStateMove>(s);
 						map.put(new Action("move down",pos.get(i).getAct()), newState);
@@ -256,9 +251,7 @@ public class SokobanAndBoxPush implements Searchable<SokobanStateMove> {
 
 						copyboard[pos.get(i).getPos().getRow()][pos.get(i).getPos().getCol()] =copyboard[boxpos.getRow()][boxpos.getCol()];
 						copyboard[boxpos.getRow()][boxpos.getCol()]='A';
-						//copyboard[boxpos.getRow()+1][boxpos.getCol()]=' ';
 						copyboard[playerpos.getRow()][playerpos.getCol()]=' ';
-						
 						SokobanStateMove s = new SokobanStateMove(newbox,copyboard);
 						State<SokobanStateMove> newState = new State<SokobanStateMove>(s);
 						map.put(new Action("move up",pos.get(i).getAct()), newState);
@@ -270,9 +263,7 @@ public class SokobanAndBoxPush implements Searchable<SokobanStateMove> {
 						Position newbox = new Position(pos.get(i).getPos().getRow(),pos.get(i).getPos().getCol());
 						copyboard[pos.get(i).getPos().getRow()][pos.get(i).getPos().getCol()] = copyboard[boxpos.getRow()][boxpos.getCol()];
 						copyboard[boxpos.getRow()][boxpos.getCol()]='A';
-						//copyboard[boxpos.getRow()][boxpos.getCol()-1]=' ';
 						copyboard[playerpos.getRow()][playerpos.getCol()]=' ';
-
 						SokobanStateMove s = new SokobanStateMove(newbox,copyboard);
 						State<SokobanStateMove> newState = new State<SokobanStateMove>(s);
 						map.put(new Action("move right",pos.get(i).getAct()), newState);
@@ -285,9 +276,7 @@ public class SokobanAndBoxPush implements Searchable<SokobanStateMove> {
 
 						copyboard[pos.get(i).getPos().getRow()][pos.get(i).getPos().getCol()] = copyboard[boxpos.getRow()][boxpos.getCol()];
 						copyboard[boxpos.getRow()][boxpos.getCol()]='A';
-						//copyboard[boxpos.getRow()][boxpos.getCol()+1]=' ';
 						copyboard[playerpos.getRow()][playerpos.getCol()]=' ';
-						
 						SokobanStateMove s = new SokobanStateMove(newbox,copyboard);
 						State<SokobanStateMove> newState = new State<SokobanStateMove>(s);
 						map.put(new Action("move left",pos.get(i).getAct()), newState);

@@ -4,49 +4,66 @@ import java.util.HashSet;
 
 public class Dijkstra<T> extends CommonSearcher<T> {
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see Solver.SearchLib.Searcher#search(Solver.SearchLib.Searchable)
+	 */
 	@Override
 	public Solution search(Searchable<T> s) {
 
 		open.add(s.getInitialState());
 
 		while (!open.isEmpty()) {
-			State<T> currentState = open.poll();
+			State<T> currentState = open.poll();// add source
+
+			closed.add(currentState); // add to visited nodes
+
 			this.evaluatedNodes++;
-			closed.add(currentState);
 			successores = s.getAllPossibleMoves(currentState);
-			for (Action a : successores.keySet())
-			{
+			for (Action a : successores.keySet()) {
 				State<T> n = successores.get(a);
 
-				n.setCameFrom(currentState);
-				if (!closed.contains(n))
-				{
-					if (!open.contains(n))
+				double cost = currentState.getCost() + 1;// previous cost + next
+
+				if (!closed.contains(n)) {
+					if (!open.contains(n)) {
+						n.setAction(a);
+						n.setCameFrom(currentState);
+						n.setCost(cost);
 						open.add(n);
-					else
+
+					} else // if this state exists in open list - update his
+							// info
 					{
-						for (State<T> state : open) 
-						{
-							if (state.equals(n))
-							{
-								if (n.getCost() < state.getCost())
-								{
-									open.remove(state);
+						// find the state
+						for (State<T> state : open) {
+							if (state.equals(n)) {
+
+								if (n.getCost() < state.getCost()) {
+									open.remove(state); // remove old state
+									n.setCameFrom(currentState);
+									n.setAction(a);
+									n.setCost(cost);
 									open.add(n);
 								}
+
 							}
+
 						}
 					}
+
 				}
+
 			}
+
 		}
-		if (this.closed.contains(s.getGoalState())) {
-			for (State<T> state : closed) {
-				if (state.equals(s.getGoalState()))
-					return this.backTrace(state);
-			}
+		//return the shortest path
+		for(State<T> state : closed)
+		{
+			if(state.equals(s.getGoalState()))
+				return backTrace(state);
 		}
 		return null;
 	}
-
 }

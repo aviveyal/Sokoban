@@ -10,6 +10,7 @@ import java.util.List;
 import Adapter.Search.SokobanAndBoxPush;
 import Adapter.Search.SokobanStateMove;
 import SerachLib.search.BFS;
+import SerachLib.search.Dijkstra;
 import SerachLib.search.Position;
 import SerachLib.search.Solution;
 import Adapter.Plan.SokobanAdapter;
@@ -39,13 +40,6 @@ public class SokobanSolver {
 
 			List<String> finalsol = new ArrayList<>();
 
-			// player position
-			/*
-			 * Position player = null; for (int i = 0; i < level.maxrowsize();
-			 * i++) for (int j = 0; j < level.maxcolumnsize(); j++) if
-			 * (leveldata[i][j] == 'A') { player = new Position(i, j); //
-			 * System.out.println(player.toString()); }
-			 */
 			System.out.println(list);
 
 			// int i=0;
@@ -60,6 +54,8 @@ public class SokobanSolver {
 			Solution sol = null;
 
 			BFS<SokobanStateMove> bfs = new BFS<SokobanStateMove>();
+			// Dijkstra<SokobanStateMove> dij = new
+			// Dijkstra<SokobanStateMove>();
 
 			for (int x = 0; x < leveldata.length; x++)
 				for (int y = 0; y < leveldata[x].length; y++) {
@@ -69,6 +65,7 @@ public class SokobanSolver {
 						System.out.print(leveldata[x][y]);
 				}
 
+			// execute the actions from list
 			for (int i = 0; i < list.size(); i++) {
 
 				if (list.get(i).toString().startsWith("move")) {
@@ -88,6 +85,7 @@ public class SokobanSolver {
 					searchbfs = new Adapter.Search.SokobanMove(leveldata, playerStart, playerDest);
 
 					sol = bfs.search(searchbfs);
+					// sol=dij.search(searchbfs);
 
 					leveldata[playerStart.getRow()][playerStart.getCol()] = ' ';
 					leveldata[playerDest.getRow()][playerDest.getCol()] = 'A';
@@ -112,7 +110,7 @@ public class SokobanSolver {
 
 					SokobanAndBoxPush searchbfs2 = new SokobanAndBoxPush(leveldata, playerDest, box, destination);
 					sol = bfs.search(searchbfs2);
-
+					// sol=dij.search(searchbfs2);
 					if (list.size() > i + 1) {
 						leveldata[box.getRow()][box.getCol()] = ' ';
 						leveldata[playerDest.getRow()][playerDest.getCol()] = ' ';
@@ -140,13 +138,6 @@ public class SokobanSolver {
 						}
 					}
 
-					// update the levelboard after moved and pushed one box
-					/*
-					 * for (int x = 0; x < leveldata.length; x++) for (int y =
-					 * 0; y < leveldata[x].length; y++) { if (y ==
-					 * leveldata[x].length - 1) { System.out.println(); } else
-					 * System.out.print(leveldata[x][y]); }
-					 */
 				}
 			}
 			PrintWriter outputStream = new PrintWriter(new FileOutputStream("levels/" + strsave));

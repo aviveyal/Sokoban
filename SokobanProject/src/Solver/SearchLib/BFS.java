@@ -9,31 +9,27 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class BFS<T> extends CommonSearcher<T> {
-	
-	
 
-	
 	@Override
 	public Solution search(Searchable<T> s) {
 
-		
-
 		State<T> state = s.getInitialState();
-		
+
 		State<T> goal = s.getGoalState();
-		
+
 		this.open.add(state);
 
-		while (this.open.size()>0) {
+		while (this.open.size() > 0) {
 
 			State<T> currState = this.open.poll();
-			
+			evaluatedNodes++;
+
 			closed.add(currState);
 			// System.out.print("currstate " +currState);
 
-			if (currState.equals(s.getGoalState())){
+			if (currState.equals(s.getGoalState())) {
 				return backTrace(currState);
-			
+
 			}
 
 			successores = s.getAllPossibleMoves(currState);
@@ -41,34 +37,35 @@ public class BFS<T> extends CommonSearcher<T> {
 			for (Action a : successores.keySet()) {
 				State<T> n = successores.get(a);
 
-				if (!closed.contains(n)&& (!this.open.contains(n)) ){
+				if (!closed.contains(n)) {
+					if (!this.open.contains(n)) {
 
-						
 						n.setCameFrom(currState);
 						n.setAction(a);
-						n.setCost(currState.getCost()+1);
+						n.setCost(currState.getCost() + 1);
 						this.open.add(n);
-						evaluatedNodes++;
-					
-				}
-				else if(state.getCost() > n.getCost())
-				{
-					if (!this.open.contains(n))
+					} else // state exist in open list -find him and delete
 					{
-							
-							n.setCameFrom(currState);
-							n.setAction(a);
-							n.setCost(currState.getCost()+1);
-							this.open.add(n);
-							this.open.remove(state);
-							
+						for (State<T> openStates : this.open) {
+							if (state.equals(n)) {
+
+								if (n.getCost() < state.getCost()) {
+									open.remove(state); // remove old state
+									n.setCameFrom(currState);
+									n.setAction(a);
+									n.setCost(currState.getCost() + 1);
+									open.add(n);
+								}
+
+							}
+						}
+
 					}
 				}
-				
-			}
+
 			}
 
-		
+		}
 
 		return null;
 	}

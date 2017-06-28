@@ -99,9 +99,11 @@ public class MainWindowController extends Observable implements Initializable, V
 
 	Level level;
 	//common commonlevel;
+	boolean solver =false; //check if player moved
 	int stepCounter;
 	int countSec;
 	int countMin;
+	String solution="";
 	boolean loadedlevel = false;
 	boolean timerun = false;
 	File chosen;
@@ -179,6 +181,7 @@ public class MainWindowController extends Observable implements Initializable, V
 
 					if (params.size() == 2)// mean that character tried move
 					{
+						solver=true; //cant solve automaticly
 						finalsteps.set("" + (stepCounter++));
 
 						setChanged();
@@ -206,6 +209,7 @@ public class MainWindowController extends Observable implements Initializable, V
 
 		if (chosen != null) {
 			timerun = true;
+			solver=false; 
 			countMin = 0;
 			countSec = 0;
 			stepCounter = 1;
@@ -299,6 +303,7 @@ public class MainWindowController extends Observable implements Initializable, V
 
 		if (chosen != null) {
 			timerun = true;
+			solver=false; 
 			countMin = 0;
 			countSec = 0;
 			stepCounter = 1;
@@ -432,19 +437,83 @@ public class MainWindowController extends Observable implements Initializable, V
 		}
 	}
 	public void Hint(){
+		if(!solver)
+		{
+		List<String> params = new LinkedList<String>();
+		params.add("solve");
+		params.add(levelname.getText());
+		setChanged();
+		notifyObservers(params);
+		}
+		else
+			status.textProperty().set("You need to Restart Level");
+				
+	}
+	public void Solution(){
+		if(!solver)
+		{
 		List<String> params = new LinkedList<String>();
 		params.add("solve");
 		params.add(levelname.getText());
 		setChanged();
 		notifyObservers(params);
 		
+		//wait for solution from server
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Timer t2 = new Timer();
+		int sollentgh= solution.length();
+		
+		t2.scheduleAtFixedRate(new TimerTask() {
+			int i=0;
+			
+			@Override
+			public void run() {
+			params.clear();
+				if(i<sollentgh){
+					switch(solution.charAt(i))
+					{
+					case 'U':
+						params.add("move");
+						params.add("up");
+					case 'D':
+						params.add("move");
+						params.add("down");	
+					case 'L':
+						params.add("move");
+						params.add("left");
+					case 'R':
+						params.add("move");
+						params.add("right");
+					
+					}
+					i++;
+				
+				finalsteps.set("" + (stepCounter++));
+
+				setChanged();
+				notifyObservers(params);
+			}
+				if(i==sollentgh)
+					t2.cancel();
+			}
+		}, 0, 500);
+		}
+		else
+			status.textProperty().set("You need to Restart Level");
 	}
-	public void Solution(){
-		List<String> params = new LinkedList<String>();
-		params.add("solve");
-		params.add(levelname.getText());
-		setChanged();
-		notifyObservers(params);
+
+	@Override
+	public void getSolution(String solution) {
+		this.solution=solution;
+		System.out.println("got the solution :"+ solution);
+		status.textProperty().set("Hint: "+solution);
 	}
+	
+	
 
 }

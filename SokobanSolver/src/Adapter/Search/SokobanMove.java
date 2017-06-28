@@ -2,10 +2,12 @@ package Adapter.Search;
 
 
 import java.util.HashMap;
-import SerachLib.search.Action;
-import SerachLib.search.Position;
-import SerachLib.search.Searchable;
-import SerachLib.search.State;
+
+import Solver.SearchLib.Action;
+import Solver.SearchLib.Position;
+import Solver.SearchLib.Searchable;
+import Solver.SearchLib.State;
+
 
 
 public class SokobanMove implements Searchable<SokobanStateMove>{

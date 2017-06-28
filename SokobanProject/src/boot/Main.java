@@ -8,6 +8,8 @@ import javafx.scene.paint.Color;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 import javax.persistence.criteria.Root;
 
@@ -49,11 +51,25 @@ public class Main extends Application {
 				MyModel model = new MyModel();
 				CLI view = new CLI();
 				MyClientHandler clientHandler = new MyClientHandler(System.in, System.out);
-				SokobanController controller = new SokobanController(view, model);
+				
+				Socket socket = null;
+				try {
+					socket = new Socket("127.0.0.1", 5555);
+				} catch (UnknownHostException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				System.out.println("connected to server");
+				
+				SokobanController controller = new SokobanController(view, model,socket);
 				model.addObserver(controller);
 				view.addObserver(controller);
 				try {
 
+					
 					server server = new server(Integer.parseInt(args[1]), clientHandler);
 					controller.setServer(server);
 					clientHandler.addObserver(controller);
@@ -67,7 +83,7 @@ public class Main extends Application {
 
 		}
 		if (startgui)
-			launch(args);
+			Application.launch(Main.class, new String[0]);
 		
 
 	}
@@ -91,9 +107,12 @@ public class Main extends Application {
 			root.setStyle("-fx-border-width: 3; -fx-border-color: burlywood;");
 			
 			
+			Socket socket = new Socket("127.0.0.1", 5555);
+			System.out.println("connected to server");
+			
 			MainWindowController view = loader.getController();
 			MyModel model = new MyModel();
-			SokobanController controller = new SokobanController(view, model);
+			SokobanController controller = new SokobanController(view, model,socket);
 
 			model.addObserver(controller);
 			view.addObserver(controller);

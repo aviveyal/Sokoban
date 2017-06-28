@@ -1,5 +1,6 @@
 package controller;
 
+import java.net.Socket;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -14,6 +15,7 @@ import controller.commands.LoadCommand;
 import controller.commands.MoveCommand;
 import controller.commands.SaveCommand;
 import controller.commands.SolveCommand;
+import controller.commands.getSolutionCommand;
 import controller.server.server;
 import javafx.scene.Scene;
 import model.Model;
@@ -26,6 +28,7 @@ public class SokobanController implements Observer,ControllerInterface {
 	private Controller controller;
 	private Map<String, Command> commands;
 	private server server;
+	private Socket socket;
 
 	public View getV() {
 		return v;
@@ -51,10 +54,10 @@ public class SokobanController implements Observer,ControllerInterface {
 		this.controller = controller;
 	}
 
-	public SokobanController(View v, Model m) {
+	public SokobanController(View v, Model m,Socket socket) {
 		this.v = v;
 		this.m = m;
-
+		this.socket=socket;
 		initCommands();
 		controller = new Controller();
 		controller.start();
@@ -69,7 +72,8 @@ public class SokobanController implements Observer,ControllerInterface {
 		commands.put("load", new LoadCommand(m));
 		commands.put("display", new DisplayCommand(m, v));
 		commands.put("exit", new ExitCommand(m, controller));
-		commands.put("solve",new SolveCommand(m));
+		commands.put("solve",new SolveCommand(m,socket));
+		commands.put("getSolution",new getSolutionCommand(m,v));
 		
 	}
 

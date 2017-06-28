@@ -16,4 +16,10 @@ public class CLI extends Observable implements View {
 	
 	}
 
+	@Override
+	public void getSolution(String solution) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

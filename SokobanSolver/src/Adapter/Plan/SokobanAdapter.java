@@ -5,13 +5,10 @@ import java.util.Set;
 import Adapter.Search.SokobanMove;
 
 import Adapter.Search.SokobanStateMove;
-import SerachLib.search.BFS;
-import SerachLib.search.Position;
-import SerachLib.search.Solution;
-import StripLib.Plan.Action;
-import StripLib.Plan.Clause;
-import StripLib.Plan.Plannable;
-import StripLib.Plan.Predicate;
+import Solver.SearchLib.*;
+import Solver.SearchLib.Action;
+import Solver.StripsLib.*;
+
 
 public class SokobanAdapter {
 
@@ -77,9 +74,9 @@ public class SokobanAdapter {
 			Plannable plannable = new Plannable() {
 
 				@Override
-				public Action getsatisfyingAction(Predicate top) {
+				public Solver.StripsLib.Action getsatisfyingAction(Predicate top) {
 					// int targetnum = 0;
-					Action action = null;
+					Solver.StripsLib.Action action = null;
 
 					Position sokoban = null;
 					Position target = null;
@@ -142,7 +139,7 @@ public class SokobanAdapter {
 
 						if (sol1 != null) {
 							// System.out.println(sol1);
-							SerachLib.search.Action BFSFirstAction = sol1.getActions().get(0);
+							Action BFSFirstAction = sol1.getActions().get(0);
 							switch (BFSFirstAction.getName()) {
 							case "move up":
 								rowb += 1;
@@ -165,7 +162,7 @@ public class SokobanAdapter {
 
 							if (sol2 != null) {
 
-								action = new Action("push", box.getRow() + "," + box.getCol(), top.getValue());
+								action = new Solver.StripsLib.Action("push", box.getRow() + "," + box.getCol(), top.getValue());
 								action.getPreconditions().add(new Predicate("sokobanAt", "?", rowb + "," + colb));// move
 								action.getPreconditions()
 										.add(new Predicate("targetAt", "t" + top.getID().substring(1), top.getValue()));// boxnumber=
@@ -230,7 +227,7 @@ public class SokobanAdapter {
 						BFS<SokobanStateMove> bfs = new BFS<SokobanStateMove>();
 						Solution sol2 = bfs.search(SA);
 						if (sol2 != null) {
-							action = new Action("move", rowp + "," + colp, top.getValue());
+							action = new Solver.StripsLib.Action("move", rowp + "," + colp, top.getValue());
 							action.getPreconditions().add(new Predicate("clearAt", "", top.getValue()));
 							action.getEffects().add(new Predicate("clearAt", "", rowp + "," + colp));
 							action.getEffects().add(new Predicate("sokobanAt", "?", top.getValue()));
@@ -244,7 +241,7 @@ public class SokobanAdapter {
 				}
 
 				@Override
-				public Set<Action> getsatisfyingActions(Predicate top) {
+				public Set<Solver.StripsLib.Action> getsatisfyingActions(Predicate top) {
 					return null;
 				}
 

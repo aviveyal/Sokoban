@@ -1,6 +1,6 @@
 package Adapter.Search;
 
-import SerachLib.search.Position;
+import Solver.SearchLib.Position;
 
 public class SokobanStateMove {
 

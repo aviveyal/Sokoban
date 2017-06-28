@@ -4,13 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import SerachLib.search.Action;
-import SerachLib.search.BFS;
-import SerachLib.search.Position;
-import SerachLib.search.PositionAndActions;
-import SerachLib.search.Searchable;
-import SerachLib.search.Solution;
-import SerachLib.search.State;
+import Solver.SearchLib.*;
+
 
 
 public class SokobanAndBoxPush implements Searchable<SokobanStateMove> {

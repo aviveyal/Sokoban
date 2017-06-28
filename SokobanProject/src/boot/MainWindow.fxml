@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
- <?import view.SokobanLevelDisplayer?>
+<!-- <?import view.SokobanLevelDisplayer?> -->
 
 <BorderPane focusTraversable="true" prefHeight="503.0" prefWidth="572.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindowController">
 
@@ -53,7 +53,7 @@
                   <Insets left="50.0" />
                </HBox.margin>
 				</Text>
-            <Button fx:id="button1" focusTraversable="false" mnemonicParsing="false"  onMouseClicked="#onChangeButtonAction" prefHeight="25.0" prefWidth="65.0" text="YES!" visible="false" />
+            <Button fx:id="button1" focusTraversable="false" mnemonicParsing="false" onMouseClicked="#onChangeButtonAction" prefHeight="25.0" prefWidth="65.0" text="YES!" visible="false" />
 			</children>
 			<BorderPane.margin>
 				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -108,40 +108,50 @@
                </VBox.margin>
             </Label>
 
-				<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Set how to move ! (click on the direction and choose key on keyboard)" wrappingWidth="102.13671875">
+				<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Set how to move !" wrappingWidth="102.13671875">
 					<font>
 						<Font size="10.0" />
 					</font>
 
 					<VBox.margin>
-						<Insets left="30.0" top="10.0" />
+						<Insets left="20.0" top="10.0" />
 					</VBox.margin>
 				</Text>
 				<Label fx:id="keyInputLabelup" TextFill="BLUE" onKeyPressed="#sethandleup" prefHeight="17.0" prefWidth="100.0" text="UP">
 					<VBox.margin>
-						<Insets left="30.0" top="10.0" />
+						<Insets left="30.0" top="5.0" />
 					</VBox.margin>
 				</Label>
 				<Label fx:id="keyInputLabeldown" TextFill="BLUE" onKeyPressed="#sethandledown" prefHeight="17.0" prefWidth="100.0" text="DOWN">
 					<VBox.margin>
-						<Insets left="30.0" top="10.0" />
+						<Insets left="30.0" top="5.0" />
 					</VBox.margin>
 				</Label>
 				<Label fx:id="keyInputLabelleft" TextFill="BLUE" onKeyPressed="#sethandleleft" prefHeight="17.0" prefWidth="100.0" text="LEFT">
 					<VBox.margin>
-						<Insets left="30.0" top="10.0" />
+						<Insets left="30.0" top="5.0" />
 					</VBox.margin>
 				</Label>
 				<Label fx:id="keyInputLabelright" TextFill="BLUE" onKeyPressed="#sethandleupright" prefHeight="17.0" prefWidth="100.0" text="RIGHT">
 					<VBox.margin>
-						<Insets left="30.0" top="10.0" />
+						<Insets left="30.0" top="5.0" />
 					</VBox.margin>
 				</Label>
+            <Button mnemonicParsing="false" onAction="#Hint" prefHeight="25.0" prefWidth="60.0" text="Hint">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#Solution" text="Solution">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+            </Button>
 			</children>
 		</VBox>
 	</left>
 
-	<center>
+	<!--  <center>
 	   <SokobanLevelDisplayer fx:id="SokobanLevelDisplayer"
 			boxFilename="./resources/box.jpg"
 			boxontargetFilename="./resources/boxontarget.jpg"
@@ -150,7 +160,7 @@
 			wallFilename="./resources/wall.jpg"
 			width="400.0" height="400.0" BorderPane.alignment="CENTER" />
 	</center>
-   
+   -->
 
 
 </BorderPane>

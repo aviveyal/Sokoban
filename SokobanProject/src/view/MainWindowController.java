@@ -54,6 +54,7 @@ public class MainWindowController extends Observable implements Initializable, V
 	Label keyInputLabelright;
 	@FXML
 	Button button1;
+	
 	@FXML
 	Label levelname;
 
@@ -429,6 +430,21 @@ public class MainWindowController extends Observable implements Initializable, V
 
 			Top.setText(levelname.getText());
 		}
+	}
+	public void Hint(){
+		List<String> params = new LinkedList<String>();
+		params.add("solve");
+		params.add(levelname.getText());
+		setChanged();
+		notifyObservers(params);
+		
+	}
+	public void Solution(){
+		List<String> params = new LinkedList<String>();
+		params.add("solve");
+		params.add(levelname.getText());
+		setChanged();
+		notifyObservers(params);
 	}
 
 }

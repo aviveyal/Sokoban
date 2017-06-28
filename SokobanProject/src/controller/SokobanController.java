@@ -13,6 +13,7 @@ import controller.commands.ExitCommand;
 import controller.commands.LoadCommand;
 import controller.commands.MoveCommand;
 import controller.commands.SaveCommand;
+import controller.commands.SolveCommand;
 import controller.server.server;
 import javafx.scene.Scene;
 import model.Model;
@@ -68,6 +69,7 @@ public class SokobanController implements Observer,ControllerInterface {
 		commands.put("load", new LoadCommand(m));
 		commands.put("display", new DisplayCommand(m, v));
 		commands.put("exit", new ExitCommand(m, controller));
+		commands.put("solve",new SolveCommand(m));
 		
 	}
 

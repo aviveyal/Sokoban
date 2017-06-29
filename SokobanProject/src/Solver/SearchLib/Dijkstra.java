@@ -2,6 +2,12 @@ package Solver.SearchLib;
 
 import java.util.HashSet;
 
+/**
+ * 
+ * @author Aviv Eyal
+ *	Simply Dijkstra algorithm
+ * @param <T>
+ */
 public class Dijkstra<T> extends CommonSearcher<T> {
 
 	/*

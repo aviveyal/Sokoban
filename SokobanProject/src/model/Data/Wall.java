@@ -1,5 +1,9 @@
 package model.Data;
 
+/**
+ * 
+ * @author Aviv Eyal walls on level
+ */
 public class Wall extends CommonObject {
 
 	public static final char wallsymbol = '#';

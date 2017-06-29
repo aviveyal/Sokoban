@@ -32,14 +32,19 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.fxml.FXMLLoader;
 
+/**
+ * 
+ * @author Aviv Eyal Main class of sokoban client must run with server open open
+ *         a GUI and set model, view, controller
+ */
+
 public class Main extends Application {
 
 	private static final int INDEFINITE = 0;
-	
+
 	private Stage primaryStage;
-	Scene scene1 ,scene2;
-	
-	
+	Scene scene1, scene2;
+
 	public static void main(String[] args) {
 
 		boolean startgui = true;
@@ -51,7 +56,7 @@ public class Main extends Application {
 				MyModel model = new MyModel();
 				CLI view = new CLI();
 				MyClientHandler clientHandler = new MyClientHandler(System.in, System.out);
-				
+
 				Socket socket = null;
 				try {
 					socket = new Socket("127.0.0.1", 5555);
@@ -63,13 +68,12 @@ public class Main extends Application {
 					e1.printStackTrace();
 				}
 				System.out.println("connected to server");
-				
-				SokobanController controller = new SokobanController(view, model,socket);
+
+				SokobanController controller = new SokobanController(view, model, socket);
 				model.addObserver(controller);
 				view.addObserver(controller);
 				try {
 
-					
 					server server = new server(Integer.parseInt(args[1]), clientHandler);
 					controller.setServer(server);
 					clientHandler.addObserver(controller);
@@ -84,47 +88,42 @@ public class Main extends Application {
 		}
 		if (startgui)
 			Application.launch(Main.class, new String[0]);
-		
 
 	}
 
 	@Override
 	public void start(Stage primaryStage) {
-		this.primaryStage=primaryStage;
-		
-		
+		this.primaryStage = primaryStage;
+
 		try {
 			// background music
-			
-			
+
 			AudioClip mediaPlayer = new AudioClip(new File("./resources/gamemusic.mp3").toURI().toString());
-	        mediaPlayer.play();
+			mediaPlayer.play();
 			mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 
-			  
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
 			BorderPane root = (BorderPane) loader.load();
 			root.setStyle("-fx-border-width: 3; -fx-border-color: burlywood;");
-			
-			
+
 			Socket socket = new Socket("127.0.0.1", 5555);
 			System.out.println("connected to server");
-			
+
 			MainWindowController view = loader.getController();
 			MyModel model = new MyModel();
-			SokobanController controller = new SokobanController(view, model,socket);
+			SokobanController controller = new SokobanController(view, model, socket);
 
 			model.addObserver(controller);
 			view.addObserver(controller);
-			
+
 			scene1 = new Scene(root, 600, 520);
-			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			
+			// scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+
 			primaryStage.setTitle("Sokoban - Aviv Eyal");
 			primaryStage.setScene(scene1);
-			
+
 			primaryStage.show();
-			
+
 			// close window
 			primaryStage.setOnCloseRequest(e -> {
 
@@ -137,10 +136,6 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 
-	
 	}
-	
-	
-	
-}
 
+}

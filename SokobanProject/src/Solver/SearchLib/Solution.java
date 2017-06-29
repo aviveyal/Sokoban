@@ -1,7 +1,11 @@
 package Solver.SearchLib;
 import java.util.LinkedList;
 import java.util.List;
-
+/**
+ * 
+ * @author Aviv Eyal
+ *list of action to solve the game
+ */
 public class Solution {
 	private LinkedList<Action> actions = new LinkedList<Action>();
 

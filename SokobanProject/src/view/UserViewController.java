@@ -19,7 +19,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import view.TopController.LevelScore;
 
-
+/**
+ * 
+ * @author Aviv Eyal
+ *control the top scores for player on gui
+ */
 public class UserViewController implements Initializable, TopTen {
 	@FXML
 	private TableView<UserScore> tablelist;
@@ -34,7 +38,6 @@ public class UserViewController implements Initializable, TopTen {
 	@FXML
 	private Label error;
 
-	
 	
 	
 	SokobanDBManager DB;

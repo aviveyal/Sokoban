@@ -8,6 +8,13 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+/**
+ * 
+ * @author Aviv Eyal
+ *Simply Generic BFS algorithm
+ *
+ * @param <T>
+ */
 public class BFS<T> extends CommonSearcher<T> {
 
 	@Override

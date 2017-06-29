@@ -13,24 +13,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
-@Entity(name="Users")
+@Entity(name = "Users")
 public class Users {
 
- 
 	@OneToMany()
-	@JoinColumn(name="usercode")
-	private List<Scores> scores;   
-	
+	@JoinColumn(name = "usercode")
+	private List<Scores> scores;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="usercode")
+	@Column(name = "usercode")
 	private int usercode;
-	
-	@Column(name="fullname")
-	private String fullname;
 
-	
+	@Column(name = "fullname")
+	private String fullname;
 
 	public int getUsercode() {
 		return usercode;
@@ -47,24 +43,21 @@ public class Users {
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
-	
-	
-	
+
 	public Users(String fullname) {
 		super();
 		this.fullname = fullname;
 		scores = new ArrayList<Scores>();
 	}
+
 	public Users() {
-		
+
 		scores = new ArrayList<Scores>();
 	}
 
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return "User [user code=" + usercode + ", fullname=" + fullname + "]";
 	}
-	
-	
+
 }

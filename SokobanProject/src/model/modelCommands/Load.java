@@ -11,7 +11,12 @@ import model.Data.MyObjectLevelLoader;
 import model.Data.MyTextLevelLoader;
 import model.Data.MyXMLLevelLoader;
 
-
+/**
+ * 
+ * @author Aviv Eyal part of command pattern holding hashmap with type of files
+ *         , possible to load xml , obj , txt in the execute call a function
+ *         that can make the action
+ */
 public class Load implements Command {
 	
 	private String filename;

@@ -3,17 +3,24 @@ package model.Data;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author Aviv Eyal Level - hold all the objects of a leevl board each type in
+ *         arraylist of objects this class also make char[][] from this level
+ *         object
+ */
+
 public class Level implements Serializable {
 
 	// objects
 
 	private static final long serialVersionUID = 1L;
-	
+
 	private ArrayList<Wall> Walls = new ArrayList<Wall>();
 	private ArrayList<Box> Boxes = new ArrayList<Box>();
 	private ArrayList<Target> Targets = new ArrayList<Target>();
 	private ArrayList<SokoChar> SokoCharas = new ArrayList<SokoChar>();
-	private ArrayList<BoxOntarget> BoxOnTareget= new ArrayList<BoxOntarget>();
+	private ArrayList<BoxOntarget> BoxOnTareget = new ArrayList<BoxOntarget>();
 
 	// constructor
 	public Level() {
@@ -83,7 +90,7 @@ public class Level implements Serializable {
 			if (y < SokoCharas.get(i).getY())
 				y = SokoCharas.get(i).getY();
 
-		return y+1;
+		return y + 1;
 
 	}
 
@@ -107,7 +114,7 @@ public class Level implements Serializable {
 			if (x < SokoCharas.get(i).getX())
 				x = SokoCharas.get(i).getX();
 
-		return x+1;
+		return x + 1;
 
 	}
 
@@ -129,7 +136,6 @@ public class Level implements Serializable {
 														// boxes on target
 		BoxOntarget firstBOT = this.BoxOnTareget.get(0);
 
-		
 		boolean printedBOT = false;
 		boolean printedbox = false;
 
@@ -137,12 +143,11 @@ public class Level implements Serializable {
 
 		for (int x = 0; x <= maxrowsize; x++) {
 			for (int y = 0; y <= maxcolumnsize; y++) {
-		
-				
+
 				printedBOT = false;
 				printedbox = false;
 
-				for (int i = 0; i < this.getBoxes().size(); i++) // boxes 
+				for (int i = 0; i < this.getBoxes().size(); i++) // boxes
 																	// can
 																	// change
 																	// the
@@ -154,16 +159,16 @@ public class Level implements Serializable {
 				{
 					if ((this.getBoxes().get(i).getX() == x) && (this.getBoxes().get(i).getY() == y)) {
 						for (int s = 0; s < this.getBoxOnTareget().size(); s++) // box
-																					// arrived
-																					// to
-																					// the
-																					// the
-																					// target
-																					// !
+																				// arrived
+																				// to
+																				// the
+																				// the
+																				// target
+																				// !
 						{
 							if ((this.getBoxOnTareget().get(s).getX() == x)
 									&& (this.getBoxOnTareget().get(s).getY() == y)) {
-								Level[x][y]=BoxOntarget.boxesontargetsymbol;
+								Level[x][y] = BoxOntarget.boxesontargetsymbol;
 								printedBOT = true;
 								s = this.getBoxOnTareget().size();
 
@@ -175,7 +180,7 @@ public class Level implements Serializable {
 						}
 
 						if (!printedBOT) {
-							Level[x][y]=Box.boxessymbol;
+							Level[x][y] = Box.boxessymbol;
 							printedbox = true;
 						}
 
@@ -184,7 +189,7 @@ public class Level implements Serializable {
 				}
 
 				if (firstwall.getX() == x && firstwall.getY() == y) {
-					Level[x][y]=Wall.wallsymbol;
+					Level[x][y] = Wall.wallsymbol;
 					wallsnumber++;
 					if (wallsnumber < this.getWalls().size())
 						firstwall = this.getWalls().get(wallsnumber);
@@ -196,7 +201,7 @@ public class Level implements Serializable {
 
 					{
 						if (firstsoko.getX() == x && firstsoko.getY() == y) {
-							Level[x][y]=SokoChar.sokosymbol;
+							Level[x][y] = SokoChar.sokosymbol;
 							targetsnumber++;
 							if (targetsnumber < this.getTargets().size())
 								firsttarget = this.getTargets().get(targetsnumber);
@@ -205,7 +210,7 @@ public class Level implements Serializable {
 						else
 
 						{
-							Level[x][y]=Target.targetsymbol;
+							Level[x][y] = Target.targetsymbol;
 							targetsnumber++;
 							if (targetsnumber < this.getTargets().size())
 								firsttarget = this.getTargets().get(targetsnumber);
@@ -216,14 +221,13 @@ public class Level implements Serializable {
 				}
 
 				else if (firstsoko.getX() == x && firstsoko.getY() == y) {
-					Level[x][y]=SokoChar.sokosymbol;
+					Level[x][y] = SokoChar.sokosymbol;
 					sokonumber++;
 					if (sokonumber < this.getSokoCharas().size())
 						firstsoko = this.getSokoCharas().get(sokonumber);
 				} else if (!printedBOT && !printedbox) {
-					Level[x][y]=' ';
+					Level[x][y] = ' ';
 				}
-
 
 			}
 		}

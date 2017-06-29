@@ -4,7 +4,12 @@ import java.io.IOException;
 import java.net.Socket;
 
 import model.Data.Level;
-
+/**
+ * 
+ * @author Aviv Eyal
+ *This is the model layer!
+ *all posiible commands include in this intefcae
+ */
 public interface Model {
 
 	public Level getCurrentLevel();

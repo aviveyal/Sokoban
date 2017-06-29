@@ -4,7 +4,12 @@ import java.io.IOException;
 
 import model.Data.Level;
 
-
+/**
+ * 
+ * @author Aviv Eyal
+ *part of command pattern
+ *execute commands
+ */
 
 public interface Command {
 

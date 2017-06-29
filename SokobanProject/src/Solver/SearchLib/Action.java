@@ -3,6 +3,12 @@ package Solver.SearchLib;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author Aviv Eyal holds an action for box (which way need to move) the mini
+ *         action are list of action for player to get to the right place make
+ *         it possible push the box
+ */
 public class Action {
 	private String name;
 	private List<Action> miniaction;
@@ -31,18 +37,15 @@ public class Action {
 	@Override
 	public boolean equals(Object obj) {
 		Action a = (Action) obj;
-		
-		if(a.name.equals(name))
-		{
-			for (int i=0;i<a.getMiniaction().size();i++)
-			{
-				if(a.getMiniaction().get(i)!= this.getMiniaction().get(i))
+
+		if (a.name.equals(name)) {
+			for (int i = 0; i < a.getMiniaction().size(); i++) {
+				if (a.getMiniaction().get(i) != this.getMiniaction().get(i))
 					return false;
 			}
-		}
-		else
+		} else
 			return false;
-		
+
 		return true;
 
 	}

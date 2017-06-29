@@ -5,7 +5,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 
-
+/**
+ * 
+ * @author Aviv Eyal load a level from object file
+ */
 public class MyObjectLevelLoader implements LevelLoader {
 
 	

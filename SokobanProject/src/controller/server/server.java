@@ -7,6 +7,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 
+/**
+ * 
+ * @author Aviv Eyal controller of the cli clients
+ */
 public class server {
 
 	private int port;
@@ -21,7 +25,7 @@ public class server {
 
 	private void runServer() throws Exception {
 		ServerSocket server = new ServerSocket(port);
-		System.out.println("the port is: " +port);
+		System.out.println("the port is: " + port);
 		server.setSoTimeout(1000);
 		while (!stop) {
 			try {

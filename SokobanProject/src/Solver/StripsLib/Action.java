@@ -1,5 +1,12 @@
 package Solver.StripsLib;
 
+/**
+ * 
+ * @author Aviv Eyal
+ *	action to satisfy any predicate
+ *each action has it preconditions and effects
+ *with this data we can change predicates and make strips algorithm
+ */
 public class Action extends Predicate{
 
 	public Action(String type, String id, String value) {

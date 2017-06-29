@@ -3,23 +3,27 @@ package Solver.StripsLib;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Clause extends Predicate{
+/**
+ * 
+ * @author Aviv Eyal list of predicates
+ */
+public class Clause extends Predicate {
 
 	HashSet<Predicate> predicates;
-	
-	private void updateDescription(){
-		value="{";
-		for(Predicate p : predicates){
-			value+=p.toString()+" & ";
+
+	private void updateDescription() {
+		value = "{";
+		for (Predicate p : predicates) {
+			value += p.toString() + " & ";
 		}
-		value+="}";
+		value += "}";
 	}
-	
-	public Clause(Predicate...predicates) {
+
+	public Clause(Predicate... predicates) {
 		super("And", "", "");
-		if(predicates!=null){
-			this.predicates=new HashSet<>();
-			for(Predicate p : predicates){
+		if (predicates != null) {
+			this.predicates = new HashSet<>();
+			for (Predicate p : predicates) {
 				this.predicates.add(p);
 			}
 			updateDescription();
@@ -27,41 +31,39 @@ public class Clause extends Predicate{
 	}
 
 	public void update(Clause effect) {
-		effect.predicates.forEach((Predicate p)->predicates.removeIf((Predicate pr)->p.contradicts(pr)));
+		effect.predicates.forEach((Predicate p) -> predicates.removeIf((Predicate pr) -> p.contradicts(pr)));
 		predicates.addAll(effect.predicates);
 		updateDescription();
 	}
-	
-	public void add(Predicate p){
-		if(predicates==null)
-			predicates=new HashSet<>();		
+
+	public void add(Predicate p) {
+		if (predicates == null)
+			predicates = new HashSet<>();
 		this.predicates.add(p);
 		updateDescription();
 	}
-	public void delete(Predicate p)
-	{
-		if(predicates==null)
-			predicates=new HashSet<>();	
+
+	public void delete(Predicate p) {
+		if (predicates == null)
+			predicates = new HashSet<>();
 		this.predicates.remove(p);
 		updateDescription();
 	}
-	
+
 	@Override
-	public boolean satisfies(Predicate p){
-		for(Predicate pr : predicates)
-		{
-			if(pr.satisfies(p))
-			{
+	public boolean satisfies(Predicate p) {
+		for (Predicate pr : predicates) {
+			if (pr.satisfies(p)) {
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
-	public boolean satisfies(Clause clause){
-		for(Predicate p : clause.predicates){
-			if(!satisfies(p))
+
+	public boolean satisfies(Clause clause) {
+		for (Predicate p : clause.predicates) {
+			if (!satisfies(p))
 				return false;
 		}
 		return true;

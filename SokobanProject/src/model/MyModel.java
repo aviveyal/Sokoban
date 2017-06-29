@@ -10,7 +10,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Observable;
 
-
 import model.Data.Level;
 
 import model.modelCommands.Exit;
@@ -23,21 +22,26 @@ import model.modelCommands.MoveUp;
 import model.modelCommands.Save;
 import view.MainWindowController;
 
+/**
+ * 
+ * @author Aviv Eyal implemetns all possible command and update controller with
+ *         changes
+ */
 public class MyModel extends Observable implements Model {
 
 	private Level level;
-	//public Socket socket; 
-	boolean connected=false;
+	public Socket socket;
+	boolean connected = false;
+
 	@Override
 	public Level getCurrentLevel() {
-		
+
 		return level;
 	}
 
 	@Override
 	public void mMoveCommand(String direction) {
-		switch(direction)	
-		{
+		switch (direction) {
 		case "up":
 			Move mu = new MoveUp(this.level);
 			this.SetLevel(mu.execute());
@@ -57,53 +61,46 @@ public class MyModel extends Observable implements Model {
 		default:
 			break;
 		}
-		
+
 		this.setChanged();
-		List<String> params=new LinkedList<String>();
+		List<String> params = new LinkedList<String>();
 		params.add("display");
-		this.notifyObservers(params);		
+		this.notifyObservers(params);
 	}
 
 	@Override
 	public void mLoadCommand(String filepath) throws IOException {
-		
-		//open socket
-	/*	if(!connected)
-		{
-		try{
-			socket = new Socket("127.0.0.1", 5555);
-			System.out.println("connected to server");
-			connected=true;
-		} 
-		catch (UnknownHostException e) {}
-		catch (IOException e) {
-			
-		}
-		}*/
-		
-			Load L = new Load(filepath);
-			SetLevel(L.execute());
-			setChanged();
-			List<String> params=new LinkedList<String>();
-			params.add("display");
-			notifyObservers(params);
-			
-		
+
+		// open socket
+		/*
+		 * if(!connected) { try{ socket = new Socket("127.0.0.1", 5555);
+		 * System.out.println("connected to server"); connected=true; } catch
+		 * (UnknownHostException e) {} catch (IOException e) {
+		 * 
+		 * } }
+		 */
+
+		Load L = new Load(filepath);
+		SetLevel(L.execute());
+		setChanged();
+		List<String> params = new LinkedList<String>();
+		params.add("display");
+		notifyObservers(params);
+
 	}
 
 	@Override
 	public void mSaveCommand(String filepath) throws IOException {
-		
-		Save s = new Save(filepath,level);
-		this.SetLevel(s.execute());		
+
+		Save s = new Save(filepath, level);
+		this.SetLevel(s.execute());
 		this.setChanged();
 
 	}
-	
 
 	@Override
 	public void SetLevel(Level level) {
-		this.level=level;
+		this.level = level;
 	}
 
 	@Override
@@ -111,57 +108,57 @@ public class MyModel extends Observable implements Model {
 		Exit x = new Exit();
 		x.execute();
 		this.setChanged();
-		
+
 	}
 
 	@Override
-	public void SendToServer(String levelname,Socket socket) {
-		
-		
-		try {	
+	public void SendToServer(String levelname, Socket socket) {
+
+		// socket.setKeepAlive(true);
+		System.out.println(socket.toString());
+
+		try {
 			socket = new Socket("127.0.0.1", 5555);
-			
-			BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			ObjectOutputStream outToServer = new ObjectOutputStream(socket.getOutputStream());
-						
-			//send level info 
+			outToServer.flush();
+			BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+			// send level info
 			outToServer.writeObject(levelname);
-			System.out.println("sent level :" +levelname);
-			char [][] leveldata= level.makestring();
-			outToServer.writeObject(level.maxrowsize()+","+ level.maxcolumnsize()+"\n");
-			String str= "";
-			for(int i=0;i<leveldata.length;i++){
-				for(int j=0;j<leveldata[i].length;j++)
-				{
-					str+=leveldata[i][j];
+			outToServer.flush();
+			System.out.println("sent level :" + levelname);
+			char[][] leveldata = level.makestring();
+			outToServer.writeObject(level.maxrowsize() + "," + level.maxcolumnsize() + "\n");
+			outToServer.flush();
+			String str = "";
+			for (int i = 0; i < leveldata.length; i++) {
+				for (int j = 0; j < leveldata[i].length; j++) {
+					str += leveldata[i][j];
 				}
-				outToServer.writeObject(str+"\n");
-				str="";
+				outToServer.writeObject(str + "\n");
+				outToServer.flush();
+				str = "";
 			}
-			
+
 			String solution = serverInput.readLine();
 			System.out.println("Solution received from server: " + solution);
-			List<String> params=new LinkedList<String>();
-			
-			//update the solution in gui
+			List<String> params = new LinkedList<String>();
+
+			// update the solution in gui
 			params.add("getSolution");
 			params.add(solution);
 			setChanged();
 			notifyObservers(params);
-			
-			outToServer.flush();
-			serverInput.close();
-			outToServer.close();
-			socket.close();
-		} 
-		catch (UnknownHostException e) {/*...*/}
-		catch (IOException e) {
-		
+
+			// serverInput.close();
+			// outToServer.close();
+			// socket.close();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		
+
 	}
 
-
-
-	
 }

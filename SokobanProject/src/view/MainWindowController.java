@@ -42,6 +42,12 @@ import javafx.stage.Stage;
 import model.MyModel;
 import model.Data.Level;
 
+/**
+ * 
+ * @author Aviv Eyal main control of the GUI ! implements everything that exists
+ *         on gui also observable and possible connect with the controller to
+ *         execute commands and connect to the model to send data
+ */
 public class MainWindowController extends Observable implements Initializable, View {
 
 	@FXML
@@ -54,7 +60,7 @@ public class MainWindowController extends Observable implements Initializable, V
 	Label keyInputLabelright;
 	@FXML
 	Button button1;
-	
+
 	@FXML
 	Label levelname;
 
@@ -86,7 +92,7 @@ public class MainWindowController extends Observable implements Initializable, V
 	}
 
 	@FXML
-	SokobanLevelDisplayer SokobanLevelDisplayer ;
+	SokobanLevelDisplayer SokobanLevelDisplayer;
 
 	@FXML
 	Text status;
@@ -98,12 +104,12 @@ public class MainWindowController extends Observable implements Initializable, V
 	Text steps;
 
 	Level level;
-	//common commonlevel;
-	boolean solver =false; //check if player moved
+	// common commonlevel;
+	boolean solver = false; // check if player moved
 	int stepCounter;
 	int countSec;
 	int countMin;
-	String solution="";
+	String solution = "";
 	boolean loadedlevel = false;
 	boolean timerun = false;
 	File chosen;
@@ -181,7 +187,7 @@ public class MainWindowController extends Observable implements Initializable, V
 
 					if (params.size() == 2)// mean that character tried move
 					{
-						solver=true; //cant solve automaticly
+						solver = true; // cant solve automaticly
 						finalsteps.set("" + (stepCounter++));
 
 						setChanged();
@@ -209,7 +215,7 @@ public class MainWindowController extends Observable implements Initializable, V
 
 		if (chosen != null) {
 			timerun = true;
-			solver=false; 
+			solver = false;
 			countMin = 0;
 			countSec = 0;
 			stepCounter = 1;
@@ -265,8 +271,10 @@ public class MainWindowController extends Observable implements Initializable, V
 	@Override
 	public void mDisplayCommand(Level level) throws IOException {
 
-	
-		SokobanLevelDisplayer.setLevelData(level.makestring(),level.maxrowsize(),level.maxcolumnsize()); // sends current level data
+		SokobanLevelDisplayer.setLevelData(level.makestring(), level.maxrowsize(), level.maxcolumnsize()); // sends
+																											// current
+																											// level
+																											// data
 		SokobanLevelDisplayer.redraw();
 
 		checkfinish(level);
@@ -279,15 +287,15 @@ public class MainWindowController extends Observable implements Initializable, V
 		int counter = 0;
 		for (int i = 0; i < level.getBoxes().size(); i++) {
 			for (int j = 0; j < level.getBoxOnTareget().size(); j++) {
-				if ((level.getBoxes().get(i).getX() ==level.getBoxOnTareget().get(j).getX())
-						&& (level.getBoxes().get(i).getY() ==level.getBoxOnTareget().get(j).getY())) {
+				if ((level.getBoxes().get(i).getX() == level.getBoxOnTareget().get(j).getX())
+						&& (level.getBoxes().get(i).getY() == level.getBoxOnTareget().get(j).getY())) {
 					counter++;
 					j = level.getBoxOnTareget().size();
 				}
 			}
 		}
 
-		if (counter ==level.getBoxes().size()) {
+		if (counter == level.getBoxes().size()) {
 
 			status.textProperty().set("Do you want save your scores?");
 			timerun = false;
@@ -303,7 +311,7 @@ public class MainWindowController extends Observable implements Initializable, V
 
 		if (chosen != null) {
 			timerun = true;
-			solver=false; 
+			solver = false;
 			countMin = 0;
 			countSec = 0;
 			stepCounter = 1;
@@ -318,7 +326,7 @@ public class MainWindowController extends Observable implements Initializable, V
 			setChanged();
 			notifyObservers(params);
 			button1.setVisible(false);
-			//SokobanLevelDisplayer.setVisible(true);
+			// SokobanLevelDisplayer.setVisible(true);
 			timetext.setVisible(true);
 			steps.setVisible(true);
 			levelname.setVisible(true);
@@ -436,84 +444,79 @@ public class MainWindowController extends Observable implements Initializable, V
 			Top.setText(levelname.getText());
 		}
 	}
-	public void Hint(){
-		if(!solver)
-		{
-		List<String> params = new LinkedList<String>();
-		params.add("solve");
-		params.add(levelname.getText());
-		setChanged();
-		notifyObservers(params);
-		}
-		else
-			status.textProperty().set("You need to Restart Level");
-				
-	}
-	public void Solution(){
-		if(!solver)
-		{
-		List<String> params = new LinkedList<String>();
-		params.add("solve");
-		params.add(levelname.getText());
-		setChanged();
-		notifyObservers(params);
-		
-		//wait for solution from server
-		try {
-			Thread.sleep(4000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Timer t2 = new Timer();
-		int sollentgh= solution.length();
-		
-		t2.scheduleAtFixedRate(new TimerTask() {
-			int i=0;
-			
-			@Override
-			public void run() {
-			params.clear();
-				if(i<sollentgh){
-					switch(solution.charAt(i))
-					{
-					case 'U':
-						params.add("move");
-						params.add("up");
-					case 'D':
-						params.add("move");
-						params.add("down");	
-					case 'L':
-						params.add("move");
-						params.add("left");
-					case 'R':
-						params.add("move");
-						params.add("right");
-					
-					}
-					i++;
-				
-				finalsteps.set("" + (stepCounter++));
 
-				setChanged();
-				notifyObservers(params);
+	public void Hint() {
+		if (!solver) {
+			List<String> params = new LinkedList<String>();
+			params.add("solve");
+			params.add(levelname.getText());
+			setChanged();
+			notifyObservers(params);
+		} else
+			status.textProperty().set("You need to Restart Level");
+
+	}
+
+	public void Solution() {
+		if (!solver) {
+			List<String> params = new LinkedList<String>();
+			params.add("solve");
+			params.add(levelname.getText());
+			setChanged();
+			notifyObservers(params);
+
+			// wait for solution from server
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-				if(i==sollentgh)
-					t2.cancel();
-			}
-		}, 0, 500);
-		}
-		else
+			Timer t2 = new Timer();
+			int sollentgh = solution.length();
+
+			t2.scheduleAtFixedRate(new TimerTask() {
+				int i = 0;
+
+				@Override
+				public void run() {
+					params.clear();
+					if (i < sollentgh) {
+						switch (solution.charAt(i)) {
+						case 'U':
+							params.add("move");
+							params.add("up");
+						case 'D':
+							params.add("move");
+							params.add("down");
+						case 'L':
+							params.add("move");
+							params.add("left");
+						case 'R':
+							params.add("move");
+							params.add("right");
+
+						}
+						i++;
+
+						finalsteps.set("" + (stepCounter++));
+
+						setChanged();
+						notifyObservers(params);
+					}
+					if (i == sollentgh)
+						t2.cancel();
+				}
+			}, 0, 500);
+		} else
 			status.textProperty().set("You need to Restart Level");
 	}
 
 	@Override
 	public void getSolution(String solution) {
-		this.solution=solution;
-		System.out.println("got the solution :"+ solution);
-		status.textProperty().set("Hint: "+solution);
+		this.solution = solution;
+		System.out.println("got the solution :" + solution);
+		status.textProperty().set("Hint: " + solution);
 	}
-	
-	
 
 }

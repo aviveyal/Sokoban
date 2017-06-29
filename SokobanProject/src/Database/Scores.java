@@ -7,7 +7,11 @@ import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+/**
+ * 
+ * @author Aviv Eyal
+ *table of all scores - level id , user name , time and steps 
+ */
 @Entity(name = "Scores")
 public class Scores {
 
@@ -48,18 +52,20 @@ public class Scores {
 		this.steps = steps;
 	}
 
-	public Scores(int usercode,int levelcode, String Time, String steps) {
-		this.codes = new ScoresKey(usercode,levelcode);
+	public Scores(int usercode, int levelcode, String Time, String steps) {
+		this.codes = new ScoresKey(usercode, levelcode);
 		this.time = Time;
 		this.steps = steps;
 	}
+
 	@Override
-	public String toString()
-	{
-		return "Scorecs [level code=" + codes.getLevelcode() + ", usercode=" + codes.getUsercode() +" time=" + time + ", steps=" + steps + "]";
+	public String toString() {
+		return "Scorecs [level code=" + codes.getLevelcode() + ", usercode=" + codes.getUsercode() + " time=" + time
+				+ ", steps=" + steps + "]";
 	}
+
 	public Scores() {
-		
+
 	}
 
 }

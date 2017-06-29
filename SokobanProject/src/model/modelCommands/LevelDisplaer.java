@@ -7,6 +7,11 @@ import model.Data.SokoChar;
 import model.Data.Target;
 import model.Data.Wall;
 
+/**
+ * 
+ * @author Aviv Eyal display level on cli
+ */
+
 public class LevelDisplaer {
 
 	private Level Display;

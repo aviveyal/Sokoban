@@ -1,5 +1,9 @@
 package model.Data;
 
+/**
+ * 
+ * @author Aviv Eyal Box position
+ */
 public class Box extends CommonObject {
 	
 	public static final char boxessymbol = '@';

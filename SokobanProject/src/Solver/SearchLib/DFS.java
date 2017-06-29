@@ -3,6 +3,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Stack;
 
+/**
+ * 
+ * @author Aviv Eyal
+ *	Simply DFS algorithm
+ * @param <T>
+ */
 public class DFS<T> extends CommonSearcher<T> {
 	
 	@Override

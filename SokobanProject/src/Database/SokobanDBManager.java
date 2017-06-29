@@ -16,6 +16,16 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+/**
+ * 
+ * @author Aviv Eyal
+ *All the queries possibles on the DB
+ *add users,level,scores
+ *delete
+ *update
+ *get top scores
+ *and more as mention below
+ */
 public class SokobanDBManager {
 
 	private SessionFactory factory;
@@ -347,7 +357,7 @@ public class SokobanDBManager {
 				query1.setParameter(0, scores.get(i).getuserCodes());
 				username = query1.list().get(0).toString();
 
-				display.add(i,username + "," + scores.get(i).getTime()+ "," + scores.get(i).getSteps());
+				display.add(i, username + "," + scores.get(i).getTime() + "," + scores.get(i).getSteps());
 			}
 			tx.commit();
 
@@ -494,8 +504,7 @@ public class SokobanDBManager {
 
 				levelname = query1.list().get(0).toString();
 
-			
-				display.add(i,levelname + "," + scores.get(i).getTime()+ "," + scores.get(i).getSteps());
+				display.add(i, levelname + "," + scores.get(i).getTime() + "," + scores.get(i).getSteps());
 
 			}
 
@@ -521,7 +530,6 @@ public class SokobanDBManager {
 		ArrayList<String> display = new ArrayList<>();
 		String levelname;
 
-		
 		try {
 			session = factory.openSession();
 			tx = session.beginTransaction();
@@ -533,7 +541,7 @@ public class SokobanDBManager {
 
 				levelname = query1.list().get(0).toString();
 
-				display.add(i,levelname+ "," + scores.get(i).getTime()+ "," + scores.get(i).getSteps());
+				display.add(i, levelname + "," + scores.get(i).getTime() + "," + scores.get(i).getSteps());
 
 			}
 

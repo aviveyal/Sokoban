@@ -19,6 +19,11 @@ import model.Data.Wall;
 import model.modelCommands.Display;
 import model.modelCommands.Load;
 
+/**
+ * 
+ * @author Aviv Eyal Responsible of the view of the level board in the gui ,
+ *         loads pictures from resources folder and load them
+ */
 public class SokobanLevelDisplayer extends Canvas {
 
 	

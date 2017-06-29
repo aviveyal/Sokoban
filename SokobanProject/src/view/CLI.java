@@ -4,7 +4,11 @@ package view;
 import java.util.Observable;
 import model.Data.Level;
 import model.modelCommands.Display;
-
+/**
+ * 
+ * @author Aviv Eyal
+ *display level on condsole
+ */
 public class CLI extends Observable implements View {
 
 

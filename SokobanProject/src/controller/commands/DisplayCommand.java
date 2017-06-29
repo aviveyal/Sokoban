@@ -6,6 +6,10 @@ import model.Model;
 import model.Data.Level;
 import view.View;
 
+/**
+ * 
+ * @author Aviv Eyal update view with new display
+ */
 public class DisplayCommand extends Command{
 
 	public DisplayCommand(Model model,View view) {

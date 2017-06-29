@@ -5,6 +5,12 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
+/**
+ * 
+ * @author Aviv Eyal
+ *for all search algorithms we hold the same variables and function in this class
+ * @param <T>
+ */
 public abstract class CommonSearcher<T> implements Searcher<T> {
 	
 	protected PriorityQueue<State<T>> open;

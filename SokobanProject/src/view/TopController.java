@@ -32,7 +32,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
+/**
+ * 
+ * @author Aviv Eyal
+ *control the top scores for each level on gui
+ */
 public class TopController implements Initializable, TopTen {
 
 	@FXML

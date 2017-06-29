@@ -10,7 +10,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-
+/**
+ * 
+ * @author Aviv Eyal
+ *table of all levels 
+ */
 @Entity(name="Levels")
 public class LevelsDB {
 

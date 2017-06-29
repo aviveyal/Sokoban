@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
-
 import controller.commands.Command;
 import controller.commands.DisplayCommand;
 import controller.commands.ExitCommand;
@@ -21,14 +20,20 @@ import javafx.scene.Scene;
 import model.Model;
 import view.View;
 
-public class SokobanController implements Observer,ControllerInterface {
+/**
+ * 
+ * @author Aviv Eyal The sokoban controller observer and get notification from
+ *         view and model (make connection between those layers) all possible
+ *         command of the game insert here
+ */
+public class SokobanController implements Observer, ControllerInterface {
 
 	private View v;
 	private Model m;
 	private Controller controller;
 	private Map<String, Command> commands;
 	private server server;
-	private Socket socket;
+	private Socket socket = null;
 
 	public View getV() {
 		return v;
@@ -54,10 +59,10 @@ public class SokobanController implements Observer,ControllerInterface {
 		this.controller = controller;
 	}
 
-	public SokobanController(View v, Model m,Socket socket) {
+	public SokobanController(View v, Model m, Socket socket) {
 		this.v = v;
 		this.m = m;
-		this.socket=socket;
+		this.socket = socket;
 		initCommands();
 		controller = new Controller();
 		controller.start();
@@ -72,9 +77,9 @@ public class SokobanController implements Observer,ControllerInterface {
 		commands.put("load", new LoadCommand(m));
 		commands.put("display", new DisplayCommand(m, v));
 		commands.put("exit", new ExitCommand(m, controller));
-		commands.put("solve",new SolveCommand(m,socket));
-		commands.put("getSolution",new getSolutionCommand(m,v));
-		
+		commands.put("solve", new SolveCommand(m, socket));
+		commands.put("getSolution", new getSolutionCommand(m, v));
+
 	}
 
 	@Override
@@ -87,25 +92,25 @@ public class SokobanController implements Observer,ControllerInterface {
 			return;
 		}
 		if (commandKey.equals("exit")) // thread close
-			{
+		{
 			controller.stop();
-			if(server!=null)
+			if (server != null)
 				Stop();
-			}
+		}
 
 		c.setParams(params);
 		controller.insertCommand(c);
 	}
-	
+
 	public void setServer(server server) {
-		this.server=server;
-		
+		this.server = server;
+
 	}
 
 	@Override
 	public void Stop() {
-			server.stop();
-		
+		server.stop();
+
 	}
 
 }

@@ -8,11 +8,15 @@ import java.util.concurrent.TimeUnit;
 import controller.commands.Command;
 import controller.server.server;
 
+/**
+ * 
+ * @author Aviv Eyal create a general controller that hold a queue oncommands
+ *         running on thread execute command in order
+ */
 public class Controller {
 
 	private BlockingQueue<Command> queue;
 	private boolean isStopped = false;
-	
 
 	public Controller() {
 
@@ -57,6 +61,5 @@ public class Controller {
 		isStopped = true;
 
 	}
-	
 
 }

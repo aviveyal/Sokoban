@@ -17,6 +17,11 @@ import Solver.StripsLib.*;
 import model.Data.Level;
 import model.modelCommands.Load;
 
+/**
+ * 
+ * @author Aviv Eyal Main class, run the adpaters and return list of action to
+ *         do to solve the level
+ */
 public class SokobanSolver {
 
 	static Position playerDest;
@@ -26,7 +31,7 @@ public class SokobanSolver {
 		if (args.length == 2) {
 			String strload = args[0];
 			String strsave = args[1];
-			
+
 			Load level1 = new Load("levels/" + strload);
 			Level level = level1.execute();
 			char[][] leveldata = level.makestring();
@@ -147,15 +152,12 @@ public class SokobanSolver {
 
 			outputStream.close();
 
-			
 		} else
 			System.out.println("no arguments- cant solve");
-			
-		
+
 	}
-	
-	public static List<String> solve(char[][] leveldata) throws IOException
-	{
+
+	public static List<String> solve(char[][] leveldata) throws IOException {
 		SokobanAdapter SA = new SokobanAdapter(leveldata);
 		Strips s = new Strips();
 
@@ -263,7 +265,6 @@ public class SokobanSolver {
 
 			}
 		}
-		
 
 		return finalsol;
 	}

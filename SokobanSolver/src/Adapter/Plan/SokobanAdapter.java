@@ -8,8 +8,11 @@ import Adapter.Search.SokobanStateMove;
 import Solver.SearchLib.*;
 import Solver.SearchLib.Action;
 import Solver.StripsLib.*;
-
-
+/**
+ * 
+ * @author Aviv Eyal
+ *Adapter - sokoban level to a plannable problem
+ */
 public class SokobanAdapter {
 
 	static char[][] l;
@@ -162,7 +165,8 @@ public class SokobanAdapter {
 
 							if (sol2 != null) {
 
-								action = new Solver.StripsLib.Action("push", box.getRow() + "," + box.getCol(), top.getValue());
+								action = new Solver.StripsLib.Action("push", box.getRow() + "," + box.getCol(),
+										top.getValue());
 								action.getPreconditions().add(new Predicate("sokobanAt", "?", rowb + "," + colb));// move
 								action.getPreconditions()
 										.add(new Predicate("targetAt", "t" + top.getID().substring(1), top.getValue()));// boxnumber=

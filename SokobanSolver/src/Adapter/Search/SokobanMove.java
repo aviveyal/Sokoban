@@ -8,7 +8,12 @@ import Solver.SearchLib.Position;
 import Solver.SearchLib.Searchable;
 import Solver.SearchLib.State;
 
-
+/**
+ * 
+ * @author Aviv Eyal
+ *Adapter - sokoban level to a searchable problem
+ *this helps move player on board without crossing any other object
+ */
 
 public class SokobanMove implements Searchable<SokobanStateMove>{
 

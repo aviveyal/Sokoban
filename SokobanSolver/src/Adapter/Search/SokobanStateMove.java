@@ -2,6 +2,11 @@ package Adapter.Search;
 
 import Solver.SearchLib.Position;
 
+/**
+ * 
+ * @author Aviv Eyal holds statesof the level to calculate searchable algorithm
+ *         each move on the board save new board and player position
+ */
 public class SokobanStateMove {
 
 	private Position player;

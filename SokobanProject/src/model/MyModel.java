@@ -71,15 +71,7 @@ public class MyModel extends Observable implements Model {
 	@Override
 	public void mLoadCommand(String filepath) throws IOException {
 
-		// open socket
-		/*
-		 * if(!connected) { try{ socket = new Socket("127.0.0.1", 5555);
-		 * System.out.println("connected to server"); connected=true; } catch
-		 * (UnknownHostException e) {} catch (IOException e) {
-		 * 
-		 * } }
-		 */
-
+		
 		Load L = new Load(filepath);
 		SetLevel(L.execute());
 		setChanged();

@@ -467,12 +467,13 @@ public class MainWindowController extends Observable implements Initializable, V
 
 			// wait for solution from server
 			try {
-				Thread.sleep(4000);
+				Thread.sleep(6000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			Timer t2 = new Timer();
+			if(solution!=null){
 			int sollentgh = solution.length();
 
 			t2.scheduleAtFixedRate(new TimerTask() {
@@ -508,6 +509,7 @@ public class MainWindowController extends Observable implements Initializable, V
 						t2.cancel();
 				}
 			}, 0, 500);
+			}
 		} else
 			status.textProperty().set("You need to Restart Level");
 	}

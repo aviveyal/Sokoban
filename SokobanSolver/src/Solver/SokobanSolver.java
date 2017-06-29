@@ -119,13 +119,19 @@ public class SokobanSolver {
 						leveldata[playerDest.getRow()][playerDest.getCol()] = ' ';
 						leveldata[destination.getRow()][destination.getCol()] = '@';
 
-						value = list.get(i + 1).toString().substring(list.get(i + 1).toString().indexOf('_') + 1,
-								list.get(i + 1).toString().indexOf('='));
+					/*	value = list.get(i).toString().substring(list.get(i).toString().indexOf('=')+1,
+								list.get(i).toString().length());
 						row = Integer.parseInt(value.substring(0, value.indexOf(',')));
 						col = Integer.parseInt(value.substring(value.indexOf(',') + 1, value.length()));
-
-						leveldata[row][col] = 'A';
-
+*/
+						switch(sol.getActions().get(sol.getActions().size()-1).toString())
+						{
+						case "move up": leveldata[destination.getRow()+1][destination.getCol()] = 'A';break;
+						case "move down":leveldata[destination.getRow()-1][destination.getCol()] = 'A';break;
+						case "move left":leveldata[destination.getRow()][destination.getCol()+1] = 'A';break;
+						case "move right":leveldata[destination.getRow()][destination.getCol()-1] = 'A';break;
+						}
+						
 					}
 
 					if (sol != null) {
@@ -241,12 +247,18 @@ public class SokobanSolver {
 					leveldata[playerDest.getRow()][playerDest.getCol()] = ' ';
 					leveldata[destination.getRow()][destination.getCol()] = '@';
 
-					value = list.get(i + 1).toString().substring(list.get(i + 1).toString().indexOf('_') + 1,
-							list.get(i + 1).toString().indexOf('='));
+					value = list.get(i).toString().substring(list.get(i).toString().indexOf('=')+1,
+							list.get(i).toString().length());
 					row = Integer.parseInt(value.substring(0, value.indexOf(',')));
 					col = Integer.parseInt(value.substring(value.indexOf(',') + 1, value.length()));
 
-					leveldata[row][col] = 'A';
+					switch(sol.getActions().get(sol.getActions().size()-1).toString())
+					{
+					case "move up": leveldata[row+1][col] = 'A';break;
+					case "move down":leveldata[row-1][col] = 'A';break;
+					case "move left":leveldata[row][col+1] = 'A';break;
+					case "move right":leveldata[row][col-1] = 'A';break;
+					}
 
 				}
 

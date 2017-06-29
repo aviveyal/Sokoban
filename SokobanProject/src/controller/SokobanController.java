@@ -59,10 +59,10 @@ public class SokobanController implements Observer, ControllerInterface {
 		this.controller = controller;
 	}
 
-	public SokobanController(View v, Model m, Socket socket) {
+	public SokobanController(View v, Model m) {
 		this.v = v;
 		this.m = m;
-		this.socket = socket;
+		
 		initCommands();
 		controller = new Controller();
 		controller.start();
@@ -77,7 +77,7 @@ public class SokobanController implements Observer, ControllerInterface {
 		commands.put("load", new LoadCommand(m));
 		commands.put("display", new DisplayCommand(m, v));
 		commands.put("exit", new ExitCommand(m, controller));
-		commands.put("solve", new SolveCommand(m, socket));
+		commands.put("solve", new SolveCommand(m));
 		commands.put("getSolution", new getSolutionCommand(m, v));
 
 	}

@@ -112,13 +112,13 @@ public class MyModel extends Observable implements Model {
 	}
 
 	@Override
-	public void SendToServer(String levelname, Socket socket) {
+	public void SendToServer(String levelname) {
 
 		// socket.setKeepAlive(true);
-		System.out.println(socket.toString());
-
+		
 		try {
 			socket = new Socket("127.0.0.1", 5555);
+			System.out.println(socket.toString());
 			ObjectOutputStream outToServer = new ObjectOutputStream(socket.getOutputStream());
 			outToServer.flush();
 			BufferedReader serverInput = new BufferedReader(new InputStreamReader(socket.getInputStream()));

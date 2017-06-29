@@ -57,7 +57,7 @@ public class Main extends Application {
 				CLI view = new CLI();
 				MyClientHandler clientHandler = new MyClientHandler(System.in, System.out);
 
-				Socket socket = null;
+			/*	Socket socket = null;
 				try {
 					socket = new Socket("127.0.0.1", 5555);
 				} catch (UnknownHostException e1) {
@@ -67,9 +67,9 @@ public class Main extends Application {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				System.out.println("connected to server");
+				System.out.println("connected to server");*/
 
-				SokobanController controller = new SokobanController(view, model, socket);
+				SokobanController controller = new SokobanController(view, model);
 				model.addObserver(controller);
 				view.addObserver(controller);
 				try {
@@ -106,12 +106,12 @@ public class Main extends Application {
 			BorderPane root = (BorderPane) loader.load();
 			root.setStyle("-fx-border-width: 3; -fx-border-color: burlywood;");
 
-			Socket socket = new Socket("127.0.0.1", 5555);
+		/*	Socket socket = new Socket("127.0.0.1", 5555);
 			System.out.println("connected to server");
-
+		 */
 			MainWindowController view = loader.getController();
 			MyModel model = new MyModel();
-			SokobanController controller = new SokobanController(view, model, socket);
+			SokobanController controller = new SokobanController(view, model);
 
 			model.addObserver(controller);
 			view.addObserver(controller);

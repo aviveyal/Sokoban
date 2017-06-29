@@ -12,18 +12,18 @@ import model.Model;
  */
 public class SolveCommand extends Command {
 
-	private Socket socket = null;
+	//private Socket socket = null;
 
-	public SolveCommand(Model model, Socket socket) {
+	public SolveCommand(Model model) {
 		this.model = model;
-		this.socket = socket;
+		
 	}
 
 	@Override
 	public void execute() throws IOException {
 		try {
 			String levelname = params.get(0);
-			model.SendToServer(levelname, socket);
+			model.SendToServer(levelname);
 		} catch (Exception e) {
 
 		}

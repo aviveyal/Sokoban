@@ -1,3 +1,12 @@
 Solver.SearchLib
 Solver.StripsLib
+boot
+controller
+controller.commands
+controller.common
+controller.server
+model
+model.Data
+model.modelCommands
+model.policy
 view
